@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CF158869-2DB2-0600-F598-90837C76DE89}</ProjectGuid>
+    <ProjectGuid>{3454676C-DA9E-84C4-FD6D-486F6D563B51}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -55,6 +55,7 @@
     <UnityVersion>6000.0.40f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
@@ -65,13 +66,19 @@
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Line.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\TextureRegion.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Plane.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\ObjectPooler.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\Chunk.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\LevelSettings.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Slicer.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\SlicerExtensions.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Intersector.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Triangle.cs" />
+    <Compile Include="Assets\Batu Dosya\Debug\DebugFlyController.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\IntersectionResult.cs" />
     <Compile Include="Assets\Scripts\Slicer.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\MapGenerator.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\PropSpawner.cs" />
     <Compile Include="Assets\Scripts\SwordController.cs" />
   </ItemGroup>
   <ItemGroup>

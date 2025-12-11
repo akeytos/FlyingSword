@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Projeler\\FlyingSword\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|c:\\projeler\\flyingsword\\assets\\batu dosya\\debug\\debugflycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\batu dosya\\debug\\debugflycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|c:\\projeler\\flyingsword\\assets\\batu dosya\\scripts\\levelsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\batu dosya\\scripts\\levelsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|C:\\Projeler\\FlyingSword\\assets\\batu dosya\\scripts\\mapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\batu dosya\\scripts\\mapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|C:\\Projeler\\FlyingSword\\assets\\batu dosya\\scripts\\chunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\batu dosya\\scripts\\chunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|C:\\Projeler\\FlyingSword\\assets\\batu dosya\\scripts\\objectpooler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\batu dosya\\scripts\\objectpooler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DebugFlyController.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Debug\\DebugFlyController.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Debug\\DebugFlyController.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Debug\\DebugFlyController.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Debug\\DebugFlyController.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAAADQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T19:51:10.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LevelSettings.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\LevelSettings.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\LevelSettings.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\LevelSettings.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\LevelSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T19:36:42.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MapGenerator.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\MapGenerator.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\MapGenerator.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\MapGenerator.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\MapGenerator.cs",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAAAGQAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T19:32:57.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Chunk.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Chunk.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\Chunk.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Chunk.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\Chunk.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T19:31:05.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ObjectPooler.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAIwAgAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T19:18:03.908Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
