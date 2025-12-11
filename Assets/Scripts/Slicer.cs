@@ -1,43 +1,37 @@
 using UnityEngine;
 using EzySlice;
 
-public class Slicer : MonoBehaviour
+public class SlicerTrigger : MonoBehaviour
 {
     public LayerMask sliceableLayer;
     public Material crossSectionMaterial;
     public float cutForce = 100f;
 
-    void FixedUpdate()
+    // YENÝ ÖZELLÝK: Kesme yönünü buradan seçeceðiz
+    public enum CutAxis { X_Ekseni_Kirmizi, Y_Ekseni_Yesil, Z_Ekseni_Mavi }
+    [Header("Kesme Ayarlarý")]
+    [Tooltip("Kýlýcýn yassý yüzeyi hangi yöne bakýyor?")]
+    public CutAxis cutPlaneAxis = CutAxis.Y_Ekseni_Yesil;
+
+    private void OnTriggerEnter(Collider other)
     {
-        // Kýlýcýn ucundan ileriye doðru hayali bir çizgi (Ray) çekiyoruz.
-        // Artýk script kýlýcýn üzerinde olduðu için kýlýç nereye dönerse Ray oraya gider.
-
-        // Debug Lazer: Oyunda Scene penceresinde kýrmýzý çizgi görmeni saðlar
-        Debug.DrawRay(transform.position, transform.forward * 2f, Color.red);
-
-        // Raycast atýyoruz
-        bool hasHit = Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 2.0f, sliceableLayer);
-
-        if (hasHit)
+        if (((1 << other.gameObject.layer) & sliceableLayer) != 0)
         {
-            GameObject target = hit.transform.gameObject;
+            GameObject target = other.gameObject;
+            Vector3 contactPoint = other.ClosestPoint(transform.position);
 
-            // --- KESME MANTIÐI ---
-
-            // 1. MeshFilter var mý? (Kutu vb.)
             MeshFilter meshFilter = target.GetComponentInChildren<MeshFilter>();
             if (meshFilter != null)
             {
-                SliceObject(meshFilter.gameObject, hit.point);
-                Destroy(target); // Ana objeyi sil
+                SliceObject(meshFilter.gameObject, contactPoint);
+                Destroy(target);
                 return;
             }
 
-            // 2. Karakter mi? (SkinnedMesh)
             SkinnedMeshRenderer skinnedMesh = target.GetComponentInChildren<SkinnedMeshRenderer>();
             if (skinnedMesh != null)
             {
-                SliceCharacter(skinnedMesh, target, hit.point);
+                SliceCharacter(skinnedMesh, target, contactPoint);
                 return;
             }
         }
@@ -66,8 +60,10 @@ public class Slicer : MonoBehaviour
 
     public void SliceObject(GameObject target, Vector3 contactPoint)
     {
-        // Kýlýcýn "Yukarý" yönünü kesme düzlemi olarak kullan
-        SlicedHull hull = target.Slice(transform.position, transform.up);
+        // Seçilen eksene göre kesme düzlemini (Normal) belirliyoruz
+        Vector3 cutNormal = GetCutNormal();
+
+        SlicedHull hull = target.Slice(transform.position, cutNormal);
 
         if (hull != null)
         {
@@ -79,15 +75,39 @@ public class Slicer : MonoBehaviour
         }
     }
 
+    // Hangi eksenin seçildiðini bulan yardýmcý fonksiyon
+    Vector3 GetCutNormal()
+    {
+        switch (cutPlaneAxis)
+        {
+            case CutAxis.X_Ekseni_Kirmizi: return transform.right;
+            case CutAxis.Y_Ekseni_Yesil: return transform.up;
+            case CutAxis.Z_Ekseni_Mavi: return transform.forward;
+            default: return transform.up;
+        }
+    }
+
     void SetupSlicedComponent(GameObject slicedObject)
     {
         slicedObject.layer = LayerMask.NameToLayer("Default");
-
         Rigidbody rb = slicedObject.AddComponent<Rigidbody>();
-        BoxCollider collider = slicedObject.AddComponent<BoxCollider>(); // Performans için BoxCollider
-
+        MeshCollider collider = slicedObject.AddComponent<MeshCollider>();
+        collider.convex = true;
         rb.AddExplosionForce(cutForce, slicedObject.transform.position, 1f);
+        Destroy(slicedObject, 5f);
+    }
 
-        Destroy(slicedObject, 5f); // 5 saniye sonra silinsin
+    // --- DEBUG GÖRSELLEÞTÝRME ---
+    // Scene ekranýnda Sarý bir çizgi göreceksin. Bu çizgi kesme düzlemini gösterir.
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Vector3 direction = GetCutNormal();
+
+        // Kýlýcýn merkezinden çýkan sarý bir çizgi
+        Gizmos.DrawRay(transform.position, direction * 1.0f);
+
+        // Çizginin ucuna küçük bir küre (yönün net anlaþýlmasý için)
+        Gizmos.DrawWireSphere(transform.position + direction * 1.0f, 0.05f);
     }
 }

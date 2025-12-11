@@ -1,39 +1,45 @@
 using UnityEngine;
 
-public class MnBFlyController : MonoBehaviour
+public class RealSwordFeel : MonoBehaviour
 {
-    [Header("Uçuþ Ayarlarý")]
-    public float flySpeed = 15f;    // Ýleri gidiþ hýzý
-    public float strafeSpeed = 10f; // Yana kayýþ hýzý
+    [Header("Uçuþ Hýzý")]
+    public float flySpeed = 15f;
 
-    [Header("Mount & Blade Görüþ Ayarlarý")]
-    public float mouseSensitivity = 2f; // Mouse hassasiyeti
-    public float maxLookAngleX = 60f;   // Kýlýç saða/sola en fazla kaç derece dönsün? (Sýnýr)
-    public float maxLookAngleY = 50f;   // Kýlýç yukarý/aþaðý en fazla kaç derece baksýn?
-    public float bodyTurnMultiplier = 2f; // Sýnýra gelince kamera ne kadar hýzlý dönsün?
+    [Header("Bilek (Swing) Ayarlarý")]
+    public Transform swordPivot;
+    public float reachDistance = 10f; // Kýlýcýn ucunun baktýðý mesafe
+    public float swingSpeed = 25f;    // Dönüþ hýzý (Bilek kývraklýðý)
 
-    [Header("Referanslar")]
-    public Transform swordPivot; // Hiyerarþideki SwordPivot'u buraya at
+    [Header("El Gezinmesi (KABZA HAREKETÝ) - ÖNEMLÝ")]
+    public float handMoveRangeX = 2.0f; // El saða sola ne kadar gitsin? (Bunu artýr!)
+    public float handMoveRangeY = 1.5f; // El yukarý aþaðý ne kadar gitsin?
+    public float handMoveSpeed = 8f;    // Elin pozisyon deðiþtirme hýzý
+    public float baseDistance = 1.5f;   // Kýlýcýn kameradan temel uzaklýðý
+
+    [Header("Gövde Dönüþü")]
+    public float bodyTurnSpeed = 60f;
+    public float edgeThreshold = 0.85f;
 
     private Rigidbody rb;
-    private float currentY = 0f; // Kýlýcýn þu anki sað/sol açýsý
-    private float currentX = 0f; // Kýlýcýn þu anki yukarý/aþaðý açýsý
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
-        // Mouse'u gizle
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked; // Mouse kilitli
         Cursor.visible = false;
 
         rb.useGravity = false;
-        rb.linearDamping = 2f; // Unity eski sürümse 'drag' yap
+        rb.linearDamping = 5f;
     }
+
+    // Sanal Mouse Pozisyonu (0.5 ekranýn ortasýdýr)
+    private Vector2 virtualMouse = new Vector2(0.5f, 0.5f);
 
     void Update()
     {
-        HandleMouseLook();
+        HandleInput();
+        HandleSwordSwing();
+        HandleBodyTurn();
     }
 
     void FixedUpdate()
@@ -41,63 +47,74 @@ public class MnBFlyController : MonoBehaviour
         HandleMovement();
     }
 
-    void HandleMouseLook()
+    void HandleInput()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        // Mouse hareketini alýp sanal imlece ekle
+        float mouseX = Input.GetAxis("Mouse X") * 0.05f;
+        float mouseY = Input.GetAxis("Mouse Y") * 0.05f;
 
-        // 1. Mouse hareketini açýlara ekle
-        currentY += mouseX;
-        currentX -= mouseY; // Yukarý bakmak için eksi
+        virtualMouse.x = Mathf.Clamp01(virtualMouse.x + mouseX);
+        virtualMouse.y = Mathf.Clamp01(virtualMouse.y + mouseY);
+    }
 
-        // --- GÖVDE DÖNDÜRME MANTIÐI (M&B Stili) ---
+    void HandleSwordSwing()
+    {
+        if (!swordPivot) return;
 
-        // YATAY (SAÐ/SOL) KONTROLÜ
-        // Eðer kýlýç belirlenen sýnýrdan (maxLookAngleX) fazla dönmek isterse...
-        if (currentY > maxLookAngleX)
-        {
-            // Aradaki farký bul (Ne kadar taþtýk?)
-            float overshoot = currentY - maxLookAngleX;
-            // O fark kadar GÖVDEYÝ (Kamerayý) saða döndür
-            transform.Rotate(0, overshoot * bodyTurnMultiplier * Time.deltaTime * 60f, 0);
-            // Kýlýcý sýnýrda tut
-            currentY = maxLookAngleX;
-        }
-        else if (currentY < -maxLookAngleX)
-        {
-            float overshoot = currentY - (-maxLookAngleX); // Negatif fark
-            transform.Rotate(0, overshoot * bodyTurnMultiplier * Time.deltaTime * 60f, 0);
-            currentY = -maxLookAngleX;
-        }
+        // --- 1. POZÝSYON (KABZANIN GEZÝNMESÝ) ---
+        // Burasý kabzayý sabit kalmaktan kurtaran yer.
+        // Mouse ne kadar saðdaysa, el o kadar saða kaysýn.
 
-        // DÝKEY (YUKARI/AÞAÐI) KONTROLÜ
-        // Gövdeyi yukarý aþaðý eðmek (pitch) istemeyiz genelde, sadece kýlýç sýnýrlansýn yeter.
-        // Ama istersen "Uçak gibi takla atsýn" diyorsan buraya da rotate ekleriz.
-        // Þimdilik sadece kýlýcý kilitliyoruz (Clamping).
-        currentX = Mathf.Clamp(currentX, -maxLookAngleY, maxLookAngleY);
+        // 0.5 çýkartýyoruz ki merkez 0 olsun (-0.5 ile 0.5 arasý)
+        float targetX = (virtualMouse.x - 0.5f) * handMoveRangeX;
+        float targetY = (virtualMouse.y - 0.5f) * handMoveRangeY;
+
+        // Kýlýç yukarý bakarken hafif ileri de çýksýn (Reach) - Ýsteðe baðlý
+        // float reachEffect = targetY > 0 ? targetY * 0.5f : 0; 
+
+        Vector3 targetPos = new Vector3(targetX, targetY, baseDistance);
+
+        // Kabzayý oraya götür
+        swordPivot.localPosition = Vector3.Lerp(swordPivot.localPosition, targetPos, Time.deltaTime * handMoveSpeed);
 
 
-        // 2. KILIÇ PÝVOTUNU DÖNDÜR
-        // Pivot kameranýn içinde olduðu için localRotation kullanýyoruz.
-        // Böylece kýlýç ekranýn ortasýndan baðýmsýz hareket ediyor.
-        if (swordPivot)
-        {
-            // Z eksenine (Roll) hafif bir eðim verelim mi? (Opsiyonel)
-            // Mouse saða giderken kýlýç hafif saða yatsýn (-currentY * 0.5f gibi)
-            float tilt = -currentY * 0.3f;
+        // --- 2. DÖNÜÞ (BÝLEK) ---
+        // Mouse'un olduðu noktaya bak
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(virtualMouse.x, virtualMouse.y, 0));
+        Vector3 lookPoint = ray.GetPoint(reachDistance);
 
-            swordPivot.localRotation = Quaternion.Euler(currentX, currentY, tilt);
-        }
+        Vector3 direction = lookPoint - swordPivot.position;
+        Quaternion targetRot = Quaternion.LookRotation(direction, Camera.main.transform.up);
+
+        // Bileði döndür
+        swordPivot.rotation = Quaternion.Lerp(swordPivot.rotation, targetRot, Time.deltaTime * swingSpeed);
+    }
+
+    void HandleBodyTurn()
+    {
+        // Saða Sola Dönüþ
+        if (virtualMouse.x > edgeThreshold)
+            transform.Rotate(Vector3.up * bodyTurnSpeed * Time.deltaTime);
+        else if (virtualMouse.x < 1 - edgeThreshold)
+            transform.Rotate(Vector3.up * -bodyTurnSpeed * Time.deltaTime);
+
+        // Aþaðý Yukarý Kamera
+        float pitch = 0f;
+        if (virtualMouse.y > edgeThreshold) pitch = -bodyTurnSpeed * Time.deltaTime;
+        if (virtualMouse.y < 1 - edgeThreshold) pitch = bodyTurnSpeed * Time.deltaTime;
+
+        float currentX = Camera.main.transform.localEulerAngles.x;
+        if (currentX > 180) currentX -= 360;
+
+        float nextX = Mathf.Clamp(currentX + pitch, -80f, 80f);
+        Camera.main.transform.localEulerAngles = new Vector3(nextX, 0, 0);
     }
 
     void HandleMovement()
     {
-        float h = Input.GetAxis("Horizontal"); // A-D
-        float v = Input.GetAxis("Vertical");   // W-S
-
-        // Hareket her zaman kameranýn (yani gövdenin) baktýðý yöne göre olur
-        Vector3 moveDir = transform.right * h * strafeSpeed + transform.forward * v * flySpeed;
-
-        rb.AddForce(moveDir, ForceMode.Acceleration);
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+        Vector3 moveDir = Camera.main.transform.right * h + Camera.main.transform.forward * v;
+        rb.AddForce(moveDir * flySpeed * 50f, ForceMode.Force);
     }
 }

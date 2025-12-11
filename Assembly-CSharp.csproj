@@ -61,16 +61,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ezy-slice-master\EzySlice\SlicedHull.cs" />
+    <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Triangulator.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Line.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\TextureRegion.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Plane.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Slicer.cs" />
+    <Compile Include="Assets\Scripts\SwordMechanics.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\SlicerExtensions.cs" />
+    <Compile Include="Assets\Scripts\FlightController.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Intersector.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Triangle.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\IntersectionResult.cs" />
+    <Compile Include="Assets\Scripts\BodyRotation.cs" />
     <Compile Include="Assets\Scripts\Slicer.cs" />
     <Compile Include="Assets\Scripts\SwordController.cs" />
   </ItemGroup>
