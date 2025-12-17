@@ -3,106 +3,173 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
-    public LevelSettings levelSettings; 
-    public Transform player;
+    [Header("Veri Kaynaðý")]
+    [SerializeField] private LevelSettings settings;
 
-    private Dictionary<Vector2, GameObject> activeChunks = new Dictionary<Vector2, GameObject>();
-    private Vector2 currentPlayerCoord;
+    [Header("Referanslar")]
+    [SerializeField] private Transform player;
+    [SerializeField] private PropSpawner propSpawner;
+    [SerializeField] private EnemySpawner enemySpawner;
 
-    void Start()
+    // Koordinat Takibi (Vector2 yerine Vector2Int kullanýyoruz, daha performanslý ve net)
+    private Dictionary<Vector2Int, GameObject> activeChunks = new Dictionary<Vector2Int, GameObject>();
+    private Vector2Int currentGridCoord;
+    private Vector2Int lastGridCoord;
+
+    // Hata önleyici kontrol
+    private bool isInitialized = false;
+
+    private void Start()
     {
-        if (levelSettings == null)
+        // Defansif Kodlama: Kritik referanslar eksikse oyunu baþlatma
+        if (settings == null || player == null || ObjectPooler.Instance == null)
         {
-            Debug.LogError("MapGenerator: Level Settings dosyasý atanmamýþ inspector'dan atayýn.");
-            enabled = false;
+            Debug.LogError("CRITICAL ERROR: MapGenerator eksik referanslar nedeniyle baþlatýlamadý!");
+            this.enabled = false;
             return;
+        }
+
+        // Baþlangýçta oyuncunun konumunu hesapla ve ilk güncellemeyi zorla
+        UpdatePlayerGridPosition();
+        UpdateVisibleChunks();
+
+        lastGridCoord = currentGridCoord;
+        isInitialized = true;
+    }
+
+    private void Update()
+    {
+        if (!isInitialized) return;
+
+        UpdatePlayerGridPosition();
+
+        // OPTÝMÝZASYON: Sadece oyuncu yeni bir kareye (Chunk'a) geçtiyse hesaplama yap.
+        // Her karede (frame) binlerce döngü çalýþtýrmaktan kurtarýr.
+        if (currentGridCoord != lastGridCoord)
+        {
+            UpdateVisibleChunks();
+            lastGridCoord = currentGridCoord;
         }
     }
 
-    void Update()
+    private void UpdatePlayerGridPosition()
     {
-        if (player == null) return;
-
-        UpdateVisibleChunks();
+        int x = Mathf.RoundToInt(player.position.x / settings.chunkSize);
+        int z = Mathf.RoundToInt(player.position.z / settings.chunkSize);
+        currentGridCoord = new Vector2Int(x, z);
     }
 
-    void UpdateVisibleChunks()
+    private void UpdateVisibleChunks()
     {
-        int currentX = Mathf.RoundToInt(player.position.x / levelSettings.chunkSize);
-        int currentZ = Mathf.RoundToInt(player.position.z / levelSettings.chunkSize);
-        currentPlayerCoord = new Vector2(currentX, currentZ);
-
-        for (int xOffset = -levelSettings.viewDistance; xOffset <= levelSettings.viewDistance; xOffset++)
+        // 1. SPAWN DÖNGÜSÜ (Asimetrik)
+        for (int z = -settings.backwardDistance; z <= settings.forwardDistance; z++)
         {
-            for (int zOffset = -levelSettings.viewDistance; zOffset <= levelSettings.viewDistance; zOffset++)
+            for (int x = -settings.sideDistance; x <= settings.sideDistance; x++)
             {
-                Vector2 viewedChunkCoord = new Vector2(currentX + xOffset, currentZ + zOffset);
+                Vector2Int coord = new Vector2Int(currentGridCoord.x + x, currentGridCoord.y + z);
 
-                if (!activeChunks.ContainsKey(viewedChunkCoord))
+                if (!activeChunks.ContainsKey(coord))
                 {
-                    SpawnChunk(viewedChunkCoord);
+                    SpawnChunk(coord);
                 }
             }
         }
 
+        // 2. TEMÝZLÝK DÖNGÜSÜ (Buffer'lý)
         CleanupChunks();
     }
 
-    void SpawnChunk(Vector2 coord)
+    private void SpawnChunk(Vector2Int coord)
     {
-        Vector3 position = new Vector3(
-            coord.x * levelSettings.chunkSize,
+        Vector3 spawnPosition = new Vector3(
+            coord.x * settings.chunkSize,
             0,
-            coord.y * levelSettings.chunkSize
+            coord.y * settings.chunkSize
         );
 
-        GameObject newChunk = ObjectPooler.Instance.SpawnFromPool(levelSettings.groundTag, position, Quaternion.identity);
+        GameObject newChunk = ObjectPooler.Instance.SpawnFromPool(settings.groundTag, spawnPosition, Quaternion.identity);
 
-        if (newChunk != null)
+        if (newChunk == null)
         {
-            activeChunks.Add(coord, newChunk);
+            // Bu hata çok kritiktir, developer'ý uyar.
+            Debug.LogWarning($"POOL EMPTY: '{settings.groundTag}' havuzunda obje kalmadý! Pool Size'ý artýrýn.");
+            return;
         }
+
+        // Chunk'ý listeye kaydet
+        activeChunks.Add(coord, newChunk);
+
+        // Yöneticileri Tetikle (Null Check ile güvenli hale getirdik)
+        propSpawner?.SpawnProps(newChunk, settings.chunkSize);
+        enemySpawner?.SpawnEnemies(newChunk, settings.chunkSize);
     }
 
-    void CleanupChunks()
+    private void CleanupChunks()
     {
-        List<Vector2> keysToRemove = new List<Vector2>();
+        // Silinecekleri geçici listede tut
+        List<Vector2Int> chunksToRemove = new List<Vector2Int>();
 
-        foreach (var item in activeChunks)
+        foreach (KeyValuePair<Vector2Int, GameObject> item in activeChunks)
         {
-            float distance = Vector2.Distance(currentPlayerCoord, item.Key);
+            Vector2Int chunkCoord = item.Key;
 
-            if (distance > levelSettings.viewDistance + 1)
+            // MESAFE HESABI (Manhattan Distance yerine Eksen Bazlý Kontrol)
+
+            // "Buffer" (Tampon) ekliyoruz. Spawn mesafesinden X birim daha uzakta silinir.
+            // Bu sayede sýnýrda ileri geri gidersen objeler titremez.
+            int buffer = settings.despawnBuffer;
+
+            bool tooFarRightLeft = Mathf.Abs(currentGridCoord.x - chunkCoord.x) > (settings.sideDistance + buffer);
+            bool tooFarBehind = chunkCoord.y < (currentGridCoord.y - settings.backwardDistance - buffer);
+            bool tooFarAhead = chunkCoord.y > (currentGridCoord.y + settings.forwardDistance + buffer);
+
+            if (tooFarRightLeft || tooFarBehind || tooFarAhead)
             {
-                ObjectPooler.Instance.ReturnToPool(item.Value);
-                keysToRemove.Add(item.Key);
+                chunksToRemove.Add(chunkCoord);
             }
         }
 
-        foreach (var key in keysToRemove)
+        // Güvenli silme iþlemi
+        foreach (Vector2Int coord in chunksToRemove)
         {
-            activeChunks.Remove(key);
+            GameObject chunkObj = activeChunks[coord];
+
+            // Önce üzerindekileri temizle
+            propSpawner?.RecycleProps(chunkObj);
+            enemySpawner?.RecycleEnemies(chunkObj);
+
+            // Sonra zemini havuza yolla
+            ObjectPooler.Instance.ReturnToPool(chunkObj);
+
+            // Listeden çýkar
+            activeChunks.Remove(coord);
         }
     }
 
-    void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
-        if (levelSettings == null || !levelSettings.showGizmos) return;
+        if (settings == null || !settings.showGizmos) return;
 
-        Gizmos.color = levelSettings.gizmoColor;
+        Gizmos.color = settings.gizmoColor;
 
-        Vector3 center = (player != null) ? player.position : transform.position;
+        Vector3 center = player != null ? player.position : transform.position;
 
-        
-        int gridX = Mathf.RoundToInt(center.x / levelSettings.chunkSize);
-        int gridZ = Mathf.RoundToInt(center.z / levelSettings.chunkSize);
+        // Grid'e snap'le (Yapýþ)
+        float snapX = Mathf.Round(center.x / settings.chunkSize) * settings.chunkSize;
+        float snapZ = Mathf.Round(center.z / settings.chunkSize) * settings.chunkSize;
 
-      
-        int size = levelSettings.viewDistance * 2 + 1; 
-        float totalSize = size * levelSettings.chunkSize;
+        // Spawn Alanýný Çiz (Yeþil)
+        float width = (settings.sideDistance * 2 + 1) * settings.chunkSize;
+        float depth = (settings.forwardDistance + settings.backwardDistance + 1) * settings.chunkSize;
+        float zOffset = (settings.forwardDistance - settings.backwardDistance) * settings.chunkSize * 0.5f;
 
-        Vector3 snapPos = new Vector3(gridX * levelSettings.chunkSize, 0, gridZ * levelSettings.chunkSize);
+        Vector3 drawCenter = new Vector3(snapX, 0, snapZ + zOffset);
+        Gizmos.DrawWireCube(drawCenter, new Vector3(width, 1f, depth));
 
-        Gizmos.DrawWireCube(snapPos, new Vector3(totalSize, 1, totalSize));
+        // Despawn Sýnýrýný Çiz (Kýrmýzý - Buffer Alaný)
+        Gizmos.color = new Color(1, 0, 0, 0.5f);
+        float bufferWidth = width + (settings.despawnBuffer * 2 * settings.chunkSize);
+        float bufferDepth = depth + (settings.despawnBuffer * 2 * settings.chunkSize);
+        Gizmos.DrawWireCube(drawCenter, new Vector3(bufferWidth, 1f, bufferDepth));
     }
 }

@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,18 +10,18 @@ public class ObjectPooler : MonoBehaviour
     {
         public string tag;
         public GameObject prefab;
-        public int size; 
+        public int size;
     }
+
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
 
+    // DEÐÝÞÝKLÝK BURADA: Start yerine Awake kullanýyoruz
     void Awake()
     {
         Instance = this;
-    }
 
-    void Start()
-    {
+        // Havuzu burada oluþturuyoruz ki baþkalarý istediðinde hazýr olsun
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
         foreach (Pool pool in pools)
@@ -33,12 +32,11 @@ public class ObjectPooler : MonoBehaviour
             {
                 GameObject obj = Instantiate(pool.prefab);
                 obj.SetActive(false);
-                obj.transform.SetParent(this.transform);
+                obj.transform.SetParent(this.transform); // Hiyerarþiyi kirletmesin
                 objectPool.Enqueue(obj);
             }
- 
-            poolDictionary.Add(pool.tag, objectPool);
 
+            poolDictionary.Add(pool.tag, objectPool);
         }
     }
 
@@ -48,28 +46,21 @@ public class ObjectPooler : MonoBehaviour
         {
             Debug.LogWarning("Pool bulunamadý: " + tag);
             return null;
-
         }
 
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
 
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = position;
-        objectToSpawn.transform.rotation = rotation;   
+        objectToSpawn.transform.rotation = rotation;
 
         poolDictionary[tag].Enqueue(objectToSpawn);
 
         return objectToSpawn;
-
     }
 
-    public void ReturnToPool (GameObject obj)
+    public void ReturnToPool(GameObject obj)
     {
-
         obj.SetActive(false);
     }
 }
-
-
-
-

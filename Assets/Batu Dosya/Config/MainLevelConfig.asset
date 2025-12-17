@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: MainLevelConfig
   m_EditorClassIdentifier: 
   chunkSize: 15
-  viewDistance: 2
   groundTag: Ground
+  forwardDistance: 8
+  backwardDistance: 3
+  sideDistance: 5
+  despawnBuffer: 2
   showGizmos: 1
   gizmoColor: {r: 0, g: 1, b: 0, a: 1}
