@@ -7,6 +7,22 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Slicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordMechanics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SwordMechanics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\FlightController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\FlightController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\BodyRotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\BodyRotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\InputManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\InputManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SwordController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,11 +42,60 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "FlightController.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\FlightController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\FlightController.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\FlightController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\FlightController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T14:50:08.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BodyRotation.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\BodyRotation.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BodyRotation.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\BodyRotation.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BodyRotation.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAqwCUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T14:49:33.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SwordMechanics.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordMechanics.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SwordMechanics.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordMechanics.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SwordMechanics.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAswE0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T14:49:06.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "InputManager.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\InputManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\InputManager.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\InputManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\InputManager.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAswCcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T14:48:28.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "SwordCombat.cs",
               "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordCombat.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SwordCombat.cs",
@@ -38,8 +103,7 @@
               "RelativeToolTip": "Assets\\Scripts\\SwordCombat.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAEoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T15:18:34.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-03T15:18:34.604Z"
             },
             {
               "$type": "Document",
@@ -49,14 +113,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Slicer.cs",
               "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\Slicer.cs",
               "RelativeToolTip": "Assets\\Scripts\\Slicer.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAIwFwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAIwHAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-03T14:25:14.973Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Lit.shader",
               "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Lit.shader",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Lit.shader",
@@ -64,21 +128,19 @@
               "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Lit.shader",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-12-03T14:24:23.48Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-03T14:24:23.48Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "SwordController.cs",
               "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SwordController.cs",
               "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordController.cs",
               "RelativeToolTip": "Assets\\Scripts\\SwordController.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAQwGYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAswHcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T14:01:20.929Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-03T14:01:20.929Z"
             }
           ]
         }
