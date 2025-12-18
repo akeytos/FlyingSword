@@ -62,4 +62,11 @@ public class MainMenuManager : MonoBehaviour
     {
         Application.OpenURL("https://store.steampowered.com/app/swordslide");
     }
+
+    public void Click_BackFromSelection()
+    {
+        selectionPanel.SetActive(false);
+
+        mainButtonsPanel.SetActive(true);
+    }
 }

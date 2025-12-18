@@ -1,23 +1,26 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Sword", menuName = "SwordSlideUI/Sword Data")]
+[CreateAssetMenu(fileName = "New Sword", menuName = "Game/Sword Data")]
 public class SwordData : ScriptableObject
 {
     [Header("1. Genel Bilgiler")]
-    public string swordName;             // Kýlýç Adý
-    [TextArea] public string description; // Kýlýç hakkýnda yazý
-    public Sprite swordIcon;             // UI'da görünecek ikon
-    public bool isUnlocked;              // Kilitli mi diye kontrol
+    public string swordName;
+    [TextArea] public string description;
+    public Sprite swordIcon;
+    public bool isUnlocked;
 
-    [Header("2. 3D Model")]
-    public GameObject swordPrefab;       // Ekranda dönecek olan 3D model
+    // 3D Model (Þimdilik dursun)
+    public GameObject swordPrefab;
 
-    [Header("3. Skill (Yetenek) Alaný")]
-    public string skillName;             // Skill Adý
-    [TextArea] public string skillDescription; // Skill Açýklamasý
-    public Sprite skillIcon;             // Skill Ýkonu
+    [Header("3. Skill (Yetenek)")]
+    public string skillName;
+    [TextArea] public string skillDescription;
+    public Sprite skillIcon;
 
     [Header("4. Aksesuarlar")]
-    public bool hasAccessory1;           // Aksesuar açýk mý?
-    public bool hasAccessory2;           // Aksesuar açýk mý?
+    public bool hasAccessory1;      // Açýk mý?
+    public Sprite accessory1Icon;   // 1. Aksesuarýn resmi ne?
+
+    public bool hasAccessory2;      // Açýk mý?
+    public Sprite accessory2Icon;   // 2. Aksesuarýn resmi ne?
 }
