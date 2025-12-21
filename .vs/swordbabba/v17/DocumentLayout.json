@@ -3,20 +3,96 @@
   "WorkspaceRootPath": "C:\\Users\\an\u0131l\\swordbabba\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\Slicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Slicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\Finall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Finall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\TankCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\TankCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\ClickToFly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ClickToFly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordMechanics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SwordMechanics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\FakeParent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\FakeParent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\CameraFollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\CameraFollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SmoothCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SmoothCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\cum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\cum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\kurt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\kurt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SmoothCameraFollw.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SmoothCameraFollw.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\DirectCursorSword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\DirectCursorSword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\NewEmptyCSharpScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\NewEmptyCSharpScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordTrust.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SwordTrust.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SwordController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordCombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SwordCombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\MouseMover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\MouseMover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\Slicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Slicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordCombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SwordCombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\InputManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\InputManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\BodyRotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\BodyRotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\EnemySpawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\EnemySpawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\EnemyAI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\EnemyAI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\CameraShake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\CameraShake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,37 +102,262 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Finall.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\Finall.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Finall.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\Finall.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Finall.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAuwH8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T22:11:06.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TankCamera.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\TankCamera.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TankCamera.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\TankCamera.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TankCamera.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAuwDIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T21:43:26.543Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ClickToFly.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\ClickToFly.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ClickToFly.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\ClickToFly.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ClickToFly.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAuwFEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T17:52:31.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FakeParent.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\FakeParent.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\FakeParent.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\FakeParent.cs",
+              "RelativeToolTip": "Assets\\Scripts\\FakeParent.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAuwCgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T15:40:11.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SmoothCamera.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SmoothCamera.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SmoothCamera.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SmoothCamera.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SmoothCamera.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAewA4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T15:02:13.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "cum.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\cum.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\cum.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\cum.cs",
+              "RelativeToolTip": "Assets\\Scripts\\cum.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAuwBkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T14:54:28.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "kurt.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\kurt.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\kurt.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\kurt.cs",
+              "RelativeToolTip": "Assets\\Scripts\\kurt.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAuwEQAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T14:53:42.089Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SmoothCameraFollw.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SmoothCameraFollw.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SmoothCameraFollw.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SmoothCameraFollw.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SmoothCameraFollw.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T14:47:10.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DirectCursorSword.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\DirectCursorSword.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DirectCursorSword.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\DirectCursorSword.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DirectCursorSword.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T14:45:55.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "NewEmptyCSharpScript.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\NewEmptyCSharpScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewEmptyCSharpScript.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\NewEmptyCSharpScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewEmptyCSharpScript.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T14:45:14.48Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SwordTrust.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordTrust.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SwordTrust.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordTrust.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SwordTrust.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAkwEkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T14:40:57.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CameraFollow.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\CameraFollow.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CameraFollow.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\CameraFollow.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CameraFollow.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAuwCUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T14:23:56.574Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "EnemySpawner.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\EnemySpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EnemySpawner.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\EnemySpawner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EnemySpawner.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAkwDUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T13:33:10.894Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MouseMover.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\MouseMover.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MouseMover.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\MouseMover.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MouseMover.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T13:21:01.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "EnemyAI.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\EnemyAI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyAI.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\EnemyAI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EnemyAI.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAkwDwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T20:12:20.387Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CameraShake.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\CameraShake.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CameraShake.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\CameraShake.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CameraShake.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAiwCkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T20:07:04.228Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BodyRotation.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\BodyRotation.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BodyRotation.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\BodyRotation.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BodyRotation.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T14:49:33.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SwordMechanics.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordMechanics.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SwordMechanics.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordMechanics.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SwordMechanics.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAuwGkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T14:49:06.791Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "InputManager.cs",
+              "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\InputManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\InputManager.cs",
+              "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\InputManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\InputManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T14:48:28.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "SwordCombat.cs",
               "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordCombat.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SwordCombat.cs",
               "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordCombat.cs",
               "RelativeToolTip": "Assets\\Scripts\\SwordCombat.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAEoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T15:18:34.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-03T15:18:34.604Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 16,
               "Title": "Slicer.cs",
               "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\Slicer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Slicer.cs",
               "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\Slicer.cs",
               "RelativeToolTip": "Assets\\Scripts\\Slicer.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAIwFwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAIwHAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T14:25:14.973Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-03T14:25:14.973Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 15,
               "Title": "Lit.shader",
               "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Lit.shader",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Lit.shader",
@@ -64,21 +365,23 @@
               "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Lit.shader",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-12-03T14:24:23.48Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-03T14:24:23.48Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 13,
               "Title": "SwordController.cs",
               "DocumentMoniker": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SwordController.cs",
               "ToolTip": "C:\\Users\\an\u0131l\\swordbabba\\Assets\\Scripts\\SwordController.cs",
               "RelativeToolTip": "Assets\\Scripts\\SwordController.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAQwGYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T14:01:20.929Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-03T14:01:20.929Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }
