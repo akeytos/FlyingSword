@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Loading.unity
     guid: a831a31f910ce9e47996a630da5ee00d
   - enabled: 1
-    path: Assets/Scenes/SwordSlide-Batu.unity
-    guid: f09f42a4bec4a4349a70032717b46a4a
+    path: Assets/Scenes/levelBlockout + UI.unity
+    guid: 3436142d2395cc147a14f32732260920
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

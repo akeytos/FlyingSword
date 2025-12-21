@@ -12,7 +12,7 @@ public class MainMenuManager : MonoBehaviour
     {
 
 
-        LoadingManager.nextSceneName = "SwordSlide-Batu";
+        LoadingManager.nextSceneName = "levelBlockout + UI";
 
             SceneManager.LoadScene("Loading");
     }

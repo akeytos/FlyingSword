@@ -12,7 +12,7 @@ public class LoadingManager : MonoBehaviour
     public float minLoadTime = 2.0f; 
 
    
-    public static string nextSceneName = "SwordSlide-Batu";
+    public static string nextSceneName = "levelBlockout + UI";
 
     void Start()
     {

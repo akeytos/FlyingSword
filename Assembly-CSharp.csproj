@@ -68,7 +68,9 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Batu Dosya\Debug\EnemySpawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Batu Dosya\Debug\ActionCamera.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\GameOverManager.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\SlicedHull.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
@@ -111,6 +113,7 @@
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\Rotator.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Intersector.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Triangle.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\InGameUIManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
@@ -121,11 +124,15 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\BodyRotation.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Slicer.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\LevelUpManager.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\UpgradeButton.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\MapGenerator.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\PropSpawner.cs" />
     <Compile Include="Assets\Scripts\SwordController.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\UpgradeData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
