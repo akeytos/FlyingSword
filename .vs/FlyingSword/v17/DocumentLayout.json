@@ -1,0 +1,134 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Projeler\\FlyingSword\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|c:\\projeler\\flyingsword\\assets\\batu dosya\\scripts\\ui scripts\\coinmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\batu dosya\\scripts\\ui scripts\\coinmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|c:\\projeler\\flyingsword\\assets\\batu dosya\\scripts\\ui scripts\\rotator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\batu dosya\\scripts\\ui scripts\\rotator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|C:\\Projeler\\FlyingSword\\assets\\batu dosya\\scripts\\ui scripts\\selectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\batu dosya\\scripts\\ui scripts\\selectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|C:\\Projeler\\FlyingSword\\assets\\batu dosya\\scripts\\ui scripts\\sworddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\batu dosya\\scripts\\ui scripts\\sworddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|C:\\Projeler\\FlyingSword\\assets\\batu dosya\\scripts\\ui scripts\\mainmenumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\batu dosya\\scripts\\ui scripts\\mainmenumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|C:\\Projeler\\FlyingSword\\assets\\scripts\\swordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\swordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|C:\\Projeler\\FlyingSword\\assets\\batu dosya\\scripts\\ui scripts\\loadingmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\batu dosya\\scripts\\ui scripts\\loadingmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CoinManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\CoinManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\CoinManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\CoinManager.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\CoinManager.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwBQAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T01:56:28.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Rotator.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\Rotator.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\Rotator.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\Rotator.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\Rotator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T00:56:37.612Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SwordData.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordData.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordData.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordData.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T00:34:43.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SwordController.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Scripts\\SwordController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SwordController.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Scripts\\SwordController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SwordController.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAgwDYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:43:27.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoadingManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LoadingManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\LoadingManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LoadingManager.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\LoadingManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T22:41:32.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainMenuManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\MainMenuManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\MainMenuManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\MainMenuManager.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\MainMenuManager.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAmwEUAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T22:30:11.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SelectionManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SelectionManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SelectionManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SelectionManager.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SelectionManager.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAQwEoAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T19:45:18.309Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
