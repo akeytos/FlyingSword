@@ -67,11 +67,13 @@
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\CoinManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Batu Dosya\Debug\EnemySpawner.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\GameHudController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Batu Dosya\Debug\ActionCamera.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\GameOverManager.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\SlicedHull.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\PlayerSkillController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\PauseManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
@@ -119,6 +122,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Batu Dosya\Debug\DebugFlyController.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\MinimapFollow.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\IntersectionResult.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
@@ -129,6 +133,7 @@
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\LevelUpManager.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\UpgradeButton.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\CloneController.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\MapGenerator.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\PropSpawner.cs" />
     <Compile Include="Assets\Scripts\SwordController.cs" />
