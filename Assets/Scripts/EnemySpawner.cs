@@ -50,4 +50,4 @@ public class EnemySpawnerr : MonoBehaviour
         // Þimdilik Identity (Düz) býrakýyorum.
         Instantiate(enemyPrefab, dogumYeri, Quaternion.identity);
     }
-}
+}//313131
