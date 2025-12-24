@@ -1,117 +1,107 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class InGameUIManager : MonoBehaviour
 {
-    // Singleton: Oyunun her yerinden "InGameUIManager.Instance..." diye ulaþmak için
     public static InGameUIManager Instance;
 
     [Header("--- CAN SÝSTEMÝ (KALPLER) ---")]
-    public GameObject[] hearts;       // Unity'den Heart_1, Heart_2, Heart_3 buraya sürüklenecek
+    public GameObject[] hearts;
 
-    [Header("--- ÝSTATÝSTÝKLER (SOL ÜST) ---")]
-    public TextMeshProUGUI timeText;  // Süre
-    public TextMeshProUGUI coinText;  // Para
-    public TextMeshProUGUI killText;  // Kill Sayýsý
+    [Header("--- ÝSTATÝSTÝKLER ---")]
+    public TextMeshProUGUI timeText;
+    public TextMeshProUGUI coinText;
+    public TextMeshProUGUI killText;
 
-    [Header("--- XP BAR & LEVEL (ÜST) ---")]
-    public Slider xpSlider;           // Kýrmýzý XP Çubuðu
-    public TextMeshProUGUI levelText; // "LVL 0" yazýsý
+    [Header("--- XP BAR & LEVEL ---")]
+    public Slider xpSlider;
+    public TextMeshProUGUI levelText;
 
-    [Header("--- YETENEK SLOTLARI (SOL) ---")]
-    public Image skill1Icon;          // 1. Kutunun içindeki Ýkon
-    public Image skill2Icon;          // 2. Kutunun içindeki Ýkon
-    // Ýleride buraya pasif skill slotlarý da eklenebilir
+    // --- ÝSÝMLER DEÐÝÞTÝ ---
+    [Header("--- AKTÝF YETENEK SLOTLARI (Active Skills) ---")]
+    // Buraya Void Flicker, Clone Edges gibi kullandýðýn yeteneklerin kutularýný sürükle
+    public List<Image> activeSkillSlots = new List<Image>();
+
+    [Header("--- PASÝF YETENEK SLOTLARI (Passive Skills) ---")]
+    // Buraya Kitaplar, Kalkan, Güç artýþý gibi pasiflerin kutularýný sürükle
+    public List<Image> passiveSkillSlots = new List<Image>();
+
+    public Sprite lockedSlotSprite; // Boþ/Kilitli kutu resmi
 
     [Header("--- PANELLER ---")]
-    public GameObject levelUpPanel;   // Örs/Level Up ekraný
-    public GameObject gameOverPanel;  // Ölüm ekraný
+    public GameObject levelUpPanel;
+    public GameObject gameOverPanel;
 
     void Awake()
     {
-        // Singleton Kurulumu
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) { Instance = this; }
+        else { Destroy(gameObject); }
     }
 
-    // --- GÜNCELLEME FONKSÝYONLARI ---
-
-    // 1. CANI GÜNCELLE (KALPLERÝ AÇ/KAPA)
+    // --- GÜNCELLEME FONKSÝYONLARI (Standart) ---
     public void UpdateHealthUI(int currentHealth)
     {
-        // Elimizdeki tüm kalpleri kontrol ediyoruz
         for (int i = 0; i < hearts.Length; i++)
         {
-            // Eðer döngüdeki sýra, mevcut canýmýzdan küçükse kalbi göster
-            if (i < currentHealth)
-            {
-                hearts[i].SetActive(true);
-            }
-            else
-            {
-                // Canýmýz düþtüyse o sýradaki kalbi gizle
-                hearts[i].SetActive(false);
-            }
+            if (i < currentHealth) hearts[i].SetActive(true);
+            else hearts[i].SetActive(false);
         }
     }
 
-    // 2. SÜREYÝ GÜNCELLE (Örn: 65 saniyeyi -> 01:05 yapar)
     public void UpdateTimeUI(float timeInSeconds)
     {
         float minutes = Mathf.FloorToInt(timeInSeconds / 60);
         float seconds = Mathf.FloorToInt(timeInSeconds % 60);
-
-        if (timeText != null)
-            timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        if (timeText != null) timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    // 3. PARAYI GÜNCELLE
     public void UpdateCoinUI(int amount)
     {
-        if (coinText != null)
-            coinText.text = amount.ToString(); // "000" formatý istersen: amount.ToString("D3")
+        if (coinText != null) coinText.text = amount.ToString();
     }
 
-    // 4. KILL SAYISINI GÜNCELLE
     public void UpdateKillUI(int amount)
     {
-        if (killText != null)
-            killText.text = amount.ToString();
+        if (killText != null) killText.text = amount.ToString();
     }
 
-    // 5. XP VE LEVEL GÜNCELLE
     public void UpdateLevelUI(int level, float currentXP, float maxXP)
     {
-        if (levelText != null)
-            levelText.text = "LVL : " + level.ToString();
-
-        if (xpSlider != null)
-        {
-            // Slider deðeri 0 ile 1 arasýndadýr. Oranlayarak buluyoruz.
-            float targetValue = currentXP / maxXP;
-            xpSlider.value = targetValue;
-        }
+        if (levelText != null) levelText.text = "LVL : " + level.ToString();
+        if (xpSlider != null) xpSlider.value = currentXP / maxXP;
     }
 
-    // 6. SKILL ÝKONU GÜNCELLE (Yeni skill alýnca çaðýracaðýz)
-    public void UpdateSkillIcon(int slotIndex, Sprite icon)
+    // --- YENÝLENMÝÞ SLOT MANTIÐI ---
+    public void AddSkillToHUD(UpgradeData newSkill)
     {
-        if (slotIndex == 0 && skill1Icon != null)
+        List<Image> targetSlots = null;
+
+        // 1. Ýsimlendirmeyi düzelttik: Active vs Passive
+        if (newSkill.type == UpgradeType.ActiveSkill)
         {
-            skill1Icon.sprite = icon;
-            skill1Icon.color = Color.white; // Baþta þeffafsa görünür yap
+            targetSlots = activeSkillSlots; // Aktif Skill Listesine bak
         }
-        else if (slotIndex == 1 && skill2Icon != null)
+        else
         {
-            skill2Icon.sprite = icon;
-            skill2Icon.color = Color.white;
+            targetSlots = passiveSkillSlots; // Pasif/Kitap Listesine bak
+        }
+
+        // 2. Boþ yer bul ve yerleþ
+        if (targetSlots != null)
+        {
+            foreach (var slot in targetSlots)
+            {
+                // Slot boþsa (Resmi kilitse veya null ise)
+                if (slot.sprite == lockedSlotSprite || slot.sprite == null)
+                {
+                    slot.sprite = newSkill.icon; // Ýkonu koy
+                    slot.color = Color.white;    // Görünür yap
+                    Debug.Log("UI: " + newSkill.upgradeName + " slota eklendi.");
+                    return;
+                }
+            }
         }
     }
 }

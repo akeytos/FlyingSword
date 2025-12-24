@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb4169c8529a7442abef52f5fbbce6b, type: 3}
+  m_Name: Skill_CloneEdges
+  m_EditorClassIdentifier: 
+  upgradeName: Clone Edges
+  description: "K\u0131l\u0131\xE7 klonland\u0131!"
+  icon: {fileID: 21300000, guid: 6d2fc53fe1a8df146a70000813378cb0, type: 3}
+  type: 1
+  skillName: 3
+  cooldown: 5
+  duration: 3
+  value: 10
