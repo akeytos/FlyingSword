@@ -3,7 +3,15 @@
   "WorkspaceRootPath": "C:\\Projeler\\FlyingSword\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|c:\\projeler\\flyingsword\\assets\\batu dosya\\scripts\\mapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|c:\\projeler\\flyingsword\\assets\\batu dosya\\scripts\\lootitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\batu dosya\\scripts\\lootitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|c:\\projeler\\flyingsword\\assets\\batu dosya\\scripts\\enemystats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\batu dosya\\scripts\\enemystats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|C:\\Projeler\\FlyingSword\\assets\\batu dosya\\scripts\\mapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3454676C-DA9E-84C4-FD6D-486F6D563B51}|Assembly-CSharp.csproj|solutionrelative:assets\\batu dosya\\scripts\\mapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -23,6 +31,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "LootItem.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\LootItem.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\LootItem.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\LootItem.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\LootItem.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAIwFIAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T15:41:59.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EnemyStats.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyStats.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\EnemyStats.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyStats.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\EnemyStats.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAIwDoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T15:40:16.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MapGenerator.cs",
               "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\MapGenerator.cs",
               "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\MapGenerator.cs",
@@ -30,12 +64,11 @@
               "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\MapGenerator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-22T15:14:54.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-22T15:14:54.531Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "AI.cs",
               "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\AI.cs",
               "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\AI.cs",
@@ -43,8 +76,7 @@
               "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\AI.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-22T15:13:29.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-22T15:13:29.94Z"
             }
           ]
         }

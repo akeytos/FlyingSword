@@ -37210,7 +37210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95566718f4e60c48b380dc76aaf0499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7991924778352866071, guid: 3f8aa7cbb4a97494dbbb8d320dccb7db, type: 3}
+  enemyPrefab: {fileID: 7855527558966266527, guid: 0421b0476a5cc404e819ca9487ddbe67, type: 3}
   player: {fileID: 885465617}
   onMesafe: 15
   yolGenisligi: 10
