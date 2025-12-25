@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Void Flicker
   description: "K\u0131l\u0131\xE7 yok olur, d\xFC\u015Fmanlar\u0131 keser ve gelir."
-  icon: {fileID: 21300000, guid: a88e6751c85c33a4f85fbdc10502a1e1, type: 3}
-  type: 1
-  skillName: 2
-  cooldown: 5
-  duration: 3
-  value: 10
+  icon: {fileID: 21300000, guid: 833693c08b4d09b428446666be21647d, type: 3}
+  tier: 0
+  category: 1
+  skillType: 1
+  skillScriptID: VoidFlicker
+  statValue: 0
+  statName: 

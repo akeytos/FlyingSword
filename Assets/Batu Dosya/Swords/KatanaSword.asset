@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swordName: Katana
   description: "Japon i\u015Fi Katana."
-  swordIcon: {fileID: 21300000, guid: 8108415fe0eeeb3489b1848bf791d7db, type: 3}
+  swordIcon: {fileID: 21300000, guid: f9ac0b50bcfacc248a9c751a0d40ca7f, type: 3}
   isUnlocked: 1
   swordPrefab: {fileID: 522658055409238129, guid: 4637cfa0d58d2af42b8d92e048fc1885, type: 3}
   skillName: Kesici

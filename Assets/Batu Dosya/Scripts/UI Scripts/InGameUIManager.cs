@@ -19,13 +19,11 @@ public class InGameUIManager : MonoBehaviour
     public Slider xpSlider;
     public TextMeshProUGUI levelText;
 
-    // --- ÝSÝMLER DEÐÝÞTÝ ---
-    [Header("--- AKTÝF YETENEK SLOTLARI (Active Skills) ---")]
-    // Buraya Void Flicker, Clone Edges gibi kullandýðýn yeteneklerin kutularýný sürükle
+    [Header("--- SLOTLAR ---")]
+    // Active Skills: Sadece "Sað Týk" yetenekleri (Void Flicker, Clone Edges)
     public List<Image> activeSkillSlots = new List<Image>();
 
-    [Header("--- PASÝF YETENEK SLOTLARI (Passive Skills) ---")]
-    // Buraya Kitaplar, Kalkan, Güç artýþý gibi pasiflerin kutularýný sürükle
+    // Passive Skills: Hem Pasif Yetenekler (Kinetic Lance) hem de Rünler (Speed, Health)
     public List<Image> passiveSkillSlots = new List<Image>();
 
     public Sprite lockedSlotSprite; // Boþ/Kilitli kutu resmi
@@ -40,7 +38,7 @@ public class InGameUIManager : MonoBehaviour
         else { Destroy(gameObject); }
     }
 
-    // --- GÜNCELLEME FONKSÝYONLARI (Standart) ---
+    // --- GÜNCELLEME FONKSÝYONLARI ---
     public void UpdateHealthUI(int currentHealth)
     {
         for (int i = 0; i < hearts.Length; i++)
@@ -73,13 +71,21 @@ public class InGameUIManager : MonoBehaviour
         if (xpSlider != null) xpSlider.value = currentXP / maxXP;
     }
 
-    // --- YENÝLENMÝÞ SLOT MANTIÐI ---
+    // --- BURASI DÜZELTÝLDÝ ---
     public void AddSkillToHUD(UpgradeData newSkill)
     {
         List<Image> targetSlots = null;
 
-        // 1. Ýsimlendirmeyi düzelttik: Active vs Passive
-        if (newSkill.type == UpgradeType.ActiveSkill)
+        // Önce bu yeteneðin zaten slotlarda olup olmadýðýna bakabiliriz (Upgrade ise)
+        // Ama þimdilik basitçe boþ yere ekleyelim.
+
+        // MANTIK: 
+        // Eðer bu bir SKILL ise ve türü ACTIVE ise -> Aktif Slotlara
+        // Diðer her þey (Pasif Skill, Rünler) -> Pasif Slotlara
+
+        bool isActiveSkill = (newSkill.category == UpgradeCategory.Skill && newSkill.skillType == SkillType.Active);
+
+        if (isActiveSkill)
         {
             targetSlots = activeSkillSlots; // Aktif Skill Listesine bak
         }
@@ -88,9 +94,16 @@ public class InGameUIManager : MonoBehaviour
             targetSlots = passiveSkillSlots; // Pasif/Kitap Listesine bak
         }
 
-        // 2. Boþ yer bul ve yerleþ
+        // Boþ yer bul ve yerleþ
         if (targetSlots != null)
         {
+            // ÖNCEKÝ KONTROL: Zaten var mý? (Varsa tekrar ikon koyma, belki level yazýsý artýrýlabilir ama þimdilik geçiyorum)
+            foreach (var slot in targetSlots)
+            {
+                if (slot.sprite == newSkill.icon) return; // Zaten ekli, tekrar ekleme
+            }
+
+            // BOÞ SLOT BULMA
             foreach (var slot in targetSlots)
             {
                 // Slot boþsa (Resmi kilitse veya null ise)
