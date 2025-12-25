@@ -12975,7 +12975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 40.4, y: -62.3}
+  m_AnchoredPosition: {x: 40.399902, y: -62.30005}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &188564197
@@ -45893,17 +45893,20 @@ GameObject:
   - component: {fileID: 885465617}
   - component: {fileID: 885465616}
   - component: {fileID: 885465615}
-  - component: {fileID: 885465614}
-  - component: {fileID: 885465613}
+  - component: {fileID: 885465626}
+  - component: {fileID: 885465627}
   - component: {fileID: 885465612}
-  - component: {fileID: 885465611}
+  - component: {fileID: 885465624}
   - component: {fileID: 885465618}
   - component: {fileID: 885465619}
+  - component: {fileID: 885465614}
+  - component: {fileID: 885465613}
+  - component: {fileID: 885465611}
   - component: {fileID: 885465620}
-  - component: {fileID: 885465624}
   - component: {fileID: 885465623}
   - component: {fileID: 885465622}
   - component: {fileID: 885465621}
+  - component: {fileID: 885465625}
   m_Layer: 0
   m_Name: PlayerRoot
   m_TagString: Player
@@ -45918,7 +45921,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885465610}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8e62dfb37e904043bac2fc21fd91eaa, type: 3}
   m_Name: 
@@ -45945,9 +45948,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 0.01
+  deadzone: 0.05
   virtualMouse: {x: 0.5, y: 0.5}
-  horizontal: 0
-  vertical: 0
+  turnInput: {x: 0, y: 0}
 --- !u!114 &885465613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45955,7 +45958,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885465610}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edfb98fc5102fd74d9799c8894c44641, type: 3}
   m_Name: 
@@ -45968,7 +45971,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885465610}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3fc6fe4e15f57e42ba6b01bb0ab77aa, type: 3}
   m_Name: 
@@ -46005,8 +46008,8 @@ Rigidbody:
   m_GameObject: {fileID: 885465610}
   serializedVersion: 4
   m_Mass: 100
-  m_Drag: 2
-  m_AngularDrag: 10
+  m_Drag: 1
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -46031,14 +46034,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885465610}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.114823334, z: -0, w: 0.993386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 41.776466, y: -30.91, z: -27.881004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1337926941}
   m_Father: {fileID: 1306935911}
-  m_LocalEulerAnglesHint: {x: 0, y: 13.187, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &885465618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46161,6 +46164,51 @@ MonoBehaviour:
   maxHealth: 3
   cooldownReduction: 0
   vampirismCount: 0
+--- !u!114 &885465625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885465610}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18495d2321bedaf4bb678f993cb2a5a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duzelmeHizi: 5
+  maxYatis: 30
+--- !u!114 &885465626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885465610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce3ae710b4e51d49b4efb001931d317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardSpeed: 20
+  turnSpeed: 2
+--- !u!114 &885465627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885465610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ffb5e920f89784282f9b47da1edfbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualModel: {fileID: 1319019971}
+  bankingAmount: 45
+  bankingSpeed: 5
+  bobSpeed: 2
+  bobAmount: 0.1
 --- !u!1001 &886149814
 PrefabInstance:
   m_ObjectHideFlags: 0
