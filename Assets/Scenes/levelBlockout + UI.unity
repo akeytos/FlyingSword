@@ -753,10 +753,10 @@ RectTransform:
   - {fileID: 515275528}
   m_Father: {fileID: 1102977438}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -620}
-  m_SizeDelta: {x: 1000, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &17659386
 MonoBehaviour:
@@ -11953,10 +11953,10 @@ RectTransform:
   - {fileID: 146924290}
   m_Father: {fileID: 1102977438}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -1040}
-  m_SizeDelta: {x: 1000, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &175527347
 MonoBehaviour:
@@ -18426,8 +18426,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 10
   m_wordSpacing: 0
@@ -18457,7 +18457,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -52.899223, y: -38.16226, z: -50.254326, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -25144,7 +25144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &489988306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45893,8 +45893,6 @@ GameObject:
   - component: {fileID: 885465617}
   - component: {fileID: 885465616}
   - component: {fileID: 885465615}
-  - component: {fileID: 885465626}
-  - component: {fileID: 885465627}
   - component: {fileID: 885465612}
   - component: {fileID: 885465624}
   - component: {fileID: 885465618}
@@ -45902,11 +45900,9 @@ GameObject:
   - component: {fileID: 885465614}
   - component: {fileID: 885465613}
   - component: {fileID: 885465611}
-  - component: {fileID: 885465620}
   - component: {fileID: 885465623}
   - component: {fileID: 885465622}
   - component: {fileID: 885465621}
-  - component: {fileID: 885465625}
   m_Layer: 0
   m_Name: PlayerRoot
   m_TagString: Player
@@ -45921,7 +45917,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885465610}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8e62dfb37e904043bac2fc21fd91eaa, type: 3}
   m_Name: 
@@ -45948,9 +45944,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 0.01
-  deadzone: 0.05
   virtualMouse: {x: 0.5, y: 0.5}
-  turnInput: {x: 0, y: 0}
+  horizontal: 0
+  vertical: 0
 --- !u!114 &885465613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45958,7 +45954,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885465610}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edfb98fc5102fd74d9799c8894c44641, type: 3}
   m_Name: 
@@ -45971,7 +45967,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885465610}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3fc6fe4e15f57e42ba6b01bb0ab77aa, type: 3}
   m_Name: 
@@ -46074,27 +46070,6 @@ MonoBehaviour:
   acquiredSkills:
   - {fileID: 0}
   currentActiveSkill: {fileID: 0}
---- !u!114 &885465620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885465610}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e772bab8b909641ae985e8fd059131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  motorGucu: 50
-  mouseHassasiyeti: 1.5
-  maksimumHiz: 30
-  kenarPayi: 0.35
-  kameraObjesi: {fileID: 0}
-  kameraMesafesi: 7
-  kameraYuksekligi: 3
-  kameraDonusHizi: 60
-  kameraTakipHizi: 10
 --- !u!114 &885465621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46159,56 +46134,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005d556f1974f884390818c94e75c716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualModel: {fileID: 1319019971}
   moveSpeedMultiplier: 1
-  sizeMultiplier: 1
+  sizeMultiplier: 3
   maxHealth: 3
   cooldownReduction: 0
   vampirismCount: 0
---- !u!114 &885465625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885465610}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18495d2321bedaf4bb678f993cb2a5a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duzelmeHizi: 5
-  maxYatis: 30
---- !u!114 &885465626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885465610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ce3ae710b4e51d49b4efb001931d317, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forwardSpeed: 20
-  turnSpeed: 2
---- !u!114 &885465627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885465610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98ffb5e920f89784282f9b47da1edfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visualModel: {fileID: 1319019971}
-  bankingAmount: 45
-  bankingSpeed: 5
-  bobSpeed: 2
-  bobAmount: 0.1
 --- !u!1001 &886149814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48453,8 +48384,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 10
   m_wordSpacing: 0
@@ -48484,7 +48415,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -60.834084, y: -22.261404, z: -44.964348, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -51901,8 +51832,8 @@ Camera:
   m_GameObject: {fileID: 1007251510}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0.38888884, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -53862,6 +53793,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7c66357c00cc06f4db616bbf965e80fa, type: 2}
   - {fileID: 11400000, guid: 672f12b15f1963b48a729537a0d305ea, type: 2}
   - {fileID: 11400000, guid: 40c0dc15ce6150243844bf738e895863, type: 2}
+  - {fileID: 11400000, guid: e41a9643922a1aa4cb9f5744039d1f5e, type: 2}
 --- !u!114 &1052985755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55761,8 +55693,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 10
   m_wordSpacing: 0
@@ -55792,7 +55724,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -52.899223, y: -31.801823, z: -42.31945, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -66524,10 +66456,10 @@ RectTransform:
   - {fileID: 238293922}
   m_Father: {fileID: 1102977438}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -200}
-  m_SizeDelta: {x: 1000, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1256352968
 MonoBehaviour:

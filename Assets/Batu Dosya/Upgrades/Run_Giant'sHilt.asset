@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Giant's Hilt
   description: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 21e31de424b41384dba958ef9659c36d, type: 3}
   tier: 0
   category: 0
   skillType: 0
