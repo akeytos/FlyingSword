@@ -116,6 +116,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\FlightController.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\Rotator.cs" />
+    <Compile Include="Assets\Scripts\SilkySmoothSword.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Intersector.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Triangle.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\InGameUIManager.cs" />
