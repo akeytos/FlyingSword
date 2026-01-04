@@ -1,128 +1,215 @@
 ﻿using UnityEngine;
+using System.Collections;
 
-public class SwordMaster_SolidEdge : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+public class SwordMasterController : MonoBehaviour
 {
-    [Header("⚔️ KILIÇ AYARLARI")]
-    public float motorGucu = 50f;
-    public float mouseHassasiyeti = 1.5f;
-    public float maksimumHiz = 30f;
+    [Header("Referanslar")]
+    public Transform swordPivot;
+    public TrailRenderer swordTrail;
+    public Camera playerCamera;
 
-    [Header("🎥 EKRAN SINIRLARI")]
-    // 0.3 demek: Ekranın %30'luk kenar payı. Ortadaki %40'lık alanda kamera ÖLÜDÜR (kıpırdamaz).
-    [Range(0.1f, 0.45f)] public float kenarPayi = 0.35f;
+    [Header("Input Ayarları")]
+    public float mouseSensitivity = 0.05f;
 
-    [Header("🎥 KAMERA AYARLARI")]
-    public Transform kameraObjesi;
-    public float kameraMesafesi = 7f;   // Kılıçtan ne kadar geride?
-    public float kameraYuksekligi = 3f; // Yerden ne kadar yüksekte?
-    public float kameraDonusHizi = 60f; // Kenara gelince dönüş hızı
-    public float kameraTakipHizi = 10f; // Pozisyon takip hızı (Yüksek = Zımba gibi)
+    [HideInInspector] public Vector2 virtualMouse = new Vector2(0.5f, 0.5f);
+    [HideInInspector] public bool isAttacking = false;
+
+    private float horizontalInput;
+    private float verticalInput;
+    private float currentCameraPitch = 0f;
+
+    [Header("Uçuş Ayarları")]
+    public float flySpeed = 15f;
+    public float linearDamping = 5f;
+
+    [Header("Dash Ayarları")]
+    public float dashSpeedMultiplier = 3f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1.0f;
+    private bool isDashing = false;
+    private float lastDashTime = -10f;
+
+    [Header("Kılıç Mekaniği")]
+    public float reachDistance = 10f;
+    public float swingSpeed = 25f;
+    public float trailSpeedThreshold = 0.1f;
+
+    [Header("El Pozisyonu")]
+    public float handMoveRangeX = 2.0f;
+    public float handMoveRangeY = 1.5f;
+    public float handMoveSpeed = 8f;
+    public float baseDistance = 1.5f;
+
+    private Vector2 lastMousePosForTrail;
+
+    [Header("Gövde ve Kamera Dönüşü")]
+    public float bodyTurnSpeed = 60f;
+    public float edgeThreshold = 0.85f;
+
+    [Header("Denge")]
+    public float duzelmeHizi = 5.0f;
+    public float maxYatis = 30f;
 
     private Rigidbody rb;
-    private Camera cam;
-    private Vector2 viewportPos = new Vector2(0.5f, 0.5f); // Kılıcın ekrandaki sanal konumu
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+        if (playerCamera == null) playerCamera = Camera.main;
+    }
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        cam = Camera.main;
-        if (kameraObjesi == null) kameraObjesi = cam.transform;
-
         rb.useGravity = false;
-        rb.constraints = RigidbodyConstraints.FreezeRotation; // Fiziği sustur
-        rb.linearDamping = 1f;
+        rb.linearDamping = linearDamping;
 
-        // Mouse'u yok et
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        currentCameraPitch = playerCamera.transform.localEulerAngles.x;
+        if (currentCameraPitch > 180) currentCameraPitch -= 360;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        HandleInput();
+        HandleSwordMovement();
+        HandleTrail();
+        HandleBodyRotation();
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > lastDashTime + dashCooldown)
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            StartCoroutine(DashRoutine());
         }
-
-        // --- 1. KILIÇ EKRANDA GEZSİN ---
-        float fareX = Input.GetAxis("Mouse X") * mouseHassasiyeti * Time.deltaTime;
-        float fareY = Input.GetAxis("Mouse Y") * mouseHassasiyeti * Time.deltaTime;
-
-        viewportPos.x += fareX;
-        viewportPos.y += fareY;
-
-        // Kılıcı ekran sınırlarına hapset (Asla dışarı taşmasın)
-        viewportPos.x = Mathf.Clamp(viewportPos.x, 0.05f, 0.95f);
-        viewportPos.y = Mathf.Clamp(viewportPos.y, 0.05f, 0.95f);
     }
 
     void FixedUpdate()
     {
-        // --- 2. KAMERA NE ZAMAN DÖNECEK? ---
-        float donusY = 0;
-        float donusX = 0;
+        HandleFlight();
+        HandleStabilization();
+        rb.angularVelocity = Vector3.zero;
+    }
 
-        // SAĞ/SOL SINIRI
-        if (viewportPos.x > (0.5f + kenarPayi)) // Sağa dayandıysa
-            donusY = (viewportPos.x - (0.5f + kenarPayi)) * kameraDonusHizi;
-        else if (viewportPos.x < (0.5f - kenarPayi)) // Sola dayandıysa
-            donusY = (viewportPos.x - (0.5f - kenarPayi)) * kameraDonusHizi;
+    IEnumerator DashRoutine()
+    {
+        isDashing = true;
+        lastDashTime = Time.time;
 
-        // YUKARI/AŞAĞI SINIRI
-        if (viewportPos.y > (0.5f + kenarPayi)) // Yukarı dayandıysa
-            donusX = -(viewportPos.y - (0.5f + kenarPayi)) * kameraDonusHizi;
-        else if (viewportPos.y < (0.5f - kenarPayi)) // Aşağı dayandıysa
-            donusX = -(viewportPos.y - (0.5f - kenarPayi)) * kameraDonusHizi;
-
-        // Kamerayı döndür
-        Vector3 mevcutRot = kameraObjesi.rotation.eulerAngles;
-        // X açısını (Yukarı/Aşağı) 80 dereceyle sınırla ki tepe taklak olmasın
-        float yeniX = mevcutRot.x + donusX;
-        if (yeniX > 180) yeniX -= 360; // Açıyı düzelt
-        yeniX = Mathf.Clamp(yeniX, -60f, 60f);
-
-        kameraObjesi.rotation = Quaternion.Euler(yeniX, mevcutRot.y + donusY, 0);
-
-        // --- 3. KILIÇ NEREYE BAKSIN? ---
-        // Kamera açısından bir ışın yolla
-        Ray ray = cam.ViewportPointToRay(new Vector3(viewportPos.x, viewportPos.y, 0));
-        Vector3 hedefNokta = ray.GetPoint(20f); // İlerideki nokta
-        Vector3 yon = (hedefNokta - transform.position).normalized;
-
-        if (yon != Vector3.zero)
+        float originalWidth = 1f;
+        if (swordTrail != null)
         {
-            Quaternion hedefRot = Quaternion.LookRotation(yon);
-            // Kılıç anında dönsün, gecikme olmasın
-            rb.MoveRotation(hedefRot);
+            originalWidth = swordTrail.widthMultiplier;
+            swordTrail.widthMultiplier *= 2f;
+            swordTrail.emitting = true;
         }
 
-        // --- 4. GAZLA ---
-        if (Input.GetMouseButton(0))
+        float originalFOV = playerCamera.fieldOfView;
+        float targetFOV = originalFOV + 10f;
+
+        float startTime = Time.time;
+        while (Time.time < startTime + dashDuration)
         {
-            rb.AddForce(transform.forward * motorGucu, ForceMode.Acceleration);
+            playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, targetFOV, Time.deltaTime * 10f);
+            yield return null;
         }
 
-        // Hız Limiti
-        if (rb.linearVelocity.magnitude > maksimumHiz)
+        isDashing = false;
+
+        if (swordTrail != null) swordTrail.widthMultiplier = originalWidth;
+
+        float resetTime = Time.time;
+        while (Time.time < resetTime + 0.5f)
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * maksimumHiz;
+            playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, originalFOV, Time.deltaTime * 5f);
+            yield return null;
+        }
+        playerCamera.fieldOfView = originalFOV;
+    }
+
+    void HandleInput()
+    {
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+
+        virtualMouse.x = Mathf.Clamp01(virtualMouse.x + mouseX);
+        virtualMouse.y = Mathf.Clamp01(virtualMouse.y + mouseY);
+
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
+    }
+
+    void HandleSwordMovement()
+    {
+        if (swordPivot == null) return;
+
+        float targetX = (virtualMouse.x - 0.5f) * handMoveRangeX;
+        float targetY = (virtualMouse.y - 0.5f) * handMoveRangeY;
+        Vector3 targetPos = new Vector3(targetX, targetY, baseDistance);
+        swordPivot.localPosition = Vector3.Lerp(swordPivot.localPosition, targetPos, Time.deltaTime * handMoveSpeed);
+
+        if (!isAttacking)
+        {
+            Ray ray = playerCamera.ViewportPointToRay(new Vector3(virtualMouse.x, virtualMouse.y, 0));
+            Vector3 lookPoint = ray.GetPoint(reachDistance);
+
+            Vector3 direction = lookPoint - swordPivot.position;
+            if (direction != Vector3.zero)
+            {
+                Quaternion targetRot = Quaternion.LookRotation(direction, playerCamera.transform.up);
+                swordPivot.rotation = Quaternion.Lerp(swordPivot.rotation, targetRot, Time.deltaTime * swingSpeed);
+            }
         }
     }
 
-    void LateUpdate()
+    void HandleTrail()
     {
-        if (kameraObjesi == null) return;
+        if (swordTrail == null) return;
+        if (isAttacking || isDashing) return;
 
-        // --- 5. KAMERA POZİSYONU (KİLİT NOKTA BURASI) 🛑 ---
+        float mouseSpeed = (virtualMouse - lastMousePosForTrail).magnitude / Time.deltaTime;
+        swordTrail.emitting = mouseSpeed > trailSpeedThreshold;
+        lastMousePosForTrail = virtualMouse;
+    }
 
-        // ESKİSİ (Hatalı): transform.TransformPoint(...) -> Kılıç dönünce kamera da dönüyordu.
-        // YENİSİ (Sağlam): Kılıcın pozisyonunu al, KAMERANIN arkasına at.
+    void HandleBodyRotation()
+    {
+        if (virtualMouse.x > edgeThreshold)
+            transform.Rotate(Vector3.up * bodyTurnSpeed * Time.deltaTime);
+        else if (virtualMouse.x < 1 - edgeThreshold)
+            transform.Rotate(Vector3.up * -bodyTurnSpeed * Time.deltaTime);
 
-        // Hedef = Kılıcın Yeri - (Kameranın Baktığı Yön * Mesafe) + Yükseklik
-        Vector3 hedefPozisyon = transform.position - (kameraObjesi.forward * kameraMesafesi) + (Vector3.up * kameraYuksekligi);
+        float pitchChange = 0f;
+        if (virtualMouse.y > edgeThreshold) pitchChange = -bodyTurnSpeed * Time.deltaTime;
+        if (virtualMouse.y < 1 - edgeThreshold) pitchChange = bodyTurnSpeed * Time.deltaTime;
 
-        // Kamerayı oraya götür
-        kameraObjesi.position = Vector3.Lerp(kameraObjesi.position, hedefPozisyon, kameraTakipHizi * Time.deltaTime);
+        if (Mathf.Abs(pitchChange) > 0.001f)
+        {
+            currentCameraPitch += pitchChange;
+            currentCameraPitch = Mathf.Clamp(currentCameraPitch, -80f, 80f);
+            playerCamera.transform.localEulerAngles = new Vector3(currentCameraPitch, 0, 0);
+        }
+    }
+
+    void HandleFlight()
+    {
+        Vector3 moveDir = playerCamera.transform.right * horizontalInput + playerCamera.transform.forward * verticalInput;
+
+        float currentSpeed = isDashing ? (flySpeed * dashSpeedMultiplier) : flySpeed;
+
+        rb.AddForce(moveDir * currentSpeed * 50f, ForceMode.Force);
+    }
+
+    void HandleStabilization()
+    {
+        Vector3 currentRot = rb.rotation.eulerAngles;
+        float zAngle = currentRot.z;
+        if (zAngle > 180) zAngle -= 360;
+
+        float clampedZ = Mathf.Clamp(zAngle, -maxYatis, maxYatis);
+        float newZ = Mathf.Lerp(clampedZ, 0, duzelmeHizi * Time.fixedDeltaTime);
+
+        Quaternion targetRotation = Quaternion.Euler(currentRot.x, currentRot.y, newZ);
+        rb.MoveRotation(targetRotation);
     }
 }
