@@ -7,56 +7,64 @@ public class EnemyStats : MonoBehaviour
     public GameObject coinPrefab;
 
     [Header("--- DÜÞME ORANLARI (%) ---")]
-    [Range(0, 100)] public float xpDropChance = 100f;
-    [Range(0, 100)] public float coinDropChance = 20f;
+    public float xpDropChance = 100f;
+    public float coinDropChance = 20f;
 
     [Header("--- DEÐERLER ---")]
-    public float xpAmount = 20f;
-    public int coinAmount = 10;
+    public float maxHealth = 10f; // Can eklendi
+    private float currentHealth;
 
-    [Header("--- SAÇILMA AYARI (YENÝ) ---")]
-    public float scatterRange = 1.0f; // Eþyalar ne kadar uzaða saçýlsýn?
+    public float scatterRange = 1.0f;
 
-    public void OnEnemySliced()
+    // Her doðuþta caný yenile
+    void OnEnable()
     {
-        // 1. XP HESABI
-        float zarXP = Random.Range(0f, 100f);
-        if (zarXP <= xpDropChance && xpGemPrefab != null)
-        {
-            SpawnLoot(xpGemPrefab, LootItem.LootType.XP, xpAmount);
-        }
+        currentHealth = maxHealth;
+    }
 
-        // 2. COIN HESABI
-        float zarCoin = Random.Range(0f, 100f);
-        if (zarCoin <= coinDropChance && coinPrefab != null)
+    // Hasar alma fonksiyonu (Kýlýç buraya vuracak)
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+        if (currentHealth <= 0)
         {
-            SpawnLoot(coinPrefab, LootItem.LootType.Coin, coinAmount);
-        }
-
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.AddKill();
+            OnEnemySliced();
         }
     }
 
-    void SpawnLoot(GameObject prefab, LootItem.LootType type, float value)
+    public void OnEnemySliced()
     {
-        // --- ÝÞTE SÝHÝRLÝ DOKUNUÞ BURADA ---
-        // Rastgele bir sapma deðeri oluþturuyoruz (X ve Z ekseninde)
-        float randomX = Random.Range(-scatterRange, scatterRange);
-        float randomZ = Random.Range(-scatterRange, scatterRange);
+        // 1. LOOT DÜÞÜR
+        DropLoot();
 
-        // Düþmanýn pozisyonuna bu rastgeleliði ekliyoruz
-        // Y ekseninde (Yükseklik) 0.5f yukarýda olsun ki yere gömülmesin
-        Vector3 spawnPos = transform.position + new Vector3(randomX, 0.5f, randomZ);
+        // 2. KILL SAYACINI ARTIR
+        if (GameManager.Instance != null) GameManager.Instance.AddKill(); // Eðer manager varsa
 
-        GameObject loot = Instantiate(prefab, spawnPos, Quaternion.identity);
+        // 3. HAVUZA GERÝ DÖN (DESTROY YOK!)
+        EnemyPool.Instance.ReturnToPool(this.gameObject);
+    }
 
+    void DropLoot()
+    {
+        // XP
+        if (Random.Range(0f, 100f) <= xpDropChance && xpGemPrefab != null)
+            SpawnItem(xpGemPrefab, LootItem.LootType.XP);
+
+        // COIN
+        if (Random.Range(0f, 100f) <= coinDropChance && coinPrefab != null)
+            SpawnItem(coinPrefab, LootItem.LootType.Coin);
+    }
+
+    void SpawnItem(GameObject prefab, LootItem.LootType type)
+    {
+        float rx = Random.Range(-scatterRange, scatterRange);
+        float rz = Random.Range(-scatterRange, scatterRange);
+        Vector3 pos = transform.position + new Vector3(rx, 0.5f, rz);
+
+        GameObject loot = Instantiate(prefab, pos, Quaternion.identity);
+
+        // LootItem ayarlarý (Sendeki scriptle uyumlu)
         LootItem itemScript = loot.GetComponent<LootItem>();
-        if (itemScript != null)
-        {
-            itemScript.type = type;
-            itemScript.amount = value;
-        }
+        if (itemScript != null) itemScript.type = type;
     }
 }

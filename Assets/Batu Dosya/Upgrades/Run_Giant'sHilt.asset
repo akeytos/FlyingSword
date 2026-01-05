@@ -19,5 +19,5 @@ MonoBehaviour:
   category: 0
   skillType: 0
   skillScriptID: 
-  statValue: 10
-  statName: Giant's Hilt
+  statValue: 1
+  statName: Size
