@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Skill_CloneEdges
   m_EditorClassIdentifier: 
   upgradeName: Clone Edges
-  description: "K\u0131l\u0131\xE7 klonland\u0131!"
-  icon: {fileID: 21300000, guid: 6d2fc53fe1a8df146a70000813378cb0, type: 3}
-  type: 1
-  skillName: 3
-  cooldown: 5
-  duration: 3
-  value: 10
+  description: "K\u0131l\u0131\xE7lar\u0131n klonland\u0131, 3 k\u0131l\u0131c\u0131n
+    var."
+  icon: {fileID: 21300000, guid: c598ce066769c0f46ba93b905ad048c7, type: 3}
+  tier: 0
+  category: 1
+  skillType: 1
+  skillScriptID: CloneEdges
+  statValue: 0
+  statName: 

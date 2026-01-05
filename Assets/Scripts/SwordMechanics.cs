@@ -58,7 +58,6 @@ public class SwordMechanic : MonoBehaviour
 
     void HandleSwordSwing()
     {
-        // ... (Buradaki eski kodlar aynen kalacak) ...
         Vector2 mousePos = InputManager.instance.virtualMouse;
 
         float targetX = (mousePos.x - 0.5f) * handMoveRangeX;

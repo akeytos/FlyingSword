@@ -1,38 +1,24 @@
 using UnityEngine;
 
-// Yetenek Türü: Aktif mi (Sað Týk), Pasif mi (Otomatik)?
-public enum UpgradeType
-{
-    StatBoost,   // Can, Hýz, Hasar artýþý (Eski sistem)
-    ActiveSkill, // Void Flicker, Clone Edges (Sað Týk)
-    PassiveSkill // Kinetic Lance (Otomatik mekanik)
-}
+public enum UpgradeTier { Common, Rare, Epic, Legendary }
+public enum UpgradeCategory { Rune, Skill } // Rün mü, Yetenek mi?
+public enum SkillType { Passive, Active }   // Yetenekse: Pasif mi Aktif mi?
 
-// Hangi Büyü? (Kodun tanýmasý için)
-public enum SkillName
-{
-    None,           // Büyü deðilse (Düz stat artýþýysa)
-    KineticLance,
-    VoidFlicker,
-    CloneEdges
-}
-
-[CreateAssetMenu(fileName = "NewUpgrade", menuName = "Sword Slide Skills Data/Upgrade Data")]
+[CreateAssetMenu(fileName = "Rün-Yetenek Config", menuName = "RUN-YETENEK/Run-Yetenek Data")]
 public class UpgradeData : ScriptableObject
 {
-    [Header("--- GENEL BÝLGÝLER ---")]
-    public string upgradeName;       // Ekranda yazacak isim
-    [TextArea] public string description; // Açýklama
-    public Sprite icon;              // Resim
+    [Header("Genel Bilgiler")]
+    public string upgradeName;
+    [TextArea] public string description;
+    public Sprite icon;
+    public UpgradeTier tier;
+    public UpgradeCategory category;
 
-    [Header("--- TÜR AYARLARI ---")]
-    public UpgradeType type;         // Stat mý, Skill mi?
-    public SkillName skillName;      // Hangi skill? (Sadece Skill ise seç)
+    [Header("Eðer YETENEK ise doldur")]
+    public SkillType skillType; // Aktif mi Pasif mi?
+    public string skillScriptID; // Örn: "KineticLance", "VoidFlicker" (Script adýyla eþleþmeli)
 
-    [Header("--- SKILL AYARLARI (Sadece Skill Ýse) ---")]
-    public float cooldown = 5f;      // Bekleme süresi (Void Flicker için)
-    public float duration = 3f;      // Etki süresi (Clone Edges için)
-
-    [Header("--- STAT AYARLARI (Sadece Stat Ýse) ---")]
-    public float value = 10f;        // Ne kadar artýracak? (Can +1, Hýz +10 vs.)
+    [Header("Eðer RÜN ise doldur")]
+    public float statValue; // Örn: %10 artýþ için 10 veya 0.1
+    public string statName; // Örn: "Size", "Speed", "Vampirism"
 }

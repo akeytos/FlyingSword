@@ -12,6 +12,7 @@ public class FlightController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         // Unity sürümüne göre 'drag' veya 'linearDamping'
+        // Eðer Unity 6 kullanýyorsan linearDamping kalsýn, hata verirse drag yap.
         rb.linearDamping = 5f;
     }
 

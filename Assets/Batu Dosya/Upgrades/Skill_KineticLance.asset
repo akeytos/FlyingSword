@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Skill_KineticLance
   m_EditorClassIdentifier: 
   upgradeName: Kinetic Lance
-  description: 
-  icon: {fileID: 21300000, guid: 89039c3cb743764458c31d7fc8fc15d7, type: 3}
-  type: 2
-  skillName: 1
-  cooldown: 5
-  duration: 3
-  value: 10
+  description: "Bir s\xFCre d\xFCz u\xE7arsan enerji m\u0131zra\u011F\u0131 olu\u015Fturur."
+  icon: {fileID: 21300000, guid: 8a24f2ed4fd72ec44aec23c18a061c66, type: 3}
+  tier: 0
+  category: 1
+  skillType: 0
+  skillScriptID: KineticLance
+  statValue: 0
+  statName: 

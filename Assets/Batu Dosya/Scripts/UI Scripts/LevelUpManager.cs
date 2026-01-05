@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using System.Collections.Generic;
 
 public class LevelUpManager : MonoBehaviour
@@ -8,44 +7,34 @@ public class LevelUpManager : MonoBehaviour
     public static LevelUpManager Instance;
 
     [Header("--- UI BAÐLANTILARI ---")]
-    public GameObject levelUpPanel;      // Siyah arka planlý panel
-    public UpgradeButton[] upgradeButtons;   // 3 adet butonumuz
+    public GameObject levelUpPanel;
+    public UpgradeButton[] upgradeButtons;
 
     [Header("--- VERÝLER ---")]
-    public UpgradeData[] allUpgrades;    // ScriptableObject yeteneklerin hepsi buraya
+    public UpgradeData[] allUpgrades;
 
     void Awake()
     {
-        // Singleton (Tekil Yapý)
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
     }
 
     void Start()
     {
-        // Oyun baþýnda paneli gizle ve zamanýn aktýðýndan emin ol
         if (levelUpPanel != null) levelUpPanel.SetActive(false);
         Time.timeScale = 1f;
     }
 
-    // GAMEMANAGER BU FONKSÝYONU ÇAÐIRACAK
     public void ShowLevelUpOptions()
     {
-        // 1. OYUNU DURDUR (En önemli kýsým)
         Time.timeScale = 0f;
-
-        // 2. Mouse'u Serbest Býrak (Týklama yapabilmek için)
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        // 3. Paneli Aç
         if (levelUpPanel != null) levelUpPanel.SetActive(true);
 
-        // --- KARTLARI KARIÞTIR VE DAÐIT ---
-        // Mevcut yeteneklerin kopyasýný al
+        // Kartlarý Karýþtýr ve Daðýt
         List<UpgradeData> availableUpgrades = new List<UpgradeData>(allUpgrades);
-
-        // Karýþtýr (Shuffle)
         for (int i = 0; i < availableUpgrades.Count; i++)
         {
             UpgradeData temp = availableUpgrades[i];
@@ -54,7 +43,6 @@ public class LevelUpManager : MonoBehaviour
             availableUpgrades[randomIndex] = temp;
         }
 
-        // Butonlara Daðýt
         for (int i = 0; i < upgradeButtons.Length; i++)
         {
             if (i < availableUpgrades.Count)
@@ -69,59 +57,43 @@ public class LevelUpManager : MonoBehaviour
         }
     }
 
-    // KARTA TIKLANINCA ÇALIÞIR
+    // --- GÜNCELLENEN FONKSÝYON ---
     public void SelectUpgrade(UpgradeData data)
     {
         if (data != null)
         {
             Debug.Log("Seçilen Kart: " + data.upgradeName);
 
-            // --- 1. STAT ARTIÞLARI (CAN, HIZ VS.) ---
-            if (data.type == UpgradeType.StatBoost)
+            // 1. ÖZELLÝÐÝ ÝÞLE (Logic)
+            if (data.category == UpgradeCategory.Rune)
             {
-                ApplyStatUpgrade(data);
-            }
-            // --- 2. YETENEKLER (SKILLS) ---
-            else if (data.type == UpgradeType.ActiveSkill || data.type == UpgradeType.PassiveSkill)
-            {
-                if (PlayerSkillController.Instance != null)
+                if (SwordStats.Instance != null)
                 {
-                    bool eklendi = PlayerSkillController.Instance.TryAddSkill(data);
-                    if (!eklendi) Debug.LogWarning("Skill slotlarý dolu veya hata oluþtu!");
+                    // SwordStats string olarak statName bekliyor (Örn: "Size")
+                    SwordStats.Instance.ApplyRune(data.statName, data.statValue);
                 }
             }
-        }
-
-        // Seçim bitti, paneli kapat
-        ClosePanel();
-    }
-
-    // Statlarý yöneten özel fonksiyon
-    void ApplyStatUpgrade(UpgradeData data)
-    {
-        // Örnek: Kartýn adý "MaxHealth" ise can ver
-        if (data.upgradeName == "MaxHealth" || data.upgradeName == "HealthUp")
-        {
-            // Sahnedeki oyuncuyu bul ve can ver (PlayerHealth scriptine baðlý)
-            PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
-            if (playerHealth != null)
+            else if (data.category == UpgradeCategory.Skill)
             {
-                // Deðer kadar (örn: 1 kalp) iyileþtir
-                playerHealth.Heal((int)data.value);
-                Debug.Log("Can Artýrýldý!");
+                // PlayerSkillController veya AbilityManager burayý halleder
+                // (Senin projende hangisi aktifse o kalmalý)
+                Debug.Log("Yetenek seçildi: " + data.upgradeName);
+            }
+
+            // 2. UI'A ÝKONU EKLE (Görsel) - BURAYI EKLEDÝM
+            if (InGameUIManager.Instance != null)
+            {
+                InGameUIManager.Instance.AddSkillToHUD(data);
             }
         }
-        // Ýleride buraya "SpeedUp", "DamageUp" gibi else if'ler ekleyebilirsin
+
+        ClosePanel();
     }
 
     void ClosePanel()
     {
         if (levelUpPanel != null) levelUpPanel.SetActive(false);
-
-        // ZAMANI TEKRAR AKIT (Çok Önemli)
         Time.timeScale = 1f;
-
-        // Mouse'u tekrar kilitle (FPS modu için)
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }

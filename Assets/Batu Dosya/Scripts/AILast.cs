@@ -3,15 +3,15 @@ using UnityEngine;
 public class AILast : MonoBehaviour
 {
     [Header("Hýz Ayarý")]
-    public float moveSpeed = 8f;   // Düþmanýn hýzý
-    public float donmeHizi = 10f;  // Dönüþ hýzý
+    public float moveSpeed = 8f;
+    public float donmeHizi = 10f;
 
-    // Spawner tarafýndan otomatik doldurulacak
     [HideInInspector] public Transform target;
 
-    void Start()
+    // POOLING ÝÇÝN KRÝTÝK DEÐÝÞÝKLÝK: Start -> OnEnable
+    void OnEnable()
     {
-        // Eðer hedef yoksa (Spawner vermediyse) haritada Player'ý bulmaya çalýþ (Yedek plan)
+        // Hedef yoksa bulmaya çalýþ
         if (target == null)
         {
             GameObject p = GameObject.FindGameObjectWithTag("Player");
@@ -25,11 +25,10 @@ public class AILast : MonoBehaviour
 
         // --- 1. YÜZÜNÜ DÖN ---
         Vector3 targetPos = target.position;
-        targetPos.y = transform.position.y; // Yere paralel bak, havaya bakma
+        targetPos.y = transform.position.y; // Yere paralel bak
 
         Vector3 direction = (targetPos - transform.position).normalized;
 
-        // Eðer hareket ediyorsak dönelim
         if (direction != Vector3.zero)
         {
             Quaternion lookRot = Quaternion.LookRotation(direction);
