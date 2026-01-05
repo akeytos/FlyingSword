@@ -1491,6 +1491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   donmeHizi: 10
+  isFlying: 1
   target: {fileID: 0}
 --- !u!114 &2044612447279027659
 MonoBehaviour:
@@ -1509,6 +1510,10 @@ MonoBehaviour:
   xpDropChance: 100
   coinDropChance: 20
   maxHealth: 10
+  isElite: 0
+  armor: 0
+  eliteScaleMultiplier: 2
+  eliteHealthMultiplier: 5
   scatterRange: 1
 --- !u!114 &400344291829599824
 MonoBehaviour:

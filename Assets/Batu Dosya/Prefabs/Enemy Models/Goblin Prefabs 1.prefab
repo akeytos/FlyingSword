@@ -1591,8 +1591,11 @@ MonoBehaviour:
   coinPrefab: {fileID: 1610871626686050207, guid: b4821db1477ed874fa6b6aeedf5e2e85, type: 3}
   xpDropChance: 100
   coinDropChance: 20
-  xpAmount: 20
-  coinAmount: 10
+  maxHealth: 10
+  isElite: 0
+  armor: 0
+  eliteScaleMultiplier: 2
+  eliteHealthMultiplier: 5
   scatterRange: 1
 --- !u!114 &90969645240097625
 MonoBehaviour:
@@ -1621,4 +1624,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   donmeHizi: 10
+  isFlying: 0
   target: {fileID: 0}

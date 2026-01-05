@@ -4,14 +4,13 @@ using UnityEngine;
 public class WaveDirector : MonoBehaviour
 {
     [Header("--- TEMEL AYARLAR ---")]
-    public Transform player;          // PlayerRoot / Pilot
-    public LayerMask groundLayer;     // "Ground" layerını seçmen lazım!
-    public float spawnRadius = 25f;   // Oyuncudan ne kadar uzakta doğsun?
+    public Transform player;
+    public LayerMask groundLayer; // Inspector'dan 'Ground' layerını seçmeyi unutma!
+    public float spawnRadius = 25f;
 
     [Header("--- DALGA SENARYOSU ---")]
     public List<WavePhase> waves;
 
-    // Boss kontrolü için
     private bool bossSpawned = false;
     private float gameTime;
     private float spawnTimer;
@@ -19,50 +18,40 @@ public class WaveDirector : MonoBehaviour
     [System.Serializable]
     public class WavePhase
     {
-        public string phaseName;     // Örn: "Isınma", "1. Dakika Swarm", "BOSS"
-        public float startTime;      // Bu dalga oyunun kaçıncı saniyesinde başlasın?
-        public float spawnRate;      // Kaç saniyede bir düşman gelsin? (0.1 = Swarm, 2.0 = Sakin)
-
-        [Header("Kimler Gelecek?")]
-        public List<EnemyWeight> enemyPool; // Bu dalgada hangi düşmanlar var?
-
-        [Header("Boss Dalgası mı?")]
-        public GameObject bossPrefab; // Eğer buraya bir şey koyarsan, bu saniyede Boss doğar!
+        public string phaseName;
+        public float startTime;
+        public float spawnRate;
+        public List<EnemyWeight> enemyPool;
+        public GameObject bossPrefab;
     }
 
     [System.Serializable]
     public class EnemyWeight
     {
-        public string enemyID; // Pool ID (Goblin, Goril)
+        public string enemyID;
         [Range(0, 100)] public int chance;
     }
 
     void Update()
     {
         if (player == null) return;
-
         gameTime += Time.deltaTime;
-
-        // 1. ŞU AN HANGİ DALGADAYIZ?
         WavePhase currentWave = GetCurrentWave();
 
         if (currentWave != null)
         {
-            // --- BOSS KONTROLÜ ---
+            // --- BOSS DOĞUMU ---
             if (currentWave.bossPrefab != null && !bossSpawned)
             {
                 SpawnBoss(currentWave.bossPrefab);
-                bossSpawned = true; // Sadece 1 kere doğsun
-                // Boss gelince diğer düşmanlar dursun istersen buraya return koyabilirsin.
+                bossSpawned = true;
             }
-            // Boss dalgasına geçilmediyse flag'i sıfırla (farklı bosslar için)
             else if (currentWave.bossPrefab == null)
             {
                 bossSpawned = false;
             }
 
-            // --- NORMAL DÜŞMAN SPAWN ---
-            // Eğer spawnRate 999 gibi yüksek bir sayıysa düşman doğmaz (Sadece Boss anı için)
+            // --- NORMAL DÜŞMAN DOĞUMU ---
             if (currentWave.spawnRate < 100f)
             {
                 spawnTimer += Time.deltaTime;
@@ -77,72 +66,70 @@ public class WaveDirector : MonoBehaviour
 
     WavePhase GetCurrentWave()
     {
-        // Listeyi sondan başa tarar, zamanı gelen en son dalgayı bulur.
         for (int i = waves.Count - 1; i >= 0; i--)
         {
-            if (gameTime >= waves[i].startTime)
-            {
-                return waves[i];
-            }
+            if (gameTime >= waves[i].startTime) return waves[i];
         }
         return null;
     }
 
     void SpawnEnemy(WavePhase wave)
     {
-        // Tür Seç
         string enemyID = GetRandomEnemyID(wave);
         if (string.IsNullOrEmpty(enemyID)) return;
 
-        // Pozisyon Bul (YER ALTI SORUNU ÇÖZÜMÜ)
+        // 1. Önce zemini bul (Garantili Yöntem)
         Vector3 spawnPos = GetValidSpawnPosition();
 
-        // Havuzdan Çek
+        // 2. Havuzdan düşmanı çağır
         GameObject enemy = EnemyPool.Instance.SpawnFromPool(enemyID, spawnPos, Quaternion.identity);
 
-        // Hedef Göster
         if (enemy != null && enemy.TryGetComponent(out AILast ai))
         {
             ai.target = player;
+
+            // 3. Eğer UÇAN bir düşmansa, onu yerden kaldır
+            if (ai.isFlying)
+            {
+                enemy.transform.position += Vector3.up * Random.Range(5f, 15f); // 5-15 metre havalandır
+            }
+            // Uçmuyorsa zaten GetValidSpawnPosition onu yere yapıştırdı.
         }
     }
 
     void SpawnBoss(GameObject bossPrefab)
     {
-        // Boss için biraz daha uzağa pozisyon bul
         Vector3 bossPos = GetValidSpawnPosition();
-
         Instantiate(bossPrefab, bossPos, Quaternion.identity);
-        Debug.Log("👹 BOSS SAHNEYE İNDİ!");
-
-        // Müzik değişimi vs. buraya eklenebilir.
     }
 
-    // --- YER ALTI SORUNUNU ÇÖZEN FONKSİYON ---
+    // --- KRİTİK DÜZELTME BURADA ---
     Vector3 GetValidSpawnPosition()
     {
-        // 1. Rastgele X, Z bul
+        // 1. Oyuncunun etrafında rastgele nokta seç
         Vector2 randomCircle = Random.insideUnitCircle.normalized * spawnRadius;
-        Vector3 airPos = player.position + new Vector3(randomCircle.x, 20f, randomCircle.y); // 20 metre havadan başla
 
-        // 2. Aşağı doğru ışın (Raycast) at
+        // 2. Noktayı ÇOK YUKARIDAN başlat (Oyuncunun yüksekliğinden bağımsız)
+        // Y=100 diyerek bulutların üzerinden aşağı bakıyoruz
+        Vector3 skyPos = new Vector3(player.position.x + randomCircle.x, 100f, player.position.z + randomCircle.y);
+
         RaycastHit hit;
-        if (Physics.Raycast(airPos, Vector3.down, out hit, 50f, groundLayer))
+        // 3. Aşağı doğru lazer at, sadece Ground layer'ını gör
+        if (Physics.Raycast(skyPos, Vector3.down, out hit, 200f, groundLayer))
         {
-            // Zemini bulduk! Tam üstüne koyuyoruz.
-            return hit.point;
+            return hit.point; // Zemini bulduk, tam üstü
         }
 
-        // Zemin bulunamazsa (harita dışıysa) güvenli olarak oyuncunun Y seviyesini kullan
-        Vector3 fallbackPos = airPos;
-        fallbackPos.y = player.position.y;
-        return fallbackPos;
+        // 4. Eğer zemin yoksa (harita dışıysa), varsayılan olarak Y=0 (Dünya düzlemi) kullan
+        // ASLA player.position.y kullanma, yoksa havada doğarlar!
+        Vector3 defaultPos = skyPos;
+        defaultPos.y = 0f;
+        return defaultPos;
     }
 
     string GetRandomEnemyID(WavePhase wave)
     {
         if (wave.enemyPool.Count == 0) return null;
-
         int totalWeight = 0;
         foreach (var e in wave.enemyPool) totalWeight += e.chance;
 

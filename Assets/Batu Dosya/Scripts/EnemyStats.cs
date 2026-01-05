@@ -10,22 +10,43 @@ public class EnemyStats : MonoBehaviour
     public float xpDropChance = 100f;
     public float coinDropChance = 20f;
 
-    [Header("--- DEÐERLER ---")]
-    public float maxHealth = 10f; // Can eklendi
+    [Header("--- TEMEL STATLAR ---")]
+    public float maxHealth = 10f;
     private float currentHealth;
+
+    [Header("--- ELITE & ARMOR AYARLARI ---")] // [YENÝ]
+    public bool isElite = false; // Tiklersen dev olur
+    public float armor = 0f;     // Gelen hasarý azaltýr (Örn: 5 hasar gelirse 2 zýrh düþer, 3 yer)
+    public float eliteScaleMultiplier = 2.0f; // Elite olunca kaç kat büyüsün?
+    public float eliteHealthMultiplier = 5.0f; // Elite olunca caný kaç kat artsýn?
 
     public float scatterRange = 1.0f;
 
-    // Her doðuþta caný yenile
     void OnEnable()
     {
-        currentHealth = maxHealth;
+        // [YENÝ] Elite Kontrolü
+        if (isElite)
+        {
+            transform.localScale = Vector3.one * eliteScaleMultiplier; // Büyüt
+            currentHealth = maxHealth * eliteHealthMultiplier;         // Caný katla
+        }
+        else
+        {
+            transform.localScale = Vector3.one; // Normale döndür (Pool'dan kirlilik kalmasýn)
+            currentHealth = maxHealth;
+        }
     }
 
-    // Hasar alma fonksiyonu (Kýlýç buraya vuracak)
     public void TakeDamage(float amount)
     {
-        currentHealth -= amount;
+        // [YENÝ] Zýrh Hesabý
+        float finalDamage = amount - armor;
+        if (finalDamage < 1) finalDamage = 1; // En az 1 hasar yesin, ölümsüz olmasýn
+
+        currentHealth -= finalDamage;
+
+        // Vuruþ efekti, ses vb. buraya eklenebilir
+
         if (currentHealth <= 0)
         {
             OnEnemySliced();
@@ -34,23 +55,17 @@ public class EnemyStats : MonoBehaviour
 
     public void OnEnemySliced()
     {
-        // 1. LOOT DÜÞÜR
         DropLoot();
-
-        // 2. KILL SAYACINI ARTIR
-        if (GameManager.Instance != null) GameManager.Instance.AddKill(); // Eðer manager varsa
-
-        // 3. HAVUZA GERÝ DÖN (DESTROY YOK!)
+        if (GameManager.Instance != null) GameManager.Instance.AddKill();
         EnemyPool.Instance.ReturnToPool(this.gameObject);
     }
 
     void DropLoot()
     {
-        // XP
+        // Elite düþmanlar belki daha fazla loot atar? Þimdilik standart býrakýyorum.
         if (Random.Range(0f, 100f) <= xpDropChance && xpGemPrefab != null)
             SpawnItem(xpGemPrefab, LootItem.LootType.XP);
 
-        // COIN
         if (Random.Range(0f, 100f) <= coinDropChance && coinPrefab != null)
             SpawnItem(coinPrefab, LootItem.LootType.Coin);
     }
@@ -63,7 +78,6 @@ public class EnemyStats : MonoBehaviour
 
         GameObject loot = Instantiate(prefab, pos, Quaternion.identity);
 
-        // LootItem ayarlarý (Sendeki scriptle uyumlu)
         LootItem itemScript = loot.GetComponent<LootItem>();
         if (itemScript != null) itemScript.type = type;
     }
