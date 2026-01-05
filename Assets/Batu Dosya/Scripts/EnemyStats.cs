@@ -1,4 +1,5 @@
-using UnityEngine;
+ï»¿using UnityEngine;
+using System.Collections;
 
 public class EnemyStats : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class EnemyStats : MonoBehaviour
     public GameObject xpGemPrefab;
     public GameObject coinPrefab;
 
-    [Header("--- DÜŞME ORANLARI (%) ---")]
+    [Header("--- DÃœÅME ORANLARI (%) ---")]
     public float xpDropChance = 100f;
     public float coinDropChance = 20f;
 
@@ -14,42 +15,131 @@ public class EnemyStats : MonoBehaviour
     public float maxHealth = 10f;
     private float currentHealth;
 
-    [Header("--- ELITE & ARMOR AYARLARI ---")] // [YENİ]
-    public bool isElite = false; // Tiklersen dev olur
-    public float armor = 0f;     // Gelen hasarı azaltır (Örn: 5 hasar gelirse 2 zırh düşer, 3 yer)
-    public float eliteScaleMultiplier = 2.0f; // Elite olunca kaç kat büyüsün?
-    public float eliteHealthMultiplier = 5.0f; // Elite olunca canı kaç kat artsın?
+    [Header("--- ELITE & ARMOR AYARLARI ---")]
+    public bool isElite = false;
+    public float armor = 0f;
+    public float eliteScaleMultiplier = 2.0f;
+    public float eliteHealthMultiplier = 5.0f;
+
+    [Header("--- HASAR HÄ°SSÄ°YATI (JUICE) ---")] // [YENÄ° BÃ–LÃœM] âœ¨
+    public float knockbackGucu = 15f; // Geri tepme gÃ¼cÃ¼
+    public float flashSuresi = 0.1f;  // Beyaz kalma sÃ¼resi
 
     public float scatterRange = 1.0f;
 
-    void OnEnable()
+    // Ä°Ã§ Referanslar
+    private Renderer[] renderers; // TÃ¼m parÃ§alarÄ±n renklerini deÄŸiÅŸtirmek iÃ§in
+    private Color[] originalColors; // Orijinal renkleri hafÄ±zada tutmak iÃ§in
+    private Rigidbody rb;
+    private Vector3 baseScale;
+
+    void Awake()
     {
-        // [YENİ] Elite Kontrolü
-        if (isElite)
+        rb = GetComponent<Rigidbody>();
+
+        // DÃ¼ÅŸmanÄ±n Ã¼zerindeki ve altÄ±ndaki tÃ¼m boyanabilir parÃ§alarÄ± bul
+        renderers = GetComponentsInChildren<Renderer>();
+        originalColors = new Color[renderers.Length];
+
+        for (int i = 0; i < renderers.Length; i++)
         {
-            transform.localScale = Vector3.one * eliteScaleMultiplier; // Büyüt
-            currentHealth = maxHealth * eliteHealthMultiplier;         // Canı katla
-        }
-        else
-        {
-            transform.localScale = Vector3.one; // Normale döndür (Pool'dan kirlilik kalmasın)
-            currentHealth = maxHealth;
+            if (renderers[i].material.HasProperty("_Color"))
+                originalColors[i] = renderers[i].material.color;
         }
     }
 
-    public void TakeDamage(float amount)
+    void OnEnable()
     {
-        // [YENİ] Zırh Hesabı
+        // Elite KontrolÃ¼
+        if (isElite)
+        {
+            baseScale = Vector3.one * eliteScaleMultiplier;
+            currentHealth = maxHealth * eliteHealthMultiplier;
+        }
+        else
+        {
+            baseScale = Vector3.one;
+            currentHealth = maxHealth;
+        }
+
+        transform.localScale = baseScale; // Boyutu ayarla
+
+        // Renkleri sÄ±fÄ±rla (Pool'dan kirlilik kalmasÄ±n)
+        ResetColors();
+    }
+
+    // Hasar alma fonksiyonu
+    public bool TakeDamage(float amount)
+    {
         float finalDamage = amount - armor;
-        if (finalDamage < 1) finalDamage = 1; // En az 1 hasar yesin, ölümsüz olmasın
+        if (finalDamage < 1) finalDamage = 1;
 
         currentHealth -= finalDamage;
 
-        // Vuruş efekti, ses vb. buraya eklenebilir
+        // --- HÄ°SSÄ°YAT EFEKTLERÄ° BAÅLIYOR --- âœ¨
+
+        // 1. FLASH (Beyaz Parlama)
+        StartCoroutine(FlashRoutine());
+
+        // 2. KNOCKBACK (Geri Tepme)
+        if (rb != null)
+        {
+            // DÃ¼ÅŸmanÄ±n baktÄ±ÄŸÄ± yÃ¶nÃ¼n tersine (arkaya) kuvvet uygula
+            rb.AddForce(-transform.forward * knockbackGucu, ForceMode.Impulse);
+        }
+
+        // 3. SCALE PUNCH (AnlÄ±k ÅiÅŸme/Titreme)
+        StartCoroutine(ScalePunchRoutine());
+
+        // -----------------------------------
 
         if (currentHealth <= 0)
         {
             OnEnemySliced();
+            return true; // Ã–LDÃœ
+        }
+        else
+        {
+            return false; // Ã–LMEDÄ° (DEVAM)
+        }
+    }
+
+    IEnumerator FlashRoutine()
+    {
+        // Hepsini Beyaz Yap
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i].material.color = Color.white;
+        }
+
+        yield return new WaitForSeconds(flashSuresi);
+
+        // Orijinal Renklerine DÃ¶ndÃ¼r
+        ResetColors();
+    }
+
+    IEnumerator ScalePunchRoutine()
+    {
+        // HafifÃ§e ÅŸiÅŸir (Ã–rn: %20 bÃ¼yÃ¼t)
+        float duration = 0.15f;
+        Vector3 targetScale = baseScale * 1.2f;
+
+        float timer = 0f;
+        while (timer < duration)
+        {
+            transform.localScale = Vector3.Lerp(targetScale, baseScale, timer / duration);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        transform.localScale = baseScale;
+    }
+
+    void ResetColors()
+    {
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            if (renderers[i] != null && i < originalColors.Length)
+                renderers[i].material.color = originalColors[i];
         }
     }
 
@@ -62,7 +152,6 @@ public class EnemyStats : MonoBehaviour
 
     void DropLoot()
     {
-        // Elite düşmanlar belki daha fazla loot atar? Şimdilik standart bırakıyorum.
         if (Random.Range(0f, 100f) <= xpDropChance && xpGemPrefab != null)
             SpawnItem(xpGemPrefab, LootItem.LootType.XP);
 

@@ -212,4 +212,16 @@ public class SwordMasterController : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(currentRot.x, currentRot.y, newZ);
         rb.MoveRotation(targetRotation);
     }
+    // Kılıç sert bir şeye çarpınca bu fonksiyonu çağıracağız
+    public void ApplyRecoil(float forceGucu = 20f)
+    {
+        // Kılıcın o anki hareketini durdur
+        rb.linearVelocity = Vector3.zero;
+
+        // Geriye doğru ani bir kuvvet uygula (Geri tepme)
+        rb.AddForce(-transform.forward * forceGucu, ForceMode.Impulse);
+
+        // İstersen burada kamera titremesi (Shake) de çağırabilirsin
+        // StartCoroutine(CameraShake(...));
+    }
 }
