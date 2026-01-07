@@ -21,15 +21,16 @@ public class EnemyStats : MonoBehaviour
     public float eliteScaleMultiplier = 2.0f;
     public float eliteHealthMultiplier = 5.0f;
 
-    [Header("--- HASAR HİSSİYATI (JUICE) ---")] // [YENİ BÖLÜM] ✨
-    public float knockbackGucu = 15f; // Geri tepme gücü
-    public float flashSuresi = 0.1f;  // Beyaz kalma süresi
-
+    [Header("--- HASAR HİSSİYATI (JUICE) ---")]
+    public float knockbackGucu = 15f;
+    public float flashSuresi = 0.1f;
     public float scatterRange = 1.0f;
 
-    // İç Referanslar
-    private Renderer[] renderers; // Tüm parçaların renklerini değiştirmek için
-    private Color[] originalColors; // Orijinal renkleri hafızada tutmak için
+    // --- FLASH İÇİN GEREKLİLER ---
+    private Renderer[] renderers;
+    private Material[] originalMaterials; // Orijinal materyalleri saklayacağız
+    private Material whiteFlashMaterial;  // Geçici beyaz materyal
+
     private Rigidbody rb;
     private Vector3 baseScale;
 
@@ -37,20 +38,28 @@ public class EnemyStats : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        // Düşmanın üzerindeki ve altındaki tüm boyanabilir parçaları bul
+        // Renderları ve Orijinal Materyalleri Al
         renderers = GetComponentsInChildren<Renderer>();
-        originalColors = new Color[renderers.Length];
+        originalMaterials = new Material[renderers.Length];
 
         for (int i = 0; i < renderers.Length; i++)
         {
-            if (renderers[i].material.HasProperty("_Color"))
-                originalColors[i] = renderers[i].material.color;
+            originalMaterials[i] = renderers[i].material;
         }
+
+        // --- BEYAZ PARLAMA MATERYALİNİ OLUŞTUR ---
+        // Kodla geçici bir materyal yaratıyoruz (Shader ayarı yapmana gerek yok)
+        // Eğer URP kullanıyorsan "Universal Render Pipeline/Unlit"
+        // Standart kullanıyorsan "Unlit/Color" veya "Mobile/Unlit (Supports Lightmap)"
+        Shader shader = Shader.Find("Unlit/Color");
+        if (shader == null) shader = Shader.Find("Universal Render Pipeline/Unlit"); // URP Fallback
+
+        whiteFlashMaterial = new Material(shader);
+        whiteFlashMaterial.color = Color.white; // Bembeyaz olsun
     }
 
     void OnEnable()
     {
-        // Elite Kontrolü
         if (isElite)
         {
             baseScale = Vector3.one * eliteScaleMultiplier;
@@ -62,13 +71,12 @@ public class EnemyStats : MonoBehaviour
             currentHealth = maxHealth;
         }
 
-        transform.localScale = baseScale; // Boyutu ayarla
+        transform.localScale = baseScale;
 
-        // Renkleri sıfırla (Pool'dan kirlilik kalmasın)
-        ResetColors();
+        // Doğarken renkleri sıfırla (Pool'dan kirlilik kalmasın)
+        ResetMaterials();
     }
 
-    // Hasar alma fonksiyonu
     public bool TakeDamage(float amount)
     {
         float finalDamage = amount - armor;
@@ -76,51 +84,52 @@ public class EnemyStats : MonoBehaviour
 
         currentHealth -= finalDamage;
 
-        // --- HİSSİYAT EFEKTLERİ BAŞLIYOR --- ✨
+        // --- EFEKTLER ---
+        StartCoroutine(FlashRoutine()); // Flash Başlat
 
-        // 1. FLASH (Beyaz Parlama)
-        StartCoroutine(FlashRoutine());
-
-        // 2. KNOCKBACK (Geri Tepme)
         if (rb != null)
         {
-            // Düşmanın baktığı yönün tersine (arkaya) kuvvet uygula
             rb.AddForce(-transform.forward * knockbackGucu, ForceMode.Impulse);
         }
 
-        // 3. SCALE PUNCH (Anlık Şişme/Titreme)
         StartCoroutine(ScalePunchRoutine());
-
-        // -----------------------------------
+        // ----------------
 
         if (currentHealth <= 0)
         {
             OnEnemySliced();
-            return true; // ÖLDÜ
+            return true;
         }
-        else
-        {
-            return false; // ÖLMEDİ (DEVAM)
-        }
+        return false;
     }
 
+    // --- DÜZELTİLEN KISIM BURASI ---
     IEnumerator FlashRoutine()
     {
-        // Hepsini Beyaz Yap
+        // 1. Tüm parçalara Beyaz Materyali giydir
         for (int i = 0; i < renderers.Length; i++)
         {
-            renderers[i].material.color = Color.white;
+            if (renderers[i] != null) renderers[i].material = whiteFlashMaterial;
         }
 
+        // 2. Bekle
         yield return new WaitForSeconds(flashSuresi);
 
-        // Orijinal Renklerine Döndür
-        ResetColors();
+        // 3. Orijinal kıyafetlerini geri giydir
+        ResetMaterials();
+    }
+
+    void ResetMaterials()
+    {
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            if (renderers[i] != null && i < originalMaterials.Length)
+                renderers[i].material = originalMaterials[i];
+        }
     }
 
     IEnumerator ScalePunchRoutine()
     {
-        // Hafifçe şişir (Örn: %20 büyüt)
         float duration = 0.15f;
         Vector3 targetScale = baseScale * 1.2f;
 
@@ -134,20 +143,17 @@ public class EnemyStats : MonoBehaviour
         transform.localScale = baseScale;
     }
 
-    void ResetColors()
-    {
-        for (int i = 0; i < renderers.Length; i++)
-        {
-            if (renderers[i] != null && i < originalColors.Length)
-                renderers[i].material.color = originalColors[i];
-        }
-    }
-
     public void OnEnemySliced()
     {
         DropLoot();
         if (GameManager.Instance != null) GameManager.Instance.AddKill();
         EnemyPool.Instance.ReturnToPool(this.gameObject);
+    }
+    // Kesilme anında rengi zorla düzeltmek için bunu çağıracağız
+    public void ResetMaterialsImmediately()
+    {
+        StopAllCoroutines(); // Flash sayacını durdur
+        ResetMaterials();    // Rengi hemen orijinale çevir
     }
 
     void DropLoot()

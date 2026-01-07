@@ -8,74 +8,53 @@ public class SlicerTrigger : MonoBehaviour
     public LayerMask sliceableLayer;
     public Material crossSectionMaterial;
     public float cutForce = 500f;
-    public float swordDamage = 10f; // [YENİ] Kılıcın vuracağı hasar
+    public float swordDamage = 10f;
 
-    // Kesme yönünü buradan seçeceğiz
     public enum CutAxis { X_Ekseni_Kirmizi, Y_Ekseni_Yesil, Z_Ekseni_Mavi }
     public CutAxis cutPlaneAxis = CutAxis.Y_Ekseni_Yesil;
 
     [Header("--- HİSSİYAT (JUICE) AYARLARI ---")]
-    public GameObject hitVFX;        // Kan veya Kıvılcım Prefabı
-    public bool useHitStop = true;   // Zaman dondurma olsun mu?
+    public GameObject hitVFX;
+    public bool useHitStop = true;
     public float hitStopDuration = 0.05f;
 
     private bool isStopping = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        // 1. Kesilebilir katman mı?
         if (((1 << other.gameObject.layer) & sliceableLayer) != 0)
         {
             GameObject target = other.gameObject;
             Vector3 contactPoint = other.ClosestPoint(transform.position);
 
-            // 2. ÖNCE CAN/ZIRH KONTROLÜ YAPALIM [YENİ SİSTEM] 🛡️
+            // --- CAN VE ZIRH KONTROLÜ ---
             EnemyStats stats = target.GetComponent<EnemyStats>();
             if (stats == null) stats = target.GetComponentInParent<EnemyStats>();
 
-            // Eğer çarptığımız şey canlı bir düşmansa:
             if (stats != null)
             {
-                // Hasar ver ve sonucunu al (True = Öldü, False = Yaşıyor/Zırhlı)
                 bool isDead = stats.TakeDamage(swordDamage);
 
                 if (!isDead)
                 {
-                    // --- DÜŞMAN ÖLMEDİ (ZIRHTAN SEKTİK) ---
-
-                    // A. Kılıcı Geri Teptir (Recoil)
+                    // Ölmediyse Sekme (Recoil)
                     SwordMasterController swordCtrl = GetComponentInParent<SwordMasterController>();
-                    if (swordCtrl != null)
-                    {
-                        swordCtrl.ApplyRecoil(25f); // Geri itme gücü
-                    }
+                    if (swordCtrl != null) swordCtrl.ApplyRecoil(25f);
 
-                    // B. "Ting" efekti veya kıvılcım çıkar (HitVFX kullanabilirsin veya ayrı bir ses)
                     if (hitVFX != null) Instantiate(hitVFX, contactPoint, Quaternion.identity);
-
-                    // C. Kesme yapmadan fonksiyondan çık!
                     return;
                 }
 
-                // Eğer öldüyse aşağı devam et ve kes...
+                // Öldüyse Rengi Düzelt (Beyaz Kafa Fix) ✅
+                stats.ResetMaterialsImmediately();
             }
 
-            // -------------------------------------------------------
-            // BURADAN AŞAĞISI KESME İŞLEMİ (SADECE ÖLDÜYSE ÇALIŞIR)
-            // -------------------------------------------------------
+            // --- KESME İŞLEMİ ---
+            // Efektler
+            if (hitVFX != null) Instantiate(hitVFX, contactPoint, Quaternion.identity);
+            if (useHitStop && !isStopping) StartCoroutine(HitStopRoutine());
 
-            // --- HİSSİYAT EFEKTLERİ ---
-            if (hitVFX != null)
-            {
-                Instantiate(hitVFX, contactPoint, Quaternion.identity);
-            }
-
-            if (useHitStop && !isStopping)
-            {
-                StartCoroutine(HitStopRoutine());
-            }
-
-            // --- KESME İŞLEMİ (MESH FİLTRELEME) ---
+            // Mesh Filtreleme
             MeshFilter meshFilter = target.GetComponentInChildren<MeshFilter>();
             if (meshFilter != null)
             {
@@ -93,7 +72,6 @@ public class SlicerTrigger : MonoBehaviour
         }
     }
 
-    // --- ZAMANI DONDURMA (HIT STOP) ---
     IEnumerator HitStopRoutine()
     {
         isStopping = true;
@@ -155,12 +133,12 @@ public class SlicerTrigger : MonoBehaviour
     {
         slicedObject.layer = LayerMask.NameToLayer("Default");
         Rigidbody rb = slicedObject.AddComponent<Rigidbody>();
+
+        // --- DEĞİŞİKLİK BURADA: MeshCollider Geri Geldi ---
         MeshCollider collider = slicedObject.AddComponent<MeshCollider>();
-        collider.convex = true;
+        collider.convex = true; // Fizik için şart
 
-        // Parçalar daha sert fırlasın diye gücü kullandık
         rb.AddExplosionForce(cutForce, slicedObject.transform.position, 2f);
-
         Destroy(slicedObject, 4f);
     }
 

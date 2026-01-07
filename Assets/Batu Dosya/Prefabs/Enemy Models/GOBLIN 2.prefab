@@ -830,7 +830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f758205a4cb30e74abaa81f9df3afd4d, type: 3}
       propertyPath: m_Name
-      value: GOBLIN 1
+      value: GOBLIN 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f758205a4cb30e74abaa81f9df3afd4d, type: 3}
       propertyPath: m_Layer
@@ -1510,12 +1510,12 @@ MonoBehaviour:
   xpDropChance: 100
   coinDropChance: 20
   maxHealth: 10
-  isElite: 0
+  isElite: 1
   armor: 0
   eliteScaleMultiplier: 2
   eliteHealthMultiplier: 5
   knockbackGucu: 15
-  flashSuresi: 0.2
+  flashSuresi: 0.3
   scatterRange: 1
 --- !u!114 &400344291829599824
 MonoBehaviour:

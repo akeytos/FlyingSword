@@ -52323,7 +52323,7 @@ MonoBehaviour:
     enemyPool:
     - enemyID: Goblin
       chance: 100
-    bossPrefab: {fileID: 0}
+    bossPrefab: {fileID: 3877197039157431700, guid: 56dce150f724a1d49ba448ed116cbd18, type: 3}
   - phaseName: "H\u0131zlanma"
     startTime: 30
     spawnRate: 1
@@ -52332,14 +52332,14 @@ MonoBehaviour:
       chance: 90
     - enemyID: Fly Goblin
       chance: 10
-    bossPrefab: {fileID: 0}
+    bossPrefab: {fileID: 3877197039157431700, guid: 56dce150f724a1d49ba448ed116cbd18, type: 3}
   - phaseName: 1.Dakika Swarm
     startTime: 60
     spawnRate: 0.1
     enemyPool:
     - enemyID: Goblin
       chance: 100
-    bossPrefab: {fileID: 0}
+    bossPrefab: {fileID: 3877197039157431700, guid: 56dce150f724a1d49ba448ed116cbd18, type: 3}
   - phaseName: "Rahatlama ve Haz\u0131rl\u0131k"
     startTime: 90
     spawnRate: 1.5
@@ -52348,14 +52348,14 @@ MonoBehaviour:
       chance: 50
     - enemyID: Fly Goblin
       chance: 50
-    bossPrefab: {fileID: 0}
+    bossPrefab: {fileID: 3877197039157431700, guid: 56dce150f724a1d49ba448ed116cbd18, type: 3}
   - phaseName: Boss
     startTime: 360
     spawnRate: 0
     enemyPool:
     - enemyID: Goblin
       chance: 100
-    bossPrefab: {fileID: 0}
+    bossPrefab: {fileID: 3877197039157431700, guid: 56dce150f724a1d49ba448ed116cbd18, type: 3}
 --- !u!114 &1257788776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52374,6 +52374,9 @@ MonoBehaviour:
     poolSize: 150
   - enemyTypeID: Fly Goblin
     prefab: {fileID: 3877197039157431700, guid: 9d158502791553340941736f8bf6e8cd, type: 3}
+    poolSize: 40
+  - enemyTypeID: Fly Goblin
+    prefab: {fileID: 3877197039157431700, guid: 56dce150f724a1d49ba448ed116cbd18, type: 3}
     poolSize: 40
 --- !u!4 &1257788777
 Transform:
@@ -88780,8 +88783,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   crossSectionMaterial: {fileID: 2100000, guid: 94a55713ee628a245a74794f36a1b6f7, type: 2}
-  cutForce: 100
-  swordDamage: 2
+  cutForce: 10
+  swordDamage: 10
   cutPlaneAxis: 2
   hitVFX: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
   useHitStop: 1

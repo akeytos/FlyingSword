@@ -1596,6 +1596,8 @@ MonoBehaviour:
   armor: 0
   eliteScaleMultiplier: 2
   eliteHealthMultiplier: 5
+  knockbackGucu: 15
+  flashSuresi: 0.2
   scatterRange: 1
 --- !u!114 &90969645240097625
 MonoBehaviour:
