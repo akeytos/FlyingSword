@@ -15,7 +15,7 @@ MonoBehaviour:
   swordName: "Arthur'un K\u0131l\u0131c\u0131"
   description: "Excalibur. Biraz a\u011F\u0131r ama kesemeyece\u011Fi bir \u015Fey
     yok."
-  swordIcon: {fileID: 21300000, guid: 55488a47c00ae824886c4fd1a8fc4651, type: 3}
+  swordIcon: {fileID: 21300000, guid: 81f522d89e777fb4d84f7bde9500fdf4, type: 3}
   isUnlocked: 1
   swordPrefab: {fileID: 7865059635857444459, guid: 0f3c81a8bfb9b5b40820c52895feaa28, type: 3}
   skillName: 

@@ -19,8 +19,8 @@ MonoBehaviour:
   swordPrefab: {fileID: 0}
   skillName: Sude
   skillDescription: Galiba birbirlerini seviyorlar.
-  skillIcon: {fileID: 21300000, guid: 0d438cc36d994f64887e131f056761e9, type: 3}
+  skillIcon: {fileID: 0}
   hasAccessory1: 0
-  accessory1Icon: {fileID: 21300000, guid: 0d438cc36d994f64887e131f056761e9, type: 3}
+  accessory1Icon: {fileID: 0}
   hasAccessory2: 0
   accessory2Icon: {fileID: 0}

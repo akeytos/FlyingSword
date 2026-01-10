@@ -4,6 +4,24 @@ using System.Collections.Generic;
 
 public class SteamLeaderboardManager : MonoBehaviour
 {
+    // --- İŞTE EKSİK OLAN KISIM (SINGLETON) ---
+    // Bu satır sayesinde diğer scriptler "SteamLeaderboardManager.Instance" diyerek ulaşabilir.
+    public static SteamLeaderboardManager Instance;
+
+    private void Awake()
+    {
+        // Bu scriptten sahnede sadece 1 tane olduğundan emin oluyoruz
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    // ----------------------------------------
+
     [Header("Ayarlar")]
     // Steam panelinde verdiğin isimle AYNI olmalı! (Büyük/küçük harf duyarlı)
     public string leaderboardID = "Global_Kills";
@@ -37,9 +55,9 @@ public class SteamLeaderboardManager : MonoBehaviour
         FindLeaderboard();
 
         // --- TEST KODU BAŞLANGIÇ ---
-        // Bunu sadece ilk test için koyduk. Çalıştığını görünce SİLERSİN.
-        Debug.Log("🧪 TEST MODU AKTİF: 3 saniye sonra otomatik 150 puan yollanacak...");
-        Invoke("TestUpload", 3f);
+        // (Çalıştığını görünce bu satırları silebilirsin)
+        // Debug.Log("🧪 TEST MODU AKTİF: 3 saniye sonra otomatik 150 puan yollanacak...");
+        // Invoke("TestUpload", 3f);
         // --- TEST KODU BİTİŞ ---
     }
 
