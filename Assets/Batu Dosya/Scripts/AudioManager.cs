@@ -5,44 +5,34 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     [Header("--- AUDIO SOURCES ---")]
-    public AudioSource musicSource; // Arkaplan müziði için
-    public AudioSource sfxSource;   // Efektler (Coin, XP vs.) için
+    public AudioSource musicSource;
+    public AudioSource sfxSource;
 
     [Header("--- SES DOSYALARI (CLIPS) ---")]
-    public AudioClip backgroundMusic; // Sadece giriþte 1 kez çalacak müzik
-    public AudioClip levelUpSound;    // Level atlama paneli sesi
-    public AudioClip coinSound;       // Coin alma sesi
-    public AudioClip xpSound;         // XP alma sesi
+    public AudioClip backgroundMusic;
+    public AudioClip levelUpSound;
+    public AudioClip coinSound;
+    public AudioClip xpSound;
+    public AudioClip enemyDeathSound; 
 
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     void Start()
     {
-        // Oyunu açýnca müziði 1 KERE çal (Loop kapalý)
         PlayMusicOneShot(backgroundMusic);
     }
 
-    // --- MÜZÝK FONKSÝYONU (DÜZELTÝLDÝ: LOOP YOK) ---
     public void PlayMusicOneShot(AudioClip clip)
     {
         if (clip == null) return;
-
         musicSource.clip = clip;
-        musicSource.loop = false; // <--- BURASI DEÐÝÞTÝ: Tekrar etmesin
+        musicSource.loop = false;
         musicSource.Play();
     }
-
-    // --- EFEKT FONKSÝYONLARI (AYNI) ---
 
     public void PlayCoinSFX()
     {
@@ -68,6 +58,18 @@ public class AudioManager : MonoBehaviour
         {
             sfxSource.pitch = 1.0f;
             sfxSource.PlayOneShot(levelUpSound);
+        }
+    }
+
+    // --- YENÝ EKLENEN FONKSÝYON ---
+    public void PlayEnemyDeathSFX()
+    {
+        if (enemyDeathSound != null)
+        {
+            // Ölüm seslerinde pitch'i biraz daha kalýnlaþtýrabiliriz (0.8f - 1.2f)
+            // Bu sayede her düþman ayný tonda ölmez, kafa þiþirmez.
+            sfxSource.pitch = Random.Range(0.8f, 1.2f);
+            sfxSource.PlayOneShot(enemyDeathSound);
         }
     }
 }

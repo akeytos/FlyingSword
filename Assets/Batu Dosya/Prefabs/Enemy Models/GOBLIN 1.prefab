@@ -1505,8 +1505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7aef282d235a34ea988381e79f3db0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpGemPrefab: {fileID: 5829856250802750996, guid: 514ec7a60e7694042943bf7813f499de, type: 3}
-  coinPrefab: {fileID: 1610871626686050207, guid: b4821db1477ed874fa6b6aeedf5e2e85, type: 3}
+  xpGemPrefab: {fileID: 4325831630894039695, guid: a1a277d8d448fd64f9267c12b3ba970e, type: 3}
+  coinPrefab: {fileID: 919132149155446097, guid: e75c180a736a38748ba4743c5f069b79, type: 3}
   xpDropChance: 100
   coinDropChance: 20
   maxHealth: 10

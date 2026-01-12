@@ -28,8 +28,8 @@ public class EnemyStats : MonoBehaviour
 
     // --- FLASH İÇİN GEREKLİLER ---
     private Renderer[] renderers;
-    private Material[] originalMaterials; // Orijinal materyalleri saklayacağız
-    private Material whiteFlashMaterial;  // Geçici beyaz materyal
+    private Material[] originalMaterials;
+    private Material whiteFlashMaterial;
 
     private Rigidbody rb;
     private Vector3 baseScale;
@@ -47,15 +47,11 @@ public class EnemyStats : MonoBehaviour
             originalMaterials[i] = renderers[i].material;
         }
 
-        // --- BEYAZ PARLAMA MATERYALİNİ OLUŞTUR ---
-        // Kodla geçici bir materyal yaratıyoruz (Shader ayarı yapmana gerek yok)
-        // Eğer URP kullanıyorsan "Universal Render Pipeline/Unlit"
-        // Standart kullanıyorsan "Unlit/Color" veya "Mobile/Unlit (Supports Lightmap)"
         Shader shader = Shader.Find("Unlit/Color");
-        if (shader == null) shader = Shader.Find("Universal Render Pipeline/Unlit"); // URP Fallback
+        if (shader == null) shader = Shader.Find("Universal Render Pipeline/Unlit");
 
         whiteFlashMaterial = new Material(shader);
-        whiteFlashMaterial.color = Color.white; // Bembeyaz olsun
+        whiteFlashMaterial.color = Color.white;
     }
 
     void OnEnable()
@@ -72,8 +68,6 @@ public class EnemyStats : MonoBehaviour
         }
 
         transform.localScale = baseScale;
-
-        // Doğarken renkleri sıfırla (Pool'dan kirlilik kalmasın)
         ResetMaterials();
     }
 
@@ -85,7 +79,7 @@ public class EnemyStats : MonoBehaviour
         currentHealth -= finalDamage;
 
         // --- EFEKTLER ---
-        StartCoroutine(FlashRoutine()); // Flash Başlat
+        StartCoroutine(FlashRoutine());
 
         if (rb != null)
         {
@@ -103,19 +97,15 @@ public class EnemyStats : MonoBehaviour
         return false;
     }
 
-    // --- DÜZELTİLEN KISIM BURASI ---
     IEnumerator FlashRoutine()
     {
-        // 1. Tüm parçalara Beyaz Materyali giydir
         for (int i = 0; i < renderers.Length; i++)
         {
             if (renderers[i] != null) renderers[i].material = whiteFlashMaterial;
         }
 
-        // 2. Bekle
         yield return new WaitForSeconds(flashSuresi);
 
-        // 3. Orijinal kıyafetlerini geri giydir
         ResetMaterials();
     }
 
@@ -145,15 +135,22 @@ public class EnemyStats : MonoBehaviour
 
     public void OnEnemySliced()
     {
+        // --- SESİ BURADA ÇAL (YENİ KISIM) ---
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayEnemyDeathSFX();
+        }
+        // ------------------------------------
+
         DropLoot();
         if (GameManager.Instance != null) GameManager.Instance.AddKill();
         EnemyPool.Instance.ReturnToPool(this.gameObject);
     }
-    // Kesilme anında rengi zorla düzeltmek için bunu çağıracağız
+
     public void ResetMaterialsImmediately()
     {
-        StopAllCoroutines(); // Flash sayacını durdur
-        ResetMaterials();    // Rengi hemen orijinale çevir
+        StopAllCoroutines();
+        ResetMaterials();
     }
 
     void DropLoot()

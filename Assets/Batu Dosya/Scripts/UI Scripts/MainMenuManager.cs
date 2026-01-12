@@ -1,77 +1,146 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI; // Slider kullanacaÄŸÄ±mÄ±z iÃ§in bu gerekli!
 
 public class MainMenuManager : MonoBehaviour
 {
-    [Header("Panel Referanslarý")]
-    public GameObject centerMenuPanel;    // Hiyerarþideki "CenterMenu"yu buraya sürükle
-    public GameObject selectionPanel;     // Hiyerarþideki "SelectionPanel"i buraya sürükle
-    public GameObject leaderboardPanel;   // Hiyerarþideki "LeaderboardPanel"i buraya sürükle
+    [Header("--- PANEL REFERANSLARI ---")]
+    public GameObject centerMenuPanel;    // Ana MenÃ¼ (Ortadaki Play vs.)
+    public GameObject selectionPanel;     // KÄ±lÄ±Ã§ SeÃ§im EkranÄ±
+    public GameObject leaderboardPanel;   // Skor Tablosu
+    public GameObject settingsPanel;      // Ayarlar Paneli
+    public GameObject languageSelectionPanel; // [YENÄ°] Dil SeÃ§im Listesi Paneli
 
-    // --- 1. PLAY BUTONU (Artýk direkt baþlatmaz, Seçim ekranýný açar) ---
-    // CenterMenu içindeki PLAY butonuna bunu ver
+    [Header("--- AYARLAR (SETTINGS) ---")]
+    public Slider musicSlider;            // MÃ¼zik Sesi Slider'Ä±
+    public Slider sfxSlider;              // Efekt Sesi Slider'Ä±
+
+    void Start()
+    {
+        // BaÅŸlangÄ±Ã§ta paneller kapalÄ± olsun
+        if (settingsPanel) settingsPanel.SetActive(false);
+        if (languageSelectionPanel) languageSelectionPanel.SetActive(false);
+
+        // Ana menÃ¼ aÃ§Ä±k olsun
+        if (centerMenuPanel) centerMenuPanel.SetActive(true);
+
+        // --- SES AYARLARINI YÃœKLE ---
+        // Oyun aÃ§Ä±ldÄ±ÄŸÄ±nda Sliderlar, AudioManager'daki ses seviyesinde dursun
+        if (AudioManager.Instance != null)
+        {
+            if (musicSlider != null)
+            {
+                musicSlider.value = AudioManager.Instance.musicSource.volume;
+                musicSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
+            }
+
+            if (sfxSlider != null)
+            {
+                sfxSlider.value = AudioManager.Instance.sfxSource.volume;
+                sfxSlider.onValueChanged.AddListener(OnSfxVolumeChanged);
+            }
+        }
+    }
+
+    // --- 1. SOL ÃœST BUTONLAR (SETTINGS & DÄ°L) ---
+
+    // DÄ°L BUTONU (A/æ–‡ Ä°konu)
+    public void Click_Language()
+    {
+        // [GÃœNCELLENDÄ°] ArtÄ±k direkt deÄŸiÅŸtirmek yerine listeyi aÃ§Ä±yoruz
+        if (languageSelectionPanel != null)
+        {
+            languageSelectionPanel.SetActive(true);
+        }
+    }
+
+    // AYARLAR BUTONU (Ã‡ark Ä°konu)
+    public void Click_Settings()
+    {
+        // Paneli aÃ§/kapa yap (Toggle)
+        if (settingsPanel != null)
+        {
+            bool isActive = settingsPanel.activeSelf;
+            settingsPanel.SetActive(!isActive);
+        }
+    }
+
+    // SETTINGS PANELÄ°NDEKÄ° "KAPAT/X" BUTONU
+    public void Click_CloseSettings()
+    {
+        if (settingsPanel != null) settingsPanel.SetActive(false);
+    }
+
+    // --- 2. SES AYARLARI (SLIDERLAR) ---
+
+    public void OnMusicVolumeChanged(float val)
+    {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.musicSource.volume = val;
+        }
+    }
+
+    public void OnSfxVolumeChanged(float val)
+    {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.sfxSource.volume = val;
+        }
+    }
+
+    // --- 3. ANA MENÃœ AKIÅžI ---
+
     public void Click_Play()
     {
         centerMenuPanel.SetActive(false);
         selectionPanel.SetActive(true);
+
+        // DiÄŸer paneller aÃ§Ä±ksa kapat
         if (leaderboardPanel) leaderboardPanel.SetActive(false);
+        if (settingsPanel) settingsPanel.SetActive(false);
+        if (languageSelectionPanel) languageSelectionPanel.SetActive(false);
     }
 
-    // --- 2. START GAME (SelectionPanel'in içindeki buton buna baðlanacak) ---
-    // SelectionPanel içindeki START butonuna bunu ver
     public void Click_StartGame()
     {
-        // Senin Loading sistemini aynen koruyoruz
         LoadingManager.nextSceneName = "levelBlockout + UI";
         SceneManager.LoadScene("Loading");
     }
 
-    // --- 3. LEADERBOARD BUTONU ---
     public void Click_Leaderboard()
     {
         centerMenuPanel.SetActive(false);
         selectionPanel.SetActive(false);
         if (leaderboardPanel) leaderboardPanel.SetActive(true);
 
-        // SteamManager varsa skorlarý çek (Yoksa hata vermez, geçer)
         if (SteamLeaderboardManager.Instance != null)
         {
             SteamLeaderboardManager.Instance.DownloadScores();
         }
     }
 
-    // --- 4. ORTAK GERÝ DÖNME TUÞU (Back) ---
-    // SelectionPanel ve LeaderboardPanel içindeki Geri/X tuþlarýna bunu ver
     public void Click_BackToMenu()
     {
         selectionPanel.SetActive(false);
         if (leaderboardPanel) leaderboardPanel.SetActive(false);
+        if (settingsPanel) settingsPanel.SetActive(false);
+        if (languageSelectionPanel) languageSelectionPanel.SetActive(false);
 
         centerMenuPanel.SetActive(true);
     }
 
-    // --- DÝÐER BUTONLAR (Eski kodundan koruduklarým) ---
+    // --- 4. DÄ°ÄžER LÄ°NKLER ---
 
     public void Click_Quit()
     {
-        Debug.Log("Oyundan çýkýldý");
+        Debug.Log("Oyundan Ã§Ä±kÄ±ldÄ±");
         Application.Quit();
     }
 
-    public void Click_Inventory()
-    {
-        Debug.Log("Envanter açýlacak...");
-    }
+    public void Click_Inventory() { Debug.Log("Envanter..."); }
 
-    public void Click_Shop()
-    {
-        Debug.Log("Dükkan açýlacak...");
-    }
-
-    public void Click_Settings()
-    {
-        Debug.Log("Ayarlar paneli açýlýyor...");
-    }
+    public void Click_Shop() { Debug.Log("DÃ¼kkan..."); }
 
     public void Click_Discord()
     {
