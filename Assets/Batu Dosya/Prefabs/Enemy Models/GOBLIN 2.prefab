@@ -1517,6 +1517,7 @@ MonoBehaviour:
   knockbackGucu: 15
   flashSuresi: 0.3
   scatterRange: 1
+  whiteFlashMaterial: {fileID: 2100000, guid: 6e006e1863141cd4584646fb406c8a13, type: 2}
 --- !u!114 &400344291829599824
 MonoBehaviour:
   m_ObjectHideFlags: 0

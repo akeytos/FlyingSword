@@ -120,11 +120,13 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Slicer.cs" />
+    <Compile Include="Assets\Scripts\SwordStabilizer.cs" />
     <Compile Include="Assets\Scripts\SwordMechanics.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\SlicerExtensions.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\MainMenuManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\SwarmDirector.cs" />
+    <Compile Include="Assets\Scripts\CameraShake.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\FlightController.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\Rotator.cs" />
@@ -160,6 +162,7 @@
     <Compile Include="Assets\Batu Dosya\Scripts\PropSpawner.cs" />
     <Compile Include="Assets\Scripts\SwordController.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\UpgradeData.cs" />
+    <Compile Include="Assets\Scripts\SwordStable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
