@@ -112,19 +112,26 @@ public class SlicerTrigger : MonoBehaviour
     // --- KESME FONKSİYONLARI ---
     void SliceTarget(GameObject target, Vector3 contactPoint)
     {
+        // Önce MeshFilter (Statik Obje) Var mı?
         MeshFilter meshFilter = target.GetComponentInChildren<MeshFilter>();
         if (meshFilter != null)
         {
+            Debug.Log("Slicer: MeshFilter Bulundu, Kesiliyor..."); // KONSOLA BAK
             SliceObject(meshFilter.gameObject, contactPoint);
             return;
         }
 
+        // Yoksa SkinnedMesh (Animasyonlu Karakter) Var mı?
         SkinnedMeshRenderer skinnedMesh = target.GetComponentInChildren<SkinnedMeshRenderer>();
         if (skinnedMesh != null)
         {
+            Debug.Log("Slicer: SkinnedMesh Bulundu, Kesiliyor..."); // KONSOLA BAK
             SliceCharacter(skinnedMesh, target, contactPoint);
             return;
         }
+
+        // İkisi de yoksa hata bas
+        Debug.LogError("HATA: Düşmanda ne MeshFilter ne de SkinnedMeshRenderer bulunabildi! Kesim İptal.");
     }
 
     // (SliceObject, SliceCharacter, SetupSlicedComponent fonksiyonları aynı kalacak, elleme)
