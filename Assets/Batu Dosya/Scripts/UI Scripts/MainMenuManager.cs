@@ -123,7 +123,7 @@ public class MainMenuManager : MonoBehaviour
     public void Click_BackToMenu()
     {
         selectionPanel.SetActive(false);
-        if (leaderboardPanel) leaderboardPanel.SetActive(false);
+        if (leaderboardPanel) leaderboardPanel.SetActive(true);
         if (settingsPanel) settingsPanel.SetActive(false);
         if (languageSelectionPanel) languageSelectionPanel.SetActive(false);
 

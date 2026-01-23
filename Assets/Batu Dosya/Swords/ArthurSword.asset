@@ -18,9 +18,9 @@ MonoBehaviour:
   swordIcon: {fileID: 21300000, guid: 81f522d89e777fb4d84f7bde9500fdf4, type: 3}
   isUnlocked: 1
   swordPrefab: {fileID: 7865059635857444459, guid: 0f3c81a8bfb9b5b40820c52895feaa28, type: 3}
-  skillName: 
+  skillName: Excalibur
   skillDescription: 
-  skillIcon: {fileID: 0}
+  skillIcon: {fileID: 21300000, guid: c85a032c28b76204aab3e5c3c214faaf, type: 3}
   hasAccessory1: 1
   accessory1Icon: {fileID: 0}
   hasAccessory2: 0

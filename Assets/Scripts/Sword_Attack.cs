@@ -3,23 +3,23 @@ using UnityEngine;
 
 public class SwordAttack : MonoBehaviour
 {
-    [Header("Baðlantýlar")]
+    [Header("Baï¿½lantï¿½lar")]
     public SwordMasterController masterController; // Ana beyin scripti
 
-    [Header("Saldýrý Ayarlarý")]
-    public float saldiriSuresi = 0.3f; // Ne kadar sürede dönecek?
+    [Header("Saldï¿½rï¿½ Ayarlarï¿½")]
+    public float saldiriSuresi = 0.3f; // Ne kadar sï¿½rede dï¿½necek?
     public Vector3 donusEkseni = new Vector3(1, 0, 0); // (1,0,0) = Takla atma
 
     void Start()
     {
-        // Eðer elle atamazsan otomatik bulsun
+        // Eï¿½er elle atamazsan otomatik bulsun
         if (masterController == null)
             masterController = GetComponent<SwordMasterController>();
     }
 
     void Update()
     {
-        // Týklayýnca saldýrý baþlat (Eðer zaten saldýrmýyorsa)
+        // Tï¿½klayï¿½nca saldï¿½rï¿½ baï¿½lat (Eï¿½er zaten saldï¿½rmï¿½yorsa)
         if (Input.GetMouseButtonDown(0) && !masterController.isAttacking)
         {
             StartCoroutine(SaldiriYap());
@@ -28,22 +28,22 @@ public class SwordAttack : MonoBehaviour
 
     IEnumerator SaldiriYap()
     {
-        // 1. Ana kontrolcüye "Ben devraldým, sen karýþma" de
+        // 1. Ana kontrolcï¿½ye "Ben devraldï¿½m, sen karï¿½ï¿½ma" de
         masterController.isAttacking = true;
 
-        // Trail efektini aç (Varsa)
+        // Trail efektini aï¿½ (Varsa)
         if (masterController.swordTrail != null)
             masterController.swordTrail.emitting = true;
 
         float gecenSure = 0f;
 
-        // 2. Kýlýcý Döndür (Animation Logic)
+        // 2. Kï¿½lï¿½cï¿½ Dï¿½ndï¿½r (Animation Logic)
         while (gecenSure < saldiriSuresi)
         {
-            // Delta time ile dönüþ açýsýný hesapla (360 derece / süre)
+            // Delta time ile dï¿½nï¿½ï¿½ aï¿½ï¿½sï¿½nï¿½ hesapla (360 derece / sï¿½re)
             float donusMiktari = (360f / saldiriSuresi) * Time.deltaTime;
 
-            // Kýlýç Pivotunu döndür
+            // Kï¿½lï¿½ï¿½ Pivotunu dï¿½ndï¿½r
             if (masterController.swordPivot != null)
                 masterController.swordPivot.Rotate(donusEkseni * donusMiktari, Space.Self);
 
@@ -51,11 +51,12 @@ public class SwordAttack : MonoBehaviour
             yield return null; // Bir sonraki kareyi bekle
         }
 
-        // 3. Saldýrý Bitti, kontrolü geri ver
+        // 3. Saldï¿½rï¿½ Bitti, kontrolï¿½ geri ver
         masterController.isAttacking = false;
 
-        // Trail efektini kapat (Normal harekete dönsün)
+        // Trail efektini kapat (Normal harekete dï¿½nsï¿½n)
         if (masterController.swordTrail != null)
             masterController.swordTrail.emitting = false;
     }
+
 }

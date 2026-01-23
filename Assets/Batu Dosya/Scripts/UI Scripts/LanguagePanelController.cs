@@ -1,14 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI; // Layout iþlemleri için gerekli
 
 public class LanguagePanelController : MonoBehaviour
 {
+    [Header("Ayarlar")]
     public GameObject languageItemPrefab; // Hazýrladýðýmýz buton prefabý
     public Transform contentParent;       // Scroll View içindeki Content objesi
 
     void OnEnable()
     {
         RefreshList();
-        // Dil deðiþirse listeyi (tikleri) güncelle
+        // Dil deðiþirse listeyi anlýk güncelle (Tik iþaretinin yer deðiþtirmesi için)
         if (LanguageManager.Instance != null)
             LanguageManager.Instance.OnLanguageChanged += RefreshList;
     }
@@ -21,7 +23,7 @@ public class LanguagePanelController : MonoBehaviour
 
     void RefreshList()
     {
-        // 1. Önce eski listeyi temizle
+        // 1. Önce eski listeyi temizle (Duplicate olmasýn)
         foreach (Transform child in contentParent)
         {
             Destroy(child.gameObject);
@@ -29,7 +31,7 @@ public class LanguagePanelController : MonoBehaviour
 
         if (LanguageManager.Instance == null) return;
 
-        // 2. Yeni listeyi oluþtur
+        // 2. Yeni listeyi LanguageManager'dan çek
         string currentLang = LanguageManager.Instance.currentLanguage;
 
         foreach (var lang in LanguageManager.Instance.supportedLanguages)
@@ -37,16 +39,26 @@ public class LanguagePanelController : MonoBehaviour
             // Prefabý oluþtur
             GameObject newItem = Instantiate(languageItemPrefab, contentParent);
 
-            // Scriptine ulaþ ve ayarla
+            // Scriptine ulaþ ve veriyi gönder
             LanguageItem itemScript = newItem.GetComponent<LanguageItem>();
-            bool isSelected = (lang.code == currentLang);
 
-            itemScript.Setup(lang.code, lang.name, isSelected);
+            if (itemScript != null)
+            {
+                // Þu anki dil bu mu? (Örn: "tr" == "tr" ise tik koy)
+                bool isSelected = (lang.code == currentLang);
+
+                // Butonu kur
+                itemScript.Setup(lang.code, lang.name, isSelected);
+            }
         }
+
+        // 3. UI Bazen saçmalayýp üst üste binerse diye Layout'u yenile
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentParent.GetComponent<RectTransform>());
     }
 
     public void ClosePanel()
     {
+        // Paneli kapat (Animation varsa buraya eklenir)
         gameObject.SetActive(false);
     }
 }

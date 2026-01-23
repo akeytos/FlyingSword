@@ -22,7 +22,10 @@ public class SlicerTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (((1 << other.gameObject.layer) & sliceableLayer) != 0)
+        bool isSliceableLayer = ((1 << other.gameObject.layer) & sliceableLayer) != 0;
+        bool isEnemyTag = other.CompareTag("Enemy") || other.transform.root.CompareTag("Enemy");
+
+        if (isSliceableLayer || isEnemyTag)
         {
             GameObject target = other.gameObject;
             Vector3 contactPoint = other.ClosestPoint(transform.position);
@@ -33,7 +36,7 @@ public class SlicerTrigger : MonoBehaviour
 
             if (stats != null)
             {
-                bool isDead = stats.TakeDamage(swordDamage);
+                bool isDead = stats.TakeDamage(swordDamage, false);
 
                 if (!isDead)
                 {
@@ -45,9 +48,11 @@ public class SlicerTrigger : MonoBehaviour
                     return;
                 }
 
-                // Öldüyse Rengi Düzelt (Beyaz Kafa Fix) ✅
+                // Öldüyse Rengi Düzelt (Beyaz Kafa Fix)
                 stats.ResetMaterialsImmediately();
             }
+
+            GameObject sliceRoot = stats != null ? stats.gameObject : other.transform.root.gameObject;
 
             // --- KESME İŞLEMİ ---
             // Efektler
@@ -55,18 +60,18 @@ public class SlicerTrigger : MonoBehaviour
             if (useHitStop && !isStopping) StartCoroutine(HitStopRoutine());
 
             // Mesh Filtreleme
-            MeshFilter meshFilter = target.GetComponentInChildren<MeshFilter>();
+            MeshFilter meshFilter = sliceRoot.GetComponentInChildren<MeshFilter>();
             if (meshFilter != null)
             {
                 SliceObject(meshFilter.gameObject, contactPoint);
-                Destroy(target);
+                Destroy(sliceRoot);
                 return;
             }
 
-            SkinnedMeshRenderer skinnedMesh = target.GetComponentInChildren<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer skinnedMesh = sliceRoot.GetComponentInChildren<SkinnedMeshRenderer>();
             if (skinnedMesh != null)
             {
-                SliceCharacter(skinnedMesh, target, contactPoint);
+                SliceCharacter(skinnedMesh, sliceRoot, contactPoint);
                 return;
             }
         }

@@ -6,20 +6,19 @@ public class LanguageManager : MonoBehaviour
 {
     public static LanguageManager Instance;
 
-    public string currentLanguage = "en"; // Varsayýlan Ýngilizce
+    public string currentLanguage = "en"; // VarsayÄ±lan Ä°ngilizce
     private Dictionary<string, LocalizationData> dictionary = new Dictionary<string, LocalizationData>();
 
-    // --- YENÝ EKLENEN: DESTEKLENEN DÝLLER LÝSTESÝ ---
+    // --- DESTEKLENEN DÄ°LLER LÄ°STESÄ° ---
     [System.Serializable]
     public class LanguageOption
     {
-        public string code; // "tr", "en"
-        public string name; // "Türkçe", "English"
+        public string code; // "tr", "en", "de"
+        public string name; // "TÃ¼rkÃ§e", "English", "Deutsch"
     }
     public List<LanguageOption> supportedLanguages = new List<LanguageOption>();
-    // ------------------------------------------------
 
-    // "Dil deðiþti" habercisi
+    // "Dil deÄŸiÅŸti" habercisi
     public delegate void LanguageChangeHandler();
     public event LanguageChangeHandler OnLanguageChanged;
 
@@ -30,14 +29,12 @@ public class LanguageManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            // --- LÝSTEYÝ BURADA TANIMLIYORUZ ---
+            // --- LÄ°STE TANIMLAMA ---
             supportedLanguages.Clear();
             supportedLanguages.Add(new LanguageOption { code = "en", name = "English" });
-            supportedLanguages.Add(new LanguageOption { code = "tr", name = "Türkçe" });
-            // Ýleride Almanca eklemek istersen:
-            // supportedLanguages.Add(new LanguageOption { code = "de", name = "Deutsch" });
-            // ------------------------------------
-
+            supportedLanguages.Add(new LanguageOption { code = "tr", name = "TÃ¼rkÃ§e" });
+            supportedLanguages.Add(new LanguageOption { code = "de", name = "Deutsch" }); // Almanca eklendi
+            
             LoadLanguage();
             SetupDictionary();
         }
@@ -47,83 +44,116 @@ public class LanguageManager : MonoBehaviour
         }
     }
 
-    // --- SÖZLÜK: SENÝN EKLEDÝÐÝN TÜM KELÝMELER BURADA DURUYOR ---
+    // --- SÃ–ZLÃœK KURULUMU (TR - EN - DE) ---
     void SetupDictionary()
     {
-        // --- ANA MENÜ ---
-        AddWord("play_btn", "OYNA", "PLAY");
-        AddWord("inventory_btn", "ENVANTER", "INVENTORY");
-        AddWord("shop_btn", "DÜKKAN", "SHOP");
-        AddWord("exit_btn", "ÇIKIÞ", "EXIT");
-        AddWord("choose_btn", "SEÇÝM", "CHOOSE");
+        // Format: AddWord(KEY, TR, EN, DE);
+
+        // --- ANA MENÃœ ---
+        AddWord("play_btn", "OYNA", "PLAY", "SPIELEN");
+        AddWord("inventory_btn", "ENVANTER", "INVENTORY", "INVENTAR");
+        AddWord("shop_btn", "DÃœKKAN", "SHOP", "LADEN");
+        AddWord("exit_btn", "Ã‡IKIÅž", "EXIT", "BEENDEN");
+        AddWord("choose_btn", "SEÃ‡Ä°M", "CHOOSE", "AUSWÃ„HLEN");
 
         // --- LEADERBOARD ---
-        AddWord("leaderboard_header", "SIRALAMA", "LEADERBOARD");
-        AddWord("rank_col", "SIRA", "RANK");
-        AddWord("player_col", "OYUNCU", "PLAYER");
-        AddWord("kills_col", "LEÞ", "KILLS");
+        AddWord("leaderboard_header", "SIRALAMA", "LEADERBOARD", "RANGLISTE");
+        AddWord("rank_col", "SIRA", "RANK", "RANG");
+        AddWord("player_col", "OYUNCU", "PLAYER", "SPIELER");
+        AddWord("kills_col", "LEÅž", "KILLS", "KILLS");
 
         // --- SETTINGS (AYARLAR) ---
-        AddWord("settings_title", "AYARLAR", "SETTINGS");
-        AddWord("music_vol", "MÜZÝK", "MUSIC");
-        AddWord("sfx_vol", "SES EFEKT", "SFX");
-        AddWord("close_btn", "KAPAT", "CLOSE");
+        AddWord("settings_title", "AYARLAR", "SETTINGS", "EINSTELLUNGEN");
+        AddWord("music_vol", "MÃœZÄ°K", "MUSIC", "MUSIK");
+        AddWord("sfx_vol", "SES EFEKT", "SFX", "EFFEKTE");
+        AddWord("close_btn", "KAPAT", "CLOSE", "SCHLIESSEN");
 
-        // --- OYUN ÝÇÝ UYARILAR ---
-        AddWord("game_over", "OYUN BÝTTÝ", "GAME OVER");
-        AddWord("level_up", "SEVÝYE ATLADIN!", "LEVEL UP!");
-        AddWord("swarm_alert", "!!! SÜRÜ GELÝYOR !!!", "!!! SWARM INCOMING !!!");
+        // --- OYUN Ä°Ã‡Ä° UYARILAR ---
+        AddWord("game_over", "OYUN BÄ°TTÄ°", "GAME OVER", "SPIEL VORBEI");
+        AddWord("level_up", "SEVÄ°YE ATLADIN!", "LEVEL UP!", "STUFE AUFGESTIEGEN!");
+        AddWord("swarm_alert", "!!! SÃœRÃœ GELÄ°YOR !!!", "!!! SWARM INCOMING !!!", "!!! SCHWARM IM ANMARSCH !!!");
 
         // --- DEATH SCREEN ---
-        AddWord("died", "ÖLDÜN!", "DIED!");
-        AddWord("died_desc", "Cesaretin takdire þayandý ama yetmedi.", "Your courage was admirable but not enough.");
-        AddWord("confirm", "ONAYLA", "CONFIRM");
+        AddWord("died", "Ã–LDÃœN!", "DIED!", "GESTORBEN!");
+        AddWord("died_desc", "Cesaretin takdire ÅŸayandÄ± ama yetmedi.", "Your courage was admirable but not enough.", "Dein Mut war bewundernswert, aber nicht genug.");
+        AddWord("confirm", "ONAYLA", "CONFIRM", "BESTÃ„TIGEN");
 
-        // --- PAUSE MENÜSÜ ---
-        AddWord("pause_header", "DURAKLATILDI", "PAUSED");
-        AddWord("keep_playing_btn", "DEVAM ET", "KEEP PLAYING");
-        AddWord("map_btn", "HARÝTA", "MAP");
-        AddWord("restart_btn", "YENÝDEN BAÞLAT", "RESTART");
-        AddWord("main_menu_btn", "ANA MENÜ", "MAIN MENU");
-        AddWord("settings_btn", "AYARLAR", "SETTINGS");
+        // --- PAUSE MENÃœSÃœ ---
+        AddWord("pause_header", "DURAKLATILDI", "PAUSED", "PAUSIERT");
+        AddWord("keep_playing_btn", "DEVAM ET", "KEEP PLAYING", "WEITERSPIELEN");
+        AddWord("map_btn", "HARÄ°TA", "MAP", "KARTE");
+        AddWord("restart_btn", "YENÄ°DEN BAÅžLAT", "RESTART", "NEUSTART");
+        AddWord("main_menu_btn", "ANA MENÃœ", "MAIN MENU", "HAUPTMENÃœ");
+        AddWord("settings_btn", "AYARLAR", "SETTINGS", "EINSTELLUNGEN");
 
         // --- PAUSE DETAYLAR ---
-        AddWord("weapons_header", "SÝLAHLAR", "WEAPONS");
-        AddWord("books_header", "KÝTAPLAR", "BOOKS");
-        AddWord("statistic_header", "ÝSTATÝSTÝK", "STATISTIC");
-        AddWord("damage_stat", "HASAR", "DAMAGE");
-        AddWord("speed_stat", "HIZ", "SPEED");
-        AddWord("health_stat", "CAN", "HEALTH");
-        AddWord("kills_stat", "LEÞ", "KILLS");
-        AddWord("map_name_lbl", "HARÝTA ADI", "MAP NAME");
-        AddWord("level_lbl", "SEVÝYE", "LEVEL");
-        AddWord("inventory", "ENVANTER", "INVENTORY");
+        AddWord("weapons_header", "SÄ°LAHLAR", "WEAPONS", "WAFFEN");
+        AddWord("books_header", "KÄ°TAPLAR", "BOOKS", "BÃœCHER");
+        AddWord("statistic_header", "Ä°STATÄ°STÄ°K", "STATISTIC", "STATISTIK");
+        AddWord("damage_stat", "HASAR", "DAMAGE", "SCHADEN");
+        AddWord("speed_stat", "HIZ", "SPEED", "GESCHWINDIGKEIT");
+        AddWord("health_stat", "CAN", "HEALTH", "GESUNDHEIT");
+        AddWord("kills_stat", "LEÅž", "KILLS", "KILLS");
+        AddWord("map_name_lbl", "HARÄ°TA ADI", "MAP NAME", "KARTENNAME");
+        AddWord("level_lbl", "SEVÄ°YE", "LEVEL", "STUFE");
+        AddWord("inventory", "ENVANTER", "INVENTORY", "INVENTAR");
 
         // --- SWORD SELECTION DETAYLAR --- 
-        AddWord("selection_header", "SÝLAH SEÇÝMÝ", "SWORD SELECTION");
-        AddWord("swordname", "Kýlýç ismi", "Sword Name");
-        AddWord("sworddesc", "Kýlýç açýklamasý", "Sword Desc");
-        AddWord("skilltitle", "YETENEKLER", "SKILLS");
-        AddWord("accessory", "AKSESUAR", "ACCESSORY");
+        AddWord("selection_header", "SÄ°LAH SEÃ‡Ä°MÄ°", "SWORD SELECTION", "WAFFENAUSWAHL");
+        AddWord("swordname", "KÄ±lÄ±Ã§ ismi", "Sword Name", "Schwertname");
+        AddWord("sworddesc", "KÄ±lÄ±Ã§ aÃ§Ä±klamasÄ±", "Sword Desc", "Schwertbeschreibung");
+        AddWord("skilltitle", "YETENEKLER", "SKILLS", "FÃ„HIGKEITEN");
+        AddWord("accessory", "AKSESUAR", "ACCESSORY", "ZUBEHÃ–R");
+
+        // --- ABSTRACT (Ã–ZET) ---
+        AddWord("abstract_header", "Ã–ZET", "ABSTRACT", "ZUSAMMENFASSUNG");
+        AddWord("abstract_kills", "LEÅž", "KILLS", "KILLS");
+        AddWord("abstract_time", "HAYATTA KALMA SÃœRESÄ°", "SURVIVAL TIME", "ÃœBERLEBENSZEIT");
+        AddWord("abstract_level", "SEVÄ°YE", "LEVEL", "STUFE");
+        AddWord("abstract_coin", "COIN", "COIN", "MÃœNZEN");
+
+        // --- NASIL OYNANIR ---
+        AddWord("tutorial_controls", "KONTROLLER", "CONTROLS", "STEUERUNG");
+        AddWord("tutorial_move", "HAREKET: W,A,S,D veya YÃ–N TUÅžLARI", "MOVE: W,A,S,D or ARROWS", "BEWEGUNG: W,A,S,D oder PFEILTASTEN");
+        AddWord("tutorial_aim", "SALDIRI: OTOMATÄ°K", "ATTACK: AUTO", "ANGRIFF: AUTOMATISCH");
+
+        // --- YÃœKLENÄ°YOR ---
+        AddWord("loading_text", "YÃœKLENÄ°YOR...", "LOADING...", "LADEN...");
+
     }
 
-    void AddWord(string key, string tr, string en)
+    // --- ARTIK 3. PARAMETRE OLARAK ALMANCAYI DA ALIYOR ---
+    void AddWord(string key, string tr, string en, string de)
     {
-        LocalizationData data = new LocalizationData { tr = tr, en = en };
-        if (!dictionary.ContainsKey(key)) dictionary.Add(key, data);
+        LocalizationData data = new LocalizationData { tr = tr, en = en, de = de };
+        if (!dictionary.ContainsKey(key)) 
+        {
+            dictionary.Add(key, data);
+        }
+        else
+        {
+            // EÄŸer key zaten varsa gÃ¼ncelle (GÃ¼venlik Ã¶nlemi)
+            dictionary[key] = data;
+        }
     }
 
     public string GetText(string key)
     {
         if (dictionary.ContainsKey(key))
-            return (currentLanguage == "tr") ? dictionary[key].tr : dictionary[key].en;
+        {
+            if (currentLanguage == "tr") return dictionary[key].tr;
+            if (currentLanguage == "de") return dictionary[key].de; // Almanca kontrolÃ¼
+            return dictionary[key].en; // VarsayÄ±lan EN
+        }
         return key;
     }
 
     public void ToggleLanguage()
     {
-        string newLang = (currentLanguage == "tr") ? "en" : "tr";
-        SetLanguage(newLang);
+        // Toggle artÄ±k 3 dil arasÄ±nda dÃ¶necek: EN -> TR -> DE -> EN
+        if (currentLanguage == "en") SetLanguage("tr");
+        else if (currentLanguage == "tr") SetLanguage("de");
+        else SetLanguage("en");
     }
 
     public void SetLanguage(string langCode)
@@ -142,5 +172,11 @@ public class LanguageManager : MonoBehaviour
             currentLanguage = "en";
     }
 
-    class LocalizationData { public string tr; public string en; }
+    // Veri yapÄ±sÄ±na 'de' eklendi
+    class LocalizationData 
+    { 
+        public string tr; 
+        public string en; 
+        public string de; 
+    }
 }

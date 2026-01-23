@@ -3,51 +3,65 @@ using UnityEngine;
 public class EnemySpawnerr : MonoBehaviour
 {
     [Header("Gerekli Objeler")]
-    public GameObject enemyPrefab; // Kesilecek düþman/obje prefabý
-    public Transform player;       // PlayerRoot (Kýlýç) buraya sürüklenecek
+    [SerializeField] private GameObject enemyPrefab; // Kesilecek dusman/obje prefab
+    [SerializeField] private Transform player;       // PlayerRoot (kilic) buraya suruklenecek
 
-    [Header("Spawn Ayarlarý")]
-    public float onMesafe = 30f;   // Bizden kaç metre ilerde çýksýn? (Hýzýna göre artýr)
-    public float yolGenisligi = 4f; // Yolun ne kadar saðýna/soluna daðýlsýn?
-    public float spawnSikligi = 1.0f; // Kaç saniyede bir düþman çýksýn?
+    [Header("Spawn Ayarlari")]
+    [Min(0f)] [SerializeField] private float onMesafe = 30f;     // Bizden kac metre ileride ciksin?
+    [Min(0f)] [SerializeField] private float yolGenisligi = 4f;  // Yolun ne kadar sagina/soluna dagilsin?
+    [Min(0.01f)] [SerializeField] private float spawnSikligi = 1.0f; // Kac saniyede bir dusman ciksin?
 
     private float zamanSayaci;
 
+    private void OnEnable()
+    {
+        // Oyun baslarken ilk spawn gecikmesiz olsun
+        zamanSayaci = 0f;
+    }
+
     void Update()
     {
-        if (player == null) return;
+        if (player == null || enemyPrefab == null) return;
 
-        // Zamanlayýcý
+        // Zamanlayici
         zamanSayaci -= Time.deltaTime;
 
-        if (zamanSayaci <= 0)
+        if (zamanSayaci <= 0f)
         {
             SpawnEnemy();
-            zamanSayaci = spawnSikligi; // Sayacý sýfýrla
+            zamanSayaci = Mathf.Max(0.01f, spawnSikligi); // Sayaci sifirla
         }
     }
 
-    void SpawnEnemy()
+    private void SpawnEnemy()
     {
         // 1. MERKEZ NOKTA BULMA
-        // Kýlýcýn (Player) tam "onMesafe" kadar önündeki noktayý buluyoruz.
-        // player.forward kullandýðýmýz için kýlýç nereye dönerse orasý "önü" olur.
+        // Kilicin (Player) tam "onMesafe" kadar onundeki noktayi buluyoruz.
+        // player.forward kullandigimiz icin kilic nereye donerse orasi "onu" olur.
         Vector3 merkezNokta = player.position + (player.forward * onMesafe);
 
-        // 2. RASTGELE SAÐ/SOL SAPMA
-        // Kýlýcýn saðýna/soluna (player.right) rastgele bir mesafe ekliyoruz.
+        // 2. RASTGELE SAG/SOL SAPMA
+        // Kilicin sagina/soluna (player.right) rastgele bir mesafe ekliyoruz.
         float rastgeleX = Random.Range(-yolGenisligi, yolGenisligi);
         Vector3 dogumYeri = merkezNokta + (player.right * rastgeleX);
 
-        // 3. YÜKSEKLÝK AYARI
-        // Düþmanlar kýlýçla ayný hizada mý olsun, yerde mi? 
-        // Eðer havada uçan düþmanlarsa:
+        // 3. YUKSEKLIK AYARI
+        // Dusmanlar kilicla ayni hizada mi olsun, yerde mi?
+        // Eger havada ucan dusmanlarsa:
         dogumYeri.y = player.position.y;
-        // Eðer yerde duran varilllerse (Örn: dogumYeri.y = 0.5f;) yapabilirsin.
+        // Eger yerde duran varilllerse (ornegin: dogumYeri.y = 0.5f) yapabilirsin.
 
-        // 4. OLUÞTUR
+        // 4. OLUSTUR
         // Rotasyonu rastgele yapabilirsin (Quaternion.Euler(0, Random.Range(0,360), 0))
-        // Þimdilik Identity (Düz) býrakýyorum.
+        // Simdilik Identity (Duz) birakiyorum.
         Instantiate(enemyPrefab, dogumYeri, Quaternion.identity);
     }
-}//313131
+
+    private void OnValidate()
+    {
+        // Inspector degeri sifirin altina inmesin
+        spawnSikligi = Mathf.Max(0.01f, spawnSikligi);
+        onMesafe = Mathf.Max(0f, onMesafe);
+        yolGenisligi = Mathf.Max(0f, yolGenisligi);
+    }
+}

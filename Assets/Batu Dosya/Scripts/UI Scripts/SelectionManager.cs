@@ -5,42 +5,42 @@ using TMPro;
 public class SelectionManager : MonoBehaviour
 {
     [Header("--- AYARLAR ---")]
-    public SwordData[] allSwords;       // Kýlýç datalarý
+    public SwordData[] allSwords;       // Kï¿½lï¿½ï¿½ datalarï¿½
     public Sprite lockSprite;           // Kilit resmi (Sprite)
 
-    [Header("--- 3D GÖRÜNÜM (AKTÝF) ---")]
-    public Transform modelPivot;        // Kýlýcýn doðacaðý boþ nokta (Rotator scripti bunda olsun)
+    [Header("--- 3D Gï¿½Rï¿½Nï¿½M (AKTï¿½F) ---")]
+    public Transform modelPivot;        // Kï¿½lï¿½cï¿½n doï¿½acaï¿½ï¿½ boï¿½ nokta (Rotator scripti bunda olsun)
 
     [Header("--- ORTA ALAN (UI) ---")]
-    public GameObject lockedPreviewObject; // Kýlýç KÝLÝTLÝYSE çýkacak büyük kilit resmi
+    public GameObject lockedPreviewObject; // Kï¿½lï¿½ï¿½ Kï¿½Lï¿½TLï¿½YSE ï¿½ï¿½kacak bï¿½yï¿½k kilit resmi
 
-    [Header("--- SAÐ TARAF (Bilgiler) ---")]
-    public Image mainInfoIconImage;        // "Sword Name" yazýsýnýn solundaki küçük ikon
-    public TextMeshProUGUI nameText;       // Kýlýç Ýsmi
-    public TextMeshProUGUI descText;       // Kýlýç Açýklamasý
+    [Header("--- SAï¿½ TARAF (Bilgiler) ---")]
+    public Image mainInfoIconImage;        // "Sword Name" yazï¿½sï¿½nï¿½n solundaki kï¿½ï¿½ï¿½k ikon
+    public TextMeshProUGUI nameText;       // Kï¿½lï¿½ï¿½ ï¿½smi
+    public TextMeshProUGUI descText;       // Kï¿½lï¿½ï¿½ Aï¿½ï¿½klamasï¿½
 
     [Header("--- Skill (Yetenek) ---")]
-    public TextMeshProUGUI skillNameText;  // Skill Ýsmi
-    public TextMeshProUGUI skillDescText;  // Skill Açýklamasý
-    public Image skillIconImage;           // Skill Ýkonu
+    public TextMeshProUGUI skillNameText;  // Skill ï¿½smi
+    public TextMeshProUGUI skillDescText;  // Skill Aï¿½ï¿½klamasï¿½
+    public Image skillIconImage;           // Skill ï¿½konu
 
     [Header("--- Aksesuarlar ---")]
-    public Image acc1Image;        // 1. Aksesuarýn Kendi Resmi
-    public GameObject acc1Lock;    // 1. Aksesuarýn Kilit Kapaðý
+    public Image acc1Image;        // 1. Aksesuarï¿½n Kendi Resmi
+    public GameObject acc1Lock;    // 1. Aksesuarï¿½n Kilit Kapaï¿½ï¿½
 
-    public Image acc2Image;        // 2. Aksesuarýn Kendi Resmi
-    public GameObject acc2Lock;    // 2. Aksesuarýn Kilit Kapaðý
+    public Image acc2Image;        // 2. Aksesuarï¿½n Kendi Resmi
+    public GameObject acc2Lock;    // 2. Aksesuarï¿½n Kilit Kapaï¿½ï¿½
 
     [Header("--- ALT IZGARA ---")]
-    public Button[] gridButtons;   // Aþaðýdaki küçük seçim butonlarý
+    public Button[] gridButtons;   // Aï¿½aï¿½ï¿½daki kï¿½ï¿½ï¿½k seï¿½im butonlarï¿½
 
-    // DEÐÝÞKENLER
+    // DEï¿½ï¿½ï¿½KENLER
     private int selectedIndex = 0;
-    private GameObject current3DModel; // Sahnede yaratýlan anlýk 3D model
+    private GameObject current3DModel; // Sahnede yaratï¿½lan anlï¿½k 3D model
 
     void Start()
     {
-        // Kayýtlý seçimi getir, yoksa 0. kýlýcý seç
+        // Kayï¿½tlï¿½ seï¿½imi getir, yoksa 0. kï¿½lï¿½cï¿½ seï¿½
         selectedIndex = PlayerPrefs.GetInt("SelectedSword", 0);
         UpdateScreen();
     }
@@ -55,78 +55,84 @@ public class SelectionManager : MonoBehaviour
     {
         SwordData data = allSwords[selectedIndex];
 
-        // 1. Alt Izgarayý Güncelle
+        // 1. Alt Izgarayï¿½ Gï¿½ncelle
         UpdateGridButtons();
 
         // =========================================================
         //  >>> 3D MODEL YARATMA KISMI <<<
         // =========================================================
 
-        // Önce sahnede var olan eski modeli temizle
+        // ï¿½nce sahnede var olan eski modeli temizle
         if (current3DModel != null) Destroy(current3DModel);
 
-        // Kýlýç açýksa ve bir 3D modeli varsa yarat
+        // Kï¿½lï¿½ï¿½ aï¿½ï¿½ksa ve bir 3D modeli varsa yarat
         if (data.isUnlocked && data.swordPrefab != null)
         {
             current3DModel = Instantiate(data.swordPrefab, modelPivot);
 
-            // Pivotun tam ortasýna yerleþtir
+            // Pivotun tam ortasï¿½na yerleï¿½tir
             // current3DModel.transform.localPosition = Vector3.zero;
             // current3DModel.transform.localRotation = Quaternion.identity; 
         }
         // =========================================================
 
-        // KILIÇ AÇIK MI KÝLÝTLÝ MÝ?
+        // KILIï¿½ Aï¿½IK MI Kï¿½Lï¿½TLï¿½ Mï¿½?
         if (data.isUnlocked)
         {
-            // --- DURUM 1: KILIÇ AÇIK (UNLOCKED) ---
+            // --- DURUM 1: KILIï¿½ Aï¿½IK (UNLOCKED) ---
 
-            // Büyük kilit resmini gizle (yerine 3D model görünecek)
-            if (lockedPreviewObject != null) lockedPreviewObject.SetActive(false);
+            // Preview bir RawImage ise kapatma (3D preview kaybolmasin)
+            if (lockedPreviewObject != null)
+            {
+                if (!lockedPreviewObject.TryGetComponent<RawImage>(out _))
+                    lockedPreviewObject.SetActive(false);
+                else
+                    lockedPreviewObject.SetActive(true);
+            }
 
-            // Bilgi Ýkonuna kýlýcýn resmini koy
+            // Bilgi ï¿½konuna kï¿½lï¿½cï¿½n resmini koy
             if (mainInfoIconImage != null) mainInfoIconImage.sprite = data.swordIcon;
 
-            // Yazýlarý doldur
+            // Yazï¿½larï¿½ doldur
             nameText.text = data.swordName;
             descText.text = data.description;
             skillNameText.text = data.skillName;
             skillDescText.text = data.skillDescription;
             skillIconImage.sprite = data.skillIcon;
 
-            // Aksesuarlarý Ayarla (Varsa göster, yoksa kilit bas)
+            // Aksesuarlarï¿½ Ayarla (Varsa gï¿½ster, yoksa kilit bas)
             SetupAccessory(data.hasAccessory1, data.accessory1Icon, acc1Image, acc1Lock);
             SetupAccessory(data.hasAccessory2, data.accessory2Icon, acc2Image, acc2Lock);
         }
         else
         {
-            // --- DURUM 2: KILIÇ KÝLÝTLÝ (LOCKED) ---
+            // --- DURUM 2: KILIï¿½ Kï¿½Lï¿½TLï¿½ (LOCKED) ---
 
-            // Büyük kilit resmini aç (3D model zaten yok edildi)
+            // Bï¿½yï¿½k kilit resmini aï¿½ (3D model zaten yok edildi)
             if (lockedPreviewObject != null) lockedPreviewObject.SetActive(true);
 
-            // Bilgi Ýkonuna kilit resmi koy
+            // Bilgi ï¿½konuna kilit resmi koy
             if (mainInfoIconImage != null) mainInfoIconImage.sprite = lockSprite;
 
-            // Yazýlarý gizle
+            // Yazï¿½larï¿½ gizle
             nameText.text = "???";
             descText.text = "Locked Item";
             skillNameText.text = "???";
             skillDescText.text = "Unknown Skill";
             skillIconImage.sprite = lockSprite;
 
-            // Aksesuarlarý komple kilitle
+            // Aksesuarlarï¿½ komple kilitle
             LockAccessoryCompletely(acc1Image, acc1Lock);
             LockAccessoryCompletely(acc2Image, acc2Lock);
         }
     }
 
-    // Yardýmcý Fonksiyon: Aksesuar durumunu kontrol eder
+    // Yardï¿½mcï¿½ Fonksiyon: Aksesuar durumunu kontrol eder
     void SetupAccessory(bool hasAcc, Sprite icon, Image imgObj, GameObject lockObj)
     {
         if (hasAcc)
         {
-            // Aksesuar bulunduysa: Kilidi aç, ikonu göster
+            // Aksesuar bulunduysa: Kilidi aï¿½, ikonu gï¿½ster
             lockObj.SetActive(false);
             if (imgObj != null)
             {
@@ -136,7 +142,7 @@ public class SelectionManager : MonoBehaviour
         }
         else
         {
-            // Aksesuar bulunmadýysa: Kilidi kapat VE resme kilit sprite'ý bas
+            // Aksesuar bulunmadï¿½ysa: Kilidi kapat VE resme kilit sprite'ï¿½ bas
             lockObj.SetActive(true);
             if (imgObj != null)
             {
@@ -146,7 +152,7 @@ public class SelectionManager : MonoBehaviour
         }
     }
 
-    // Yardýmcý Fonksiyon: Aksesuarý zorla kilitler (Kýlýç kilitliyken kullanýlýr)
+    // Yardï¿½mcï¿½ Fonksiyon: Aksesuarï¿½ zorla kilitler (Kï¿½lï¿½ï¿½ kilitliyken kullanï¿½lï¿½r)
     void LockAccessoryCompletely(Image imgObj, GameObject lockObj)
     {
         if (lockObj != null) lockObj.SetActive(true);
@@ -176,24 +182,24 @@ public class SelectionManager : MonoBehaviour
         }
     }
 
-    // Confirm butonu için
+    // Confirm butonu iï¿½in
     public void ConfirmSelection()
     {
         if (allSwords[selectedIndex].isUnlocked)
         {
             PlayerPrefs.SetInt("SelectedSword", selectedIndex);
-            Debug.Log("Kýlýç Seçildi: " + allSwords[selectedIndex].swordName);
+            Debug.Log("Kï¿½lï¿½ï¿½ Seï¿½ildi: " + allSwords[selectedIndex].swordName);
 
-            // Buradan sonra sahne geçiþi yapabilirsin:
+            // Buradan sonra sahne geï¿½iï¿½i yapabilirsin:
             // SceneManager.LoadScene("GameScene");
         }
         else
         {
-            Debug.Log("Bu kýlýç kilitli!");
+            Debug.Log("Bu kï¿½lï¿½ï¿½ kilitli!");
         }
     }
 
-    // Geri tuþu için
+    // Geri tuï¿½u iï¿½in
     public void Click_Back()
     {
         // Burada paneli kapatma kodun olabilir

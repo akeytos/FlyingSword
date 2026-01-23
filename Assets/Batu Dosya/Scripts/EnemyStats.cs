@@ -71,7 +71,7 @@ public class EnemyStats : MonoBehaviour
         ResetMaterials();
     }
 
-    public bool TakeDamage(float amount)
+    public bool TakeDamage(float amount, bool returnToPoolOnDeath = true)
     {
         float finalDamage = amount - armor;
         if (finalDamage < 1) finalDamage = 1;
@@ -91,7 +91,7 @@ public class EnemyStats : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            OnEnemySliced();
+            HandleDeath(returnToPoolOnDeath);
             return true;
         }
         return false;
@@ -135,16 +135,23 @@ public class EnemyStats : MonoBehaviour
 
     public void OnEnemySliced()
     {
-        // --- SESİ BURADA ÇAL (YENİ KISIM) ---
+        HandleDeath(false);
+    }
+
+    void HandleDeath(bool returnToPool)
+    {
+        // --- SESİ BURADA ÇAL ---
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.PlayEnemyDeathSFX();
         }
-        // ------------------------------------
+        // ------------------------
 
         DropLoot();
         if (GameManager.Instance != null) GameManager.Instance.AddKill();
-        EnemyPool.Instance.ReturnToPool(this.gameObject);
+
+        if (returnToPool && EnemyPool.Instance != null)
+            EnemyPool.Instance.ReturnToPool(this.gameObject);
     }
 
     public void ResetMaterialsImmediately()
