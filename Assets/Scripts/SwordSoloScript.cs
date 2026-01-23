@@ -139,17 +139,30 @@ public class SwordMasterController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
     }
 
+    // SwordMasterController.cs içindeki bu fonksiyonu bul ve bununla değiştir:
     void HandleSwordMovement()
     {
         if (swordPivot == null) return;
 
+        // --- DEĞİŞİKLİK BURADA BAŞLIYOR ---
+
+        // Eskiden mouse Y (yukarı aşağı) kılıcı hareket ettiriyordu.
+        // Şimdi targetY'yi SABİT (0) yapıyoruz. Böylece kılıç hep bel hizasında kalır.
+
         float targetX = (virtualMouse.x - 0.5f) * handMoveRangeX;
-        float targetY = (virtualMouse.y - 0.5f) * handMoveRangeY;
+
+        // float targetY = (virtualMouse.y - 0.5f) * handMoveRangeY; // ESKİ KOD (SİLİNDİ)
+        float targetY = -0.2f; // YENİ KOD: Hafif aşağıda sabit (Değeri deneyerek bulabilirsin)
+
         Vector3 targetPos = new Vector3(targetX, targetY, baseDistance);
         swordPivot.localPosition = Vector3.Lerp(swordPivot.localPosition, targetPos, Time.deltaTime * handMoveSpeed);
 
+        // --- DEĞİŞİKLİK BURADA BİTİYOR ---
+
         if (!isAttacking)
         {
+            // Burası kılıcın ucunun baktığı yön (Rotasyon).
+            // Burayı ellemiyoruz ki kılıç sabit dursa bile ucuyla nişan alabil.
             Ray ray = playerCamera.ViewportPointToRay(new Vector3(virtualMouse.x, virtualMouse.y, 0));
             Vector3 lookPoint = ray.GetPoint(reachDistance);
 

@@ -96475,22 +96475,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1571705029086227930}
   m_LocalEulerAnglesHint: {x: -143.796, y: 1.8130035, z: 88.187}
---- !u!114 &447855589097157637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8914229584884809458}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aabc4e35c66a0241992b1dbb34d41b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 0.01
-  virtualMouse: {x: 0.5, y: 0.5}
-  horizontal: 0
-  vertical: 0
 --- !u!20 &566545874500317256
 Camera:
   m_ObjectHideFlags: 0
@@ -97171,34 +97155,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7019979, y: 0.055567473, z: 0.016289428}
   m_Center: {x: 1.050007, y: 0.015929336, z: 0.02413317}
---- !u!114 &4049281346387799406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8914229584884809458}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18495d2321bedaf4bb678f993cb2a5a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duzelmeHizi: 5
-  maxYatis: 30
---- !u!114 &4209893775480377560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8914229584884809458}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3fc6fe4e15f57e42ba6b01bb0ab77aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyTurnSpeed: 30
-  edgeThreshold: 0.85
 --- !u!23 &4623893319851688124
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -97260,33 +97216,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   crossSectionMaterial: {fileID: 2100000, guid: 94a55713ee628a245a74794f36a1b6f7, type: 2}
-  cutForce: 10
+  cutForce: 1000
   swordDamage: 10
   cutPlaneAxis: 2
   hitVFX: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
-  useHitStop: 1
+  hitSound: {fileID: 0}
   hitStopDuration: 0.05
---- !u!114 &4925732957282039268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8914229584884809458}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8e62dfb37e904043bac2fc21fd91eaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swordPivot: {fileID: 1571705029086227930}
-  swordTrail: {fileID: 0}
-  reachDistance: 10
-  swingSpeed: 25
-  trailSpeedThreshold: 0.1
-  handMoveRangeX: 3
-  handMoveRangeY: 2
-  handMoveSpeed: 6
-  baseDistance: 4
+  useCameraShake: 1
 --- !u!4 &4956954407202424666
 Transform:
   m_ObjectHideFlags: 0
@@ -97329,21 +97265,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &5735535467162225632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8914229584884809458}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edfb98fc5102fd74d9799c8894c44641, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flySpeed: 100
 --- !u!114 &5933534952385443490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102451,14 +102374,9 @@ GameObject:
   - component: {fileID: 7138503601498921127}
   - component: {fileID: 5316856142549960794}
   - component: {fileID: 6176258712462372704}
-  - component: {fileID: 4209893775480377560}
-  - component: {fileID: 5735535467162225632}
-  - component: {fileID: 447855589097157637}
-  - component: {fileID: 4925732957282039268}
   - component: {fileID: 819574709319687915}
   - component: {fileID: 5933534952385443490}
   - component: {fileID: 3561533108164526719}
-  - component: {fileID: 4049281346387799406}
   - component: {fileID: 3629557164171940366}
   - component: {fileID: 8914229584884809459}
   m_Layer: 0
