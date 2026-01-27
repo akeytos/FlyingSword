@@ -1,47 +1,56 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SelectionManager : MonoBehaviour
 {
     [Header("--- AYARLAR ---")]
-    public SwordData[] allSwords;       // K�l�� datalar�
-    public Sprite lockSprite;           // Kilit resmi (Sprite)
+    public string gameSceneName = "GameScene";
 
-    [Header("--- 3D G�R�N�M (AKT�F) ---")]
-    public Transform modelPivot;        // K�l�c�n do�aca�� bo� nokta (Rotator scripti bunda olsun)
+    // Scriptable Object Listesi
+    public SwordData[] allSwords;
+
+    public Sprite lockSprite;
+
+    [Header("--- 3D GÖRÜNÜM ---")]
+    public Transform modelPivot;
 
     [Header("--- ORTA ALAN (UI) ---")]
-    public GameObject lockedPreviewObject; // K�l�� K�L�TL�YSE ��kacak b�y�k kilit resmi
+    public GameObject previewScreen; // Preview_BG (RawImage) buraya
+    public GameObject lockedOverlay; // Kilit Resmi (Panel/Image) buraya
 
-    [Header("--- SA� TARAF (Bilgiler) ---")]
-    public Image mainInfoIconImage;        // "Sword Name" yaz�s�n�n solundaki k���k ikon
-    public TextMeshProUGUI nameText;       // K�l�� �smi
-    public TextMeshProUGUI descText;       // K�l�� A��klamas�
+    [Header("--- SAĞ TARAF (Bilgiler) ---")]
+    public Image mainInfoIconImage;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI descText;
 
     [Header("--- Skill (Yetenek) ---")]
-    public TextMeshProUGUI skillNameText;  // Skill �smi
-    public TextMeshProUGUI skillDescText;  // Skill A��klamas�
-    public Image skillIconImage;           // Skill �konu
+    public TextMeshProUGUI skillNameText;
+    public TextMeshProUGUI skillDescText;
+    public Image skillIconImage;
 
     [Header("--- Aksesuarlar ---")]
-    public Image acc1Image;        // 1. Aksesuar�n Kendi Resmi
-    public GameObject acc1Lock;    // 1. Aksesuar�n Kilit Kapa��
-
-    public Image acc2Image;        // 2. Aksesuar�n Kendi Resmi
-    public GameObject acc2Lock;    // 2. Aksesuar�n Kilit Kapa��
+    public Image acc1Image;
+    public GameObject acc1Lock;
+    public Image acc2Image;
+    public GameObject acc2Lock;
 
     [Header("--- ALT IZGARA ---")]
-    public Button[] gridButtons;   // A�a��daki k���k se�im butonlar�
+    public Button[] gridButtons;
 
-    // DE���KENLER
+    // DEĞİŞKENLER
     private int selectedIndex = 0;
-    private GameObject current3DModel; // Sahnede yarat�lan anl�k 3D model
+    private GameObject current3DModel;
 
     void Start()
     {
-        // Kay�tl� se�imi getir, yoksa 0. k�l�c� se�
+        // Hafızadaki seçimi getir
         selectedIndex = PlayerPrefs.GetInt("SelectedSword", 0);
+
+        // Hata önleyici: Eğer hafızadaki sayı listeyi aşıyorsa 0'a çek
+        if (selectedIndex >= allSwords.Length) selectedIndex = 0;
+
         UpdateScreen();
     }
 
@@ -53,106 +62,115 @@ public class SelectionManager : MonoBehaviour
 
     void UpdateScreen()
     {
+        // 1. Güvenlik Kontrolü: Liste boş mu?
+        if (allSwords == null || allSwords.Length == 0)
+        {
+            Debug.LogError("HATA: 'All Swords' listesi boş! Manager objesine Data dosyalarını sürükle.");
+            return;
+        }
+
         SwordData data = allSwords[selectedIndex];
 
-        // 1. Alt Izgaray� G�ncelle
+        // Izgarayı güncelle
         UpdateGridButtons();
 
-        // =========================================================
-        //  >>> 3D MODEL YARATMA KISMI <<<
-        // =========================================================
+        // ---------------------------------------------------------
+        // 2. 3D MODEL YARATMA (Spawn) İŞLEMİ
+        // ---------------------------------------------------------
 
-        // �nce sahnede var olan eski modeli temizle
+        // Önce eski modeli temizle
         if (current3DModel != null) Destroy(current3DModel);
 
-        // K�l�� a��ksa ve bir 3D modeli varsa yarat
-        if (data.isUnlocked && data.swordPrefab != null)
+        // Model Pivot atanmış mı kontrol et
+        if (modelPivot == null)
         {
-            current3DModel = Instantiate(data.swordPrefab, modelPivot);
-
-            // Pivotun tam ortas�na yerle�tir
-            // current3DModel.transform.localPosition = Vector3.zero;
-            // current3DModel.transform.localRotation = Quaternion.identity; 
+            Debug.LogError("HATA: 'Model Pivot' kutusu boş! Sahnedeki SwordPivot objesini sürükle.");
+            return;
         }
-        // =========================================================
 
-        // KILI� A�IK MI K�L�TL� M�?
+        // Eğer kılıç AÇIKSA ve PREFAB VARSA yarat
         if (data.isUnlocked)
         {
-            // --- DURUM 1: KILI� A�IK (UNLOCKED) ---
-
-            // Preview bir RawImage ise kapatma (3D preview kaybolmasin)
-            if (lockedPreviewObject != null)
+            if (data.swordPrefab != null)
             {
-                if (!lockedPreviewObject.TryGetComponent<RawImage>(out _))
-                    lockedPreviewObject.SetActive(false);
-                else
-                    lockedPreviewObject.SetActive(true);
+                current3DModel = Instantiate(data.swordPrefab, modelPivot);
+                current3DModel.transform.localPosition = Vector3.zero;
+                current3DModel.transform.localRotation = Quaternion.identity;
+
+                // Ölçek sorunu varsa burayı açıp 100f yapabilirsin:
+                // current3DModel.transform.localScale = Vector3.one; 
+
+                // Layer (Katman) düzeltmesi (Preview Kamera görsün diye)
+                SetLayerRecursively(current3DModel, modelPivot.gameObject.layer);
             }
+            else
+            {
+                Debug.LogWarning("UYARI: Bu kılıcın ('" + data.swordName + "') Prefab kutusu boş!");
+            }
+        }
+        // ---------------------------------------------------------
 
-            // Bilgi �konuna k�l�c�n resmini koy
+        // 3. UI GÜNCELLEME (Ekran vs Kilit)
+        if (data.isUnlocked)
+        {
+            // --- KILIÇ AÇIK ---
+            if (previewScreen != null) previewScreen.SetActive(true);   // Arka planı AÇ
+            if (lockedOverlay != null) lockedOverlay.SetActive(false);  // Kilidi KAPAT
+
+            // Yazıları doldur
             if (mainInfoIconImage != null) mainInfoIconImage.sprite = data.swordIcon;
+            if (nameText) nameText.text = data.swordName;
+            if (descText) descText.text = data.description;
 
-            // Yaz�lar� doldur
-            nameText.text = data.swordName;
-            descText.text = data.description;
-            skillNameText.text = data.skillName;
-            skillDescText.text = data.skillDescription;
-            skillIconImage.sprite = data.skillIcon;
+            // Skill
+            if (skillNameText) skillNameText.text = data.skillName;
+            if (skillDescText) skillDescText.text = data.skillDescription;
+            if (skillIconImage) skillIconImage.sprite = data.skillIcon;
 
-            // Aksesuarlar� Ayarla (Varsa g�ster, yoksa kilit bas)
+            // Aksesuarlar
             SetupAccessory(data.hasAccessory1, data.accessory1Icon, acc1Image, acc1Lock);
             SetupAccessory(data.hasAccessory2, data.accessory2Icon, acc2Image, acc2Lock);
         }
         else
         {
-            // --- DURUM 2: KILI� K�L�TL� (LOCKED) ---
+            // --- KILIÇ KİLİTLİ ---
+            if (previewScreen != null) previewScreen.SetActive(false);  // Arka planı KAPAT
+            if (lockedOverlay != null) lockedOverlay.SetActive(true);   // Kilidi AÇ
 
-            // B�y�k kilit resmini a� (3D model zaten yok edildi)
-            if (lockedPreviewObject != null) lockedPreviewObject.SetActive(true);
-
-            // Bilgi �konuna kilit resmi koy
             if (mainInfoIconImage != null) mainInfoIconImage.sprite = lockSprite;
+            if (nameText) nameText.text = "???";
+            if (descText) descText.text = "Bu eşya henüz açılmadı.";
 
-            // Yaz�lar� gizle
-            nameText.text = "???";
-            descText.text = "Locked Item";
-            skillNameText.text = "???";
-            skillDescText.text = "Unknown Skill";
-            skillIconImage.sprite = lockSprite;
+            // Skill Gizle
+            if (skillNameText) skillNameText.text = "???";
+            if (skillDescText) skillDescText.text = "???";
+            if (skillIconImage) skillIconImage.sprite = lockSprite;
 
-            // Aksesuarlar� komple kilitle
             LockAccessoryCompletely(acc1Image, acc1Lock);
             LockAccessoryCompletely(acc2Image, acc2Lock);
         }
     }
 
-    // Yard�mc� Fonksiyon: Aksesuar durumunu kontrol eder
+    // --- YARDIMCI FONKSİYONLAR ---
+
     void SetupAccessory(bool hasAcc, Sprite icon, Image imgObj, GameObject lockObj)
     {
+        if (imgObj == null || lockObj == null) return;
+
         if (hasAcc)
         {
-            // Aksesuar bulunduysa: Kilidi a�, ikonu g�ster
             lockObj.SetActive(false);
-            if (imgObj != null)
-            {
-                imgObj.sprite = icon;
-                imgObj.gameObject.SetActive(true);
-            }
+            imgObj.sprite = icon;
+            imgObj.gameObject.SetActive(true);
         }
         else
         {
-            // Aksesuar bulunmad�ysa: Kilidi kapat VE resme kilit sprite'� bas
             lockObj.SetActive(true);
-            if (imgObj != null)
-            {
-                imgObj.sprite = lockSprite;
-                imgObj.gameObject.SetActive(true);
-            }
+            imgObj.sprite = lockSprite;
+            imgObj.gameObject.SetActive(true);
         }
     }
 
-    // Yard�mc� Fonksiyon: Aksesuar� zorla kilitler (K�l�� kilitliyken kullan�l�r)
     void LockAccessoryCompletely(Image imgObj, GameObject lockObj)
     {
         if (lockObj != null) lockObj.SetActive(true);
@@ -170,10 +188,14 @@ public class SelectionManager : MonoBehaviour
             if (i < allSwords.Length)
             {
                 Image btnImage = gridButtons[i].GetComponent<Image>();
-                if (allSwords[i].isUnlocked)
-                    btnImage.sprite = allSwords[i].swordIcon;
-                else
-                    btnImage.sprite = lockSprite;
+                if (btnImage != null)
+                {
+                    if (allSwords[i].isUnlocked)
+                        btnImage.sprite = allSwords[i].swordIcon;
+                    else
+                        btnImage.sprite = lockSprite;
+                }
+                gridButtons[i].gameObject.SetActive(true);
             }
             else
             {
@@ -182,27 +204,31 @@ public class SelectionManager : MonoBehaviour
         }
     }
 
-    // Confirm butonu i�in
     public void ConfirmSelection()
     {
-        if (allSwords[selectedIndex].isUnlocked)
+        if (allSwords.Length > selectedIndex && allSwords[selectedIndex].isUnlocked)
         {
             PlayerPrefs.SetInt("SelectedSword", selectedIndex);
-            Debug.Log("K�l�� Se�ildi: " + allSwords[selectedIndex].swordName);
-
-            // Buradan sonra sahne ge�i�i yapabilirsin:
-            // SceneManager.LoadScene("GameScene");
+            PlayerPrefs.Save();
+            Debug.Log("Kılıç Kaydedildi: " + allSwords[selectedIndex].swordName);
+            SceneManager.LoadScene(gameSceneName);
         }
         else
         {
-            Debug.Log("Bu k�l�� kilitli!");
+            Debug.Log("Bu kılıç kilitli!");
         }
     }
 
-    // Geri tu�u i�in
-    public void Click_Back()
+    // Layer Düzeltici (Gri ekran sorununu çözer)
+    void SetLayerRecursively(GameObject obj, int newLayer)
     {
-        // Burada paneli kapatma kodun olabilir
-        gameObject.SetActive(false);
+        if (obj == null) return;
+        obj.layer = newLayer;
+
+        foreach (Transform child in obj.transform)
+        {
+            if (child == null) continue;
+            SetLayerRecursively(child.gameObject, newLayer);
+        }
     }
 }

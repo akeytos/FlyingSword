@@ -114,6 +114,7 @@
     <Compile Include="Assets\Batu Dosya\Scripts\LevelSettings.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\Skills Scripts\KineticLance.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\SwordManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\EnemyStats.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\LeaderboardRow.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Assets\URP-PSX-FORKED-master\URP-PSX\Assets\Scripts\CRT\CRTRenderFeature.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\SwordStats.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Intersector.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\MenuSwordSelect.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\LanguageItem.cs" />
     <Compile Include="Assets\ezy-slice-master\EzySlice\Framework\Triangle.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\InGameUIManager.cs" />
