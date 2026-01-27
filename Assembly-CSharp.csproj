@@ -74,6 +74,7 @@
     <Compile Include="Assets\Batu Dosya\Scripts\UI Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\URP-PSX-FORKED-master\URP-PSX\Assets\Scripts\Fog\FogController.cs" />
     <Compile Include="Assets\URP-PSX-FORKED-master\URP-PSX\Assets\Scripts\Pixelation\PixelationRenderFeature.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\CursorManager.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\Sword Controller Scripts\FluidSword.cs" />
     <Compile Include="Assets\Batu Dosya\Debug\ActionCamera.cs" />
     <Compile Include="Assets\URP-PSX-FORKED-master\URP-PSX\Assets\Scripts\Fog\FogRenderFeature.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\URP-PSX-FORKED-master\URP-PSX\Assets\Scripts\Pixelation\PixelationController.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
+    <Compile Include="Assets\Batu Dosya\Scripts\ForceSize.cs" />
     <Compile Include="Assets\Batu Dosya\Scripts\AILast.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
