@@ -105,10 +105,13 @@ MonoBehaviour:
     m_Bits: 64
   crossSectionMaterial: {fileID: 2100000, guid: 94a55713ee628a245a74794f36a1b6f7, type: 2}
   cutForce: 100
+  swordDamage: 50
   cutPlaneAxis: 2
-  hitVFX: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
-  useHitStop: 1
+  hitVFX: {fileID: 5692377533037541566, guid: 0c3e687ab6ad9a345b6f94dd4d5e3436, type: 3}
+  bloodVFX: {fileID: 2059811997719799227, guid: 28e7e4f9d63215949907abbdec74f7ce, type: 3}
+  hitSound: {fileID: 0}
   hitStopDuration: 0.05
+  useCameraShake: 1
 --- !u!54 &7306434796852414379
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -657,11 +660,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acquiredSkills: []
   currentActiveSkill: {fileID: 0}
-  visualModel: {fileID: 4956954408218093006}
-  clonePrefab: {fileID: 7724389175871563819, guid: d9bc66b1bbf2922428f2ac7136d83217, type: 3}
-  kineticLanceVFX: {fileID: 6449755955707263730}
-  cloneRotationFix: {x: 0, y: 0, z: 0}
-  clonePositionOffset: {x: -90, y: 0, z: 0}
 --- !u!114 &3561533106878832875
 MonoBehaviour:
   m_ObjectHideFlags: 0

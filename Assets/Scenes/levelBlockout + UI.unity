@@ -98742,6 +98742,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5820777181662402618, guid: 2ef92c7bceee1b946a42ec193aadb5f1, type: 3}
     - target: {fileID: 3446910077247718937, guid: 7d7f65c3b11ea4b4cb799aaeaf3ddcfb, type: 3}
+      propertyPath: bloodVFX
+      value: 
+      objectReference: {fileID: 2059811997719799227, guid: 28e7e4f9d63215949907abbdec74f7ce, type: 3}
+    - target: {fileID: 3446910077247718937, guid: 7d7f65c3b11ea4b4cb799aaeaf3ddcfb, type: 3}
       propertyPath: crossSectionMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 83589ba27efd6a643a3431c28239b7e9, type: 2}
