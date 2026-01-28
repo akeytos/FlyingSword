@@ -488,6 +488,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -3542852092398272455, guid: f758205a4cb30e74abaa81f9df3afd4d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -3542852092398272455, guid: f758205a4cb30e74abaa81f9df3afd4d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -3542852092398272455, guid: f758205a4cb30e74abaa81f9df3afd4d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: -3534905021428502902, guid: f758205a4cb30e74abaa81f9df3afd4d, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -1491,7 +1503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   donmeHizi: 10
-  isFlying: 1
+  isFlying: 0
   separationRadius: 0.6
   separationStrength: 3
   separationMaxNeighbors: 8
@@ -1517,7 +1529,7 @@ MonoBehaviour:
   xpDropChance: 100
   coinDropChance: 20
   maxHealth: 10
-  isElite: 0
+  isElite: 1
   armor: 0
   eliteScaleMultiplier: 2
   eliteHealthMultiplier: 5
