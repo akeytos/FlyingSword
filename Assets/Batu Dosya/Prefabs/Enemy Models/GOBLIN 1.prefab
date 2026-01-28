@@ -1492,6 +1492,12 @@ MonoBehaviour:
   moveSpeed: 8
   donmeHizi: 10
   isFlying: 1
+  separationRadius: 0.6
+  separationStrength: 3
+  separationMaxNeighbors: 8
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   target: {fileID: 0}
 --- !u!114 &2044612447279027659
 MonoBehaviour:
@@ -1505,8 +1511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7aef282d235a34ea988381e79f3db0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpGemPrefab: {fileID: 5829856250802750996, guid: 514ec7a60e7694042943bf7813f499de, type: 3}
-  coinPrefab: {fileID: 1610871626686050207, guid: b4821db1477ed874fa6b6aeedf5e2e85, type: 3}
+  xpGemPrefab: {fileID: 4325831630894039695, guid: a1a277d8d448fd64f9267c12b3ba970e, type: 3}
+  coinPrefab: {fileID: 3581184494059853892, guid: b947ca25f5fe3ad4db13443d367d7e8d, type: 3}
   xpDropChance: 100
   coinDropChance: 20
   maxHealth: 10
@@ -1531,6 +1537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  hitCooldown: 1.5
 --- !u!65 &5009859618614774641
 BoxCollider:
   m_ObjectHideFlags: 0

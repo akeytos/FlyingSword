@@ -15,6 +15,9 @@ public class WaveDirector : MonoBehaviour
     private float gameTime;
     private float spawnTimer;
 
+    // --- [YENİ] Önceki dalgayı hatırlamak için ---
+    private WavePhase lastWave = null;
+
     [System.Serializable]
     public class WavePhase
     {
@@ -23,6 +26,9 @@ public class WaveDirector : MonoBehaviour
         public float spawnRate;
         public List<EnemyWeight> enemyPool;
         public GameObject bossPrefab;
+
+        // --- [YENİ] Bu dalga bir "Sürü" mü? ---
+        public bool isSwarmWave = false;
     }
 
     [System.Serializable]
@@ -36,7 +42,30 @@ public class WaveDirector : MonoBehaviour
     {
         if (player == null) return;
         gameTime += Time.deltaTime;
+
         WavePhase currentWave = GetCurrentWave();
+
+        // --- [YENİ] DALGA DEĞİŞİM KONTROLÜ VE UYARI ---
+        if (currentWave != null && currentWave != lastWave)
+        {
+            // Yeni bir dalgaya geçtik!
+
+            // Eğer bu dalga bir "Swarm" (Sürü) ise ve Manager sahnedeyse uyarıyı patlat
+            if (currentWave.isSwarmWave)
+            {
+                if (SwarmAlertManager.Instance != null)
+                {
+                    SwarmAlertManager.Instance.ShowSwarmWarning();
+                }
+            }
+
+            // Boss spawn durumunu sıfırla (Yeni dalgada yeni boss gelebilir)
+            bossSpawned = false;
+
+            // Kaydı güncelle
+            lastWave = currentWave;
+        }
+        // ----------------------------------------------------
 
         if (currentWave != null)
         {
@@ -45,10 +74,6 @@ public class WaveDirector : MonoBehaviour
             {
                 SpawnBoss(currentWave.bossPrefab);
                 bossSpawned = true;
-            }
-            else if (currentWave.bossPrefab == null)
-            {
-                bossSpawned = false;
             }
 
             // --- NORMAL DÜŞMAN DOĞUMU ---

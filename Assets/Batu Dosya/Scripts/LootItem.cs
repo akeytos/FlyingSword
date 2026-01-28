@@ -25,11 +25,10 @@ public class LootItem : MonoBehaviour
             playerTransform = player.transform;
         }
 
-        // Doðduðunda havaya hafif bir zýplama efekti (Görsel þov)
+        // Doðduðunda havaya hafif bir zýplama efekti
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
-            // Rastgele bir yöne hafifçe fýrlat
             Vector3 randomForce = new Vector3(Random.Range(-2f, 2f), 4f, Random.Range(-2f, 2f));
             rb.AddForce(randomForce, ForceMode.Impulse);
         }
@@ -37,7 +36,7 @@ public class LootItem : MonoBehaviour
 
     void Update()
     {
-        // 1. Kendi etrafýnda dön (Görsel)
+        // 1. Kendi etrafýnda dön
         transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
 
         if (playerTransform == null) return;
@@ -70,6 +69,16 @@ public class LootItem : MonoBehaviour
 
     void Collect()
     {
+        // --- SES EFEKTLERÝ BURAYA EKLENDÝ ---
+        if (AudioManager.Instance != null)
+        {
+            if (type == LootType.XP)
+                AudioManager.Instance.PlayXpSFX();   // XP Sesi
+            else if (type == LootType.Coin)
+                AudioManager.Instance.PlayCoinSFX(); // Coin Sesi
+        }
+        // ------------------------------------
+
         if (GameManager.Instance != null)
         {
             if (type == LootType.XP)

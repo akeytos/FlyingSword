@@ -27,6 +27,13 @@ public class LevelUpManager : MonoBehaviour
 
     public void ShowLevelUpOptions()
     {
+        // --- LEVEL UP SESÝ BURAYA EKLENDÝ ---
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayLevelUpSFX();
+        }
+        // ------------------------------------
+
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -57,30 +64,26 @@ public class LevelUpManager : MonoBehaviour
         }
     }
 
-    // --- GÜNCELLENEN FONKSÝYON ---
     public void SelectUpgrade(UpgradeData data)
     {
         if (data != null)
         {
             Debug.Log("Seçilen Kart: " + data.upgradeName);
 
-            // 1. ÖZELLÝÐÝ ÝÞLE (Logic)
+            // 1. ÖZELLÝÐÝ ÝÞLE
             if (data.category == UpgradeCategory.Rune)
             {
                 if (SwordStats.Instance != null)
                 {
-                    // SwordStats string olarak statName bekliyor (Örn: "Size")
                     SwordStats.Instance.ApplyRune(data.statName, data.statValue);
                 }
             }
             else if (data.category == UpgradeCategory.Skill)
             {
-                // PlayerSkillController veya AbilityManager burayý halleder
-                // (Senin projende hangisi aktifse o kalmalý)
                 Debug.Log("Yetenek seçildi: " + data.upgradeName);
             }
 
-            // 2. UI'A ÝKONU EKLE (Görsel) - BURAYI EKLEDÝM
+            // 2. UI'A ÝKONU EKLE
             if (InGameUIManager.Instance != null)
             {
                 InGameUIManager.Instance.AddSkillToHUD(data);

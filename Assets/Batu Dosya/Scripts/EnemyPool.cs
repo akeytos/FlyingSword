@@ -8,9 +8,9 @@ public class EnemyPool : MonoBehaviour
     [System.Serializable]
     public struct PoolItem
     {
-        public string enemyTypeID;  // Örn: "Goblin", "Goril"
-        public GameObject prefab;   // Prefab dosyasý
-        public int poolSize;        // Kaç tane hazýrda beklesin? (Örn: 150)
+        public string enemyTypeID;  // ï¿½rn: "Goblin", "Goril"
+        public GameObject prefab;   // Prefab dosyasï¿½
+        public int poolSize;        // Kaï¿½ tane hazï¿½rda beklesin? (ï¿½rn: 150)
     }
 
     public List<PoolItem> pools;
@@ -28,17 +28,35 @@ public class EnemyPool : MonoBehaviour
 
         foreach (PoolItem item in pools)
         {
-            Queue<GameObject> objectPool = new Queue<GameObject>();
+            if (string.IsNullOrWhiteSpace(item.enemyTypeID))
+            {
+                Debug.LogWarning("EnemyPool: Bos enemyTypeID bulundu, atlandi.");
+                continue;
+            }
+
+            if (item.prefab == null)
+            {
+                Debug.LogWarning($"EnemyPool: '{item.enemyTypeID}' prefab atanmamis, atlandi.");
+                continue;
+            }
+
+            if (!poolDictionary.TryGetValue(item.enemyTypeID, out Queue<GameObject> objectPool))
+            {
+                objectPool = new Queue<GameObject>();
+                poolDictionary.Add(item.enemyTypeID, objectPool);
+            }
+            else
+            {
+                Debug.LogWarning($"EnemyPool: '{item.enemyTypeID}' icin tekrarli kayit var. Havuz birlestiriliyor.");
+            }
 
             for (int i = 0; i < item.poolSize; i++)
             {
                 GameObject obj = Instantiate(item.prefab);
-                obj.SetActive(false); // Baþta gizli
-                obj.transform.SetParent(this.transform); // Hiyerarþi temiz kalsýn
+                obj.SetActive(false); // Baï¿½ta gizli
+                obj.transform.SetParent(this.transform); // Hiyerarï¿½i temiz kalsï¿½n
                 objectPool.Enqueue(obj);
             }
-
-            poolDictionary.Add(item.enemyTypeID, objectPool);
         }
     }
 
@@ -46,28 +64,28 @@ public class EnemyPool : MonoBehaviour
     {
         if (!poolDictionary.ContainsKey(tag))
         {
-            Debug.LogWarning($"Havuzda {tag} diye bir düþman yok!");
+            Debug.LogWarning($"Havuzda {tag} diye bir dï¿½ï¿½man yok!");
             return null;
         }
 
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
 
-        // Eðer havuzdaki obje zaten aktifse (Yani ekrandaki limit dolduysa)
-        // Ýki seçeneðin var: Ya doðurmazsýn ya da en uzaktakini çalýp buraya getirirsin.
-        // Biz basitçe: Aktifse bile kapatýp yeni yerine taþýyýp açacaðýz (Reuse).
+        // Eï¿½er havuzdaki obje zaten aktifse (Yani ekrandaki limit dolduysa)
+        // ï¿½ki seï¿½eneï¿½in var: Ya doï¿½urmazsï¿½n ya da en uzaktakini ï¿½alï¿½p buraya getirirsin.
+        // Biz basitï¿½e: Aktifse bile kapatï¿½p yeni yerine taï¿½ï¿½yï¿½p aï¿½acaï¿½ï¿½z (Reuse).
         objectToSpawn.SetActive(false);
 
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
         objectToSpawn.SetActive(true);
 
-        // Kullandýðýmýzý sýranýn en sonuna atýyoruz
+        // Kullandï¿½ï¿½ï¿½mï¿½zï¿½ sï¿½ranï¿½n en sonuna atï¿½yoruz
         poolDictionary[tag].Enqueue(objectToSpawn);
 
         return objectToSpawn;
     }
 
-    // Düþman ölünce Destroy() yerine bunu çaðýracaðýz!
+    // Dï¿½ï¿½man ï¿½lï¿½nce Destroy() yerine bunu ï¿½aï¿½ï¿½racaï¿½ï¿½z!
     public void ReturnToPool(GameObject enemy)
     {
         enemy.SetActive(false);

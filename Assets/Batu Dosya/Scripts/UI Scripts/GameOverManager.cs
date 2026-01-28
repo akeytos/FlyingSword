@@ -1,23 +1,29 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro; // TextMeshPro Kütüphanesi
+using TMPro; // TextMeshPro Kï¿½tï¿½phanesi
 
 public class GameOverManager : MonoBehaviour
 {
     public static GameOverManager Instance;
 
-    [Header("--- 1. AÞAMA: DIED EKRANI ---")]
-    public GameObject diedPanel;        // Ýlk açýlan "Died" paneli
+    [Header("--- 1. Aï¿½AMA: DIED EKRANI ---")]
+    public GameObject diedPanel;        // ï¿½lk aï¿½ï¿½lan "Died" paneli
 
-    [Header("--- 2. AÞAMA: ABSTRACT EKRANI ---")]
-    public GameObject abstractPanel;    // Ýkinci açýlan "Özet" paneli
+    [Header("--- 2. Aï¿½AMA: ABSTRACT EKRANI ---")]
+    public GameObject abstractPanel;    // ï¿½kinci aï¿½ï¿½lan "ï¿½zet" paneli
 
-    [Header("--- ÝSTATÝSTÝK TEXTLERÝ (ABSTRACT) ---")]
+    [Header("--- ï¿½STATï¿½STï¿½K TEXTLERï¿½ (ABSTRACT) ---")]
     public TextMeshProUGUI killsText;   // "Kills: 100"
     public TextMeshProUGUI timeText;    // "Survival Time: 10:00"
     public TextMeshProUGUI levelText;   // "Level: 5"
     public TextMeshProUGUI coinText;    // "+ 50 Coin"
+
+    private int cachedKills;
+    private int cachedLevel;
+    private int cachedCoins;
+    private float cachedTime;
+    private bool hasCachedStats;
 
     void Awake()
     {
@@ -25,63 +31,107 @@ public class GameOverManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    // 1. ADIM: KARAKTER ÖLÜNCE BU ÇAÐRILIR (PlayerHealth çaðýrýr)
+    // 1. ADIM: KARAKTER ï¿½Lï¿½NCE BU ï¿½Aï¿½RILIR (PlayerHealth ï¿½aï¿½ï¿½rï¿½r)
     public void ShowGameOver()
     {
-        // Zamaný durdur
+        CacheStats();
+
+        // Zamanï¿½ durdur
         Time.timeScale = 0f;
 
-        // Mouse'u aç
+        // Mouse'u aï¿½
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        // Sadece Died panelini aç, diðerini kapat
+        // Sadece Died panelini aï¿½, diï¿½erini kapat
         if (diedPanel != null) diedPanel.SetActive(true);
         if (abstractPanel != null) abstractPanel.SetActive(false);
     }
 
-    // 2. ADIM: ÝLK BUTONA BASINCA ABSTRACT EKRANINA GEÇ
+    // 2. ADIM: ï¿½LK BUTONA BASINCA ABSTRACT EKRANINA GEï¿½
     public void GoToAbstractScreen()
     {
         // Died panelini kapat
         if (diedPanel != null) diedPanel.SetActive(false);
 
-        // Abstract panelini aç
+        // Abstract panelini aï¿½
         if (abstractPanel != null) abstractPanel.SetActive(true);
 
-        // --- VERÝLERÝ GAMEMANAGER'DAN ÇEK VE YAZ ---
-        if (GameManager.Instance != null)
+        ResolveAbstractTexts();
+
+        // --- VERÄ°LERÄ° YAZ ---
+        int kills = hasCachedStats ? cachedKills : 0;
+        int level = hasCachedStats ? cachedLevel : 0;
+        int coins = hasCachedStats ? cachedCoins : 0;
+        float time = hasCachedStats ? cachedTime : 0f;
+
+        string killsLabel = GetLocalized("abstract_kills", "Kills");
+        string timeLabel = GetLocalized("abstract_time", "Survival Time");
+        string levelLabel = GetLocalized("abstract_level", "Level");
+        string coinLabel = GetLocalized("abstract_coin", "Coin");
+
+        if (killsText != null)
+            killsText.text = $"{killsLabel}: {kills}";
+
+        if (timeText != null)
         {
-            // Kill Sayýsý
-            if (killsText != null)
-                killsText.text = "Kills: " + GameManager.Instance.currentKills.ToString();
+            string formattedTime = string.Format("{0:00}:{1:00}", Mathf.FloorToInt(time / 60), Mathf.FloorToInt(time % 60));
+            timeText.text = $"{timeLabel}: {formattedTime}";
+        }
 
-            // Zamaný Formatla (Dakika:Saniye)
-            if (timeText != null)
-            {
-                float t = GameManager.Instance.gameTime;
-                string formattedTime = string.Format("{0:00}:{1:00}", Mathf.FloorToInt(t / 60), Mathf.FloorToInt(t % 60));
-                timeText.text = "Survival Time: " + formattedTime;
-            }
+        if (levelText != null)
+            levelText.text = $"{levelLabel}: {level}";
 
-            // Level
-            if (levelText != null)
-                levelText.text = "Level: " + GameManager.Instance.currentLevel.ToString();
+        if (coinText != null)
+            coinText.text = $"+ {coins} {coinLabel}";
+    }
 
-            // Coin
-            if (coinText != null)
-                coinText.text = "+ " + GameManager.Instance.currentCoins.ToString() + " Coin";
+    void CacheStats()
+    {
+        if (GameManager.Instance == null)
+        {
+            hasCachedStats = false;
+            return;
+        }
+
+        cachedKills = GameManager.Instance.currentKills;
+        cachedLevel = GameManager.Instance.currentLevel;
+        cachedCoins = GameManager.Instance.currentCoins;
+        cachedTime = GameManager.Instance.gameTime;
+        hasCachedStats = true;
+    }
+
+    void ResolveAbstractTexts()
+    {
+        if (abstractPanel == null) return;
+
+        if (killsText != null && timeText != null && levelText != null && coinText != null) return;
+
+        var texts = abstractPanel.GetComponentsInChildren<TextMeshProUGUI>(true);
+        foreach (var t in texts)
+        {
+            if (killsText == null && t.name.Contains("Kills")) killsText = t;
+            else if (timeText == null && t.name.Contains("Time")) timeText = t;
+            else if (levelText == null && t.name.Contains("Level")) levelText = t;
+            else if (coinText == null && t.name.Contains("Coin")) coinText = t;
         }
     }
 
-    // 3. ADIM: SON BUTONA BASINCA OYUNU YENÝDEN BAÞLAT
+    string GetLocalized(string key, string fallback)
+    {
+        if (LanguageManager.Instance != null)
+            return LanguageManager.Instance.GetText(key);
+        return fallback;
+    }
+
+    // 3. ADIM: SON BUTONA BASINCA OYUNU YENï¿½DEN BAï¿½LAT
     public void RestartGame()
     {
-        Time.timeScale = 1f; // Zamaný akýt
+        Time.timeScale = 1f; // Zamanï¿½ akï¿½t
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        // Sahneyi yeniden yükle
+        // Sahneyi yeniden yï¿½kle
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -4,14 +4,14 @@ using System.Collections;
 public class PlayerHealth : MonoBehaviour
 {
     [Header("--- CAN AYARLARI ---")]
-    public int maxHealth = 3;
+    public int maxHealth = 5;
     public int currentHealth;
     public bool isDead = false;
 
-    [Header("--- HASAR BEKLEME (YENÝ) ---")]
-    public float iframeDuration = 1.0f; // Vurulduktan sonra kaç sn ölümsüz olalým?
-    private bool isInvincible = false;  // Þu an ölümsüz müyüz?
-    public GameObject visualModel;      // Karakterin içindeki model (Yanýp sönmesi için)
+    [Header("--- HASAR BEKLEME (YENï¿½) ---")]
+    public float iframeDuration = 1.8f; // Vurulduktan sonra kac sn olumsuz olalim?
+    private bool isInvincible = false;  // ï¿½u an ï¿½lï¿½msï¿½z mï¿½yï¿½z?
+    public GameObject visualModel;      // Karakterin iï¿½indeki model (Yanï¿½p sï¿½nmesi iï¿½in)
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        // Eðer zaten öldüysek VEYA þu an ölümsüzlük süresindeysek hasar alma!
+        // Eï¿½er zaten ï¿½ldï¿½ysek VEYA ï¿½u an ï¿½lï¿½msï¿½zlï¿½k sï¿½resindeysek hasar alma!
         if (isDead || isInvincible) return;
 
         currentHealth -= damageAmount;
@@ -30,14 +30,14 @@ public class PlayerHealth : MonoBehaviour
 
         UpdateUI();
 
-        // Öldük mü?
+        // ï¿½ldï¿½k mï¿½?
         if (currentHealth <= 0)
         {
             Die();
         }
         else
         {
-            // Ölmediysek, geçici bir süre ölümsüz ol (Yanýp sön)
+            // ï¿½lmediysek, geï¿½ici bir sï¿½re ï¿½lï¿½msï¿½z ol (Yanï¿½p sï¿½n)
             StartCoroutine(InvincibilityRoutine());
         }
     }
@@ -61,7 +61,7 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         isDead = true;
-        Debug.Log("ÖLDÜN! GAME OVER.");
+        Debug.Log("ï¿½LDï¿½N! GAME OVER.");
 
         // Oyunu durdurabilirsin istersen:
         // Time.timeScale = 0; 
@@ -72,19 +72,19 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    // --- ÖLÜMSÜZLÜK MANTIÐI (YANIP SÖNME) ---
+    // --- ï¿½Lï¿½MSï¿½ZLï¿½K MANTIï¿½I (YANIP Sï¿½NME) ---
     IEnumerator InvincibilityRoutine()
     {
         isInvincible = true;
 
-        // Modeli hýzlýca açýp kapatarak "Flash" efekti yapýyoruz
+        // Modeli hï¿½zlï¿½ca aï¿½ï¿½p kapatarak "Flash" efekti yapï¿½yoruz
         for (float i = 0; i < iframeDuration; i += 0.2f)
         {
             if (visualModel != null) visualModel.SetActive(!visualModel.activeSelf);
             yield return new WaitForSeconds(0.1f);
         }
 
-        // Süre bitince modeli kesin görünür yap ve ölümsüzlüðü kapat
+        // Sï¿½re bitince modeli kesin gï¿½rï¿½nï¿½r yap ve ï¿½lï¿½msï¿½zlï¿½ï¿½ï¿½ kapat
         if (visualModel != null) visualModel.SetActive(true);
         isInvincible = false;
     }

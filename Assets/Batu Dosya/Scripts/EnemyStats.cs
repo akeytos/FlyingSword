@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic; // Listeler için gerekli
 
 public class EnemyStats : MonoBehaviour
 {
     [Header("--- DROP PREFABLARI ---")]
     public GameObject xpGemPrefab;
     public GameObject coinPrefab;
+
+    [Header("--- DÜŞME ORANLARI (%) ---")]
     public float xpDropChance = 100f;
     public float coinDropChance = 20f;
 
@@ -14,21 +15,21 @@ public class EnemyStats : MonoBehaviour
     public float maxHealth = 10f;
     private float currentHealth;
 
-    [Header("--- ELITE & ARMOR ---")]
+    [Header("--- ELITE & ARMOR AYARLARI ---")]
     public bool isElite = false;
     public float armor = 0f;
     public float eliteScaleMultiplier = 2.0f;
     public float eliteHealthMultiplier = 5.0f;
 
-    [Header("--- EFEKTLER ---")]
+    [Header("--- HASAR HİSSİYATI (JUICE) ---")]
     public float knockbackGucu = 15f;
     public float flashSuresi = 0.1f;
-    public Material whiteFlashMaterial; // Inspector'dan atadığın beyaz materyal
+    public float scatterRange = 1.0f;
 
-    // --- YENİ YAPI: Renderer ve Orijinal Materyal Listesi ---
-    // Her renderer'ın kendi orijinal materyal dizesini saklayacağız
-    private Dictionary<Renderer, Material[]> originalMaterialsDict = new Dictionary<Renderer, Material[]>();
-    private Renderer[] allRenderers;
+    // --- FLASH İÇİN GEREKLİLER ---
+    private Renderer[] renderers;
+    private Material[] originalMaterials;
+    private Material whiteFlashMaterial;
 
     private Rigidbody rb;
     private Vector3 baseScale;
@@ -37,18 +38,20 @@ public class EnemyStats : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        // Tüm parçaları bul
-        allRenderers = GetComponentsInChildren<Renderer>();
+        // Renderları ve Orijinal Materyalleri Al
+        renderers = GetComponentsInChildren<Renderer>();
+        originalMaterials = new Material[renderers.Length];
 
-        // Her parçanın orijinal materyallerini (Çoğul!) hafızaya al
-        foreach (Renderer rend in allRenderers)
+        for (int i = 0; i < renderers.Length; i++)
         {
-            if (rend != null)
-            {
-                // .sharedMaterials kullanarak orijinal referansları alıyoruz
-                originalMaterialsDict[rend] = rend.sharedMaterials;
-            }
+            originalMaterials[i] = renderers[i].material;
         }
+
+        Shader shader = Shader.Find("Unlit/Color");
+        if (shader == null) shader = Shader.Find("Universal Render Pipeline/Unlit");
+
+        whiteFlashMaterial = new Material(shader);
+        whiteFlashMaterial.color = Color.white;
     }
 
     void OnEnable()
@@ -63,92 +66,63 @@ public class EnemyStats : MonoBehaviour
             baseScale = Vector3.one;
             currentHealth = maxHealth;
         }
-        transform.localScale = baseScale;
 
-        // Doğduğunda tertemiz giyinsin
-        ResetMaterialsImmediately();
+        transform.localScale = baseScale;
+        ResetMaterials();
     }
 
-    public bool TakeDamage(float amount)
+    public bool TakeDamage(float amount, bool returnToPoolOnDeath = true)
     {
         float finalDamage = amount - armor;
         if (finalDamage < 1) finalDamage = 1;
 
         currentHealth -= finalDamage;
 
-        // --- FLASH (HEPSİNİ BEYAZ YAP) ---
-        if (whiteFlashMaterial != null)
+        // --- EFEKTLER ---
+        StartCoroutine(FlashRoutine());
+
+        if (rb != null)
         {
-            ApplyFlashMaterial();
+            rb.AddForce(-transform.forward * knockbackGucu, ForceMode.Impulse);
         }
+
+        StartCoroutine(ScalePunchRoutine());
+        // ----------------
 
         if (currentHealth <= 0)
         {
-            if (rb != null) rb.AddForce(-transform.forward * knockbackGucu, ForceMode.Impulse);
-            return true; // ÖLDÜ
+            HandleDeath(returnToPoolOnDeath);
+            return true;
         }
-        else
-        {
-            StartCoroutine(FlashRoutine());
-            if (rb != null) rb.AddForce(-transform.forward * knockbackGucu, ForceMode.Impulse);
-            StartCoroutine(ScalePunchRoutine());
-            return false; // ÖLMEDİ
-        }
-    }
-
-    // --- YENİ: TÜM SLOTLARI BOYAYAN FONKSİYON ---
-    void ApplyFlashMaterial()
-    {
-        foreach (Renderer rend in allRenderers)
-        {
-            if (rend == null) continue;
-
-            // Orijinalinde kaç tane materyal varsa (örn: 3 tane),
-            // o kadar sayıda beyaz materyal dizisi oluşturuyoruz.
-            int matCount = originalMaterialsDict[rend].Length;
-            Material[] flashMats = new Material[matCount];
-
-            for (int i = 0; i < matCount; i++)
-            {
-                flashMats[i] = whiteFlashMaterial; // Hepsini beyaza boya
-            }
-
-            rend.materials = flashMats; // Yeni beyaz seti giydir
-        }
+        return false;
     }
 
     IEnumerator FlashRoutine()
     {
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            if (renderers[i] != null) renderers[i].material = whiteFlashMaterial;
+        }
+
         yield return new WaitForSeconds(flashSuresi);
+
         ResetMaterials();
     }
 
-    // --- YENİ: ESKİ HALİNE DÖNDÜRME ---
     void ResetMaterials()
     {
-        foreach (Renderer rend in allRenderers)
+        for (int i = 0; i < renderers.Length; i++)
         {
-            if (rend != null && originalMaterialsDict.ContainsKey(rend))
-            {
-                // Hafızadaki orijinal seti geri yükle
-                rend.materials = originalMaterialsDict[rend];
-            }
+            if (renderers[i] != null && i < originalMaterials.Length)
+                renderers[i].material = originalMaterials[i];
         }
     }
-
-    public void ResetMaterialsImmediately()
-    {
-        StopAllCoroutines();
-        ResetMaterials();
-    }
-
-    // ... (ScalePunch, OnEnemySliced, DropLoot aynı kalacak) ...
-    // Aşağısı önceki kodun aynısı:
 
     IEnumerator ScalePunchRoutine()
     {
         float duration = 0.15f;
         Vector3 targetScale = baseScale * 1.2f;
+
         float timer = 0f;
         while (timer < duration)
         {
@@ -161,9 +135,29 @@ public class EnemyStats : MonoBehaviour
 
     public void OnEnemySliced()
     {
+        HandleDeath(false);
+    }
+
+    void HandleDeath(bool returnToPool)
+    {
+        // --- SESİ BURADA ÇAL ---
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayEnemyDeathSFX();
+        }
+        // ------------------------
+
         DropLoot();
         if (GameManager.Instance != null) GameManager.Instance.AddKill();
-        EnemyPool.Instance.ReturnToPool(this.gameObject);
+
+        if (returnToPool && EnemyPool.Instance != null)
+            EnemyPool.Instance.ReturnToPool(this.gameObject);
+    }
+
+    public void ResetMaterialsImmediately()
+    {
+        StopAllCoroutines();
+        ResetMaterials();
     }
 
     void DropLoot()
@@ -177,10 +171,12 @@ public class EnemyStats : MonoBehaviour
 
     void SpawnItem(GameObject prefab, LootItem.LootType type)
     {
-        float rx = Random.Range(-1f, 1f);
-        float rz = Random.Range(-1f, 1f);
+        float rx = Random.Range(-scatterRange, scatterRange);
+        float rz = Random.Range(-scatterRange, scatterRange);
         Vector3 pos = transform.position + new Vector3(rx, 0.5f, rz);
+
         GameObject loot = Instantiate(prefab, pos, Quaternion.identity);
+
         LootItem itemScript = loot.GetComponent<LootItem>();
         if (itemScript != null) itemScript.type = type;
     }
