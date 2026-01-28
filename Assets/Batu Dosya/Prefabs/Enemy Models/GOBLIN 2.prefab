@@ -490,15 +490,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3542852092398272455, guid: f758205a4cb30e74abaa81f9df3afd4d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -3542852092398272455, guid: f758205a4cb30e74abaa81f9df3afd4d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -3542852092398272455, guid: f758205a4cb30e74abaa81f9df3afd4d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -3534905021428502902, guid: f758205a4cb30e74abaa81f9df3afd4d, type: 3}
       propertyPath: m_Layer
@@ -1525,7 +1525,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xpGemPrefab: {fileID: 4325831630894039695, guid: a1a277d8d448fd64f9267c12b3ba970e, type: 3}
   coinPrefab: {fileID: 3581184494059853892, guid: b947ca25f5fe3ad4db13443d367d7e8d, type: 3}
-  slashVFX: {fileID: 8303614446486757575, guid: 7343293f1d381de48b9e05130e8e985e, type: 3}
   xpDropChance: 100
   coinDropChance: 20
   maxHealth: 10
