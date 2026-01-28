@@ -7,7 +7,7 @@ public class SlicerTrigger : MonoBehaviour
     [Header("--- KESME AYARLARI ---")]
     public LayerMask sliceableLayer;
     public Material crossSectionMaterial;
-    public float cutForce = 1000f; // Parçalar sert fırlasın diye arttırdım
+    public float cutForce = 1000f;
     public float swordDamage = 50f;
 
     public enum CutAxis { X_Ekseni_Kirmizi, Y_Ekseni_Yesil, Z_Ekseni_Mavi }
@@ -44,21 +44,16 @@ public class SlicerTrigger : MonoBehaviour
 
             if (stats != null)
             {
-                // Hasar ver
                 bool isDead = stats.TakeDamage(swordDamage);
 
-                // --- GÜNCELLENEN KISIM: SES & VFX ---
                 if (hitSound != null)
                 {
                     audioSource.pitch = Random.Range(0.9f, 1.1f);
                     audioSource.PlayOneShot(hitSound);
                 }
 
-                // ARTIK VFX KILICIN ROTASYONUNA GÖRE ÇIKIYOR!
                 if (hitVFX != null)
-                {
                     Instantiate(hitVFX, contactPoint, transform.rotation);
-                }
 
                 if (!isDead)
                 {
@@ -75,7 +70,6 @@ public class SlicerTrigger : MonoBehaviour
             }
             else
             {
-                // Kutu vs. gibi stat'ı olmayan objeler için de VFX yönü düzeltildi
                 if (hitVFX != null) Instantiate(hitVFX, contactPoint, transform.rotation);
                 SliceTarget(target, contactPoint);
             }
@@ -94,64 +88,131 @@ public class SlicerTrigger : MonoBehaviour
         Time.timeScale = 1f;
 
         if (stats != null) stats.ResetMaterialsImmediately();
-        SliceTarget(target, contactPoint);
+
+        bool kesimBasarili = SliceTarget(target, contactPoint);
+
+        if (!kesimBasarili)
+        {
+            Debug.LogWarning("⚠️ Kesim başarısız, normal ölüm devreye giriyor.");
+        }
 
         if (stats != null) stats.OnEnemySliced();
-        else Destroy(target);
+        else target.SetActive(false);
 
         isProcessingKill = false;
     }
 
-    void SliceTarget(GameObject target, Vector3 contactPoint)
+    bool SliceTarget(GameObject target, Vector3 contactPoint)
     {
+        SkinnedMeshRenderer[] allSkins = target.GetComponentsInChildren<SkinnedMeshRenderer>();
+        SkinnedMeshRenderer bestSkin = null;
+
+        if (allSkins != null && allSkins.Length > 0)
+        {
+            float maxVerts = 0;
+            foreach (var skin in allSkins)
+            {
+                if (!skin.enabled || !skin.gameObject.activeInHierarchy) continue;
+
+                if (skin.sharedMesh != null && !skin.sharedMesh.isReadable)
+                {
+                    Debug.LogError($"🚨 HATA: '{skin.name}' Read/Write kapalı!");
+                    continue;
+                }
+
+                if (skin.sharedMesh != null && skin.sharedMesh.vertexCount > maxVerts)
+                {
+                    maxVerts = skin.sharedMesh.vertexCount;
+                    bestSkin = skin;
+                }
+            }
+        }
+
+        if (bestSkin != null)
+        {
+            return SliceCharacter(bestSkin, target, contactPoint);
+        }
+
         MeshFilter meshFilter = target.GetComponentInChildren<MeshFilter>();
         if (meshFilter != null)
         {
-            SliceObject(meshFilter.gameObject, contactPoint);
-            return;
+            if (meshFilter.sharedMesh.isReadable)
+                return SliceObject(meshFilter.gameObject, contactPoint);
         }
 
-        SkinnedMeshRenderer skinnedMesh = target.GetComponentInChildren<SkinnedMeshRenderer>();
-        if (skinnedMesh != null)
-        {
-            SliceCharacter(skinnedMesh, target, contactPoint);
-            return;
-        }
-
-        Debug.LogError("HATA: Kesilecek parçada MeshFilter veya SkinnedMeshRenderer bulunamadı!");
+        return false;
     }
 
-    void SliceCharacter(SkinnedMeshRenderer skinned, GameObject originalRoot, Vector3 contactPoint)
+    // --- İŞTE O NÜKLEER ÇÖZÜM BURADA ---
+    bool SliceCharacter(SkinnedMeshRenderer skinned, GameObject originalRoot, Vector3 contactPoint)
     {
         Mesh bakedMesh = new Mesh();
         skinned.BakeMesh(bakedMesh);
+
+        // 1. ADIM: Vertex Scaling (Nokta Boyutlandırma)
+        // Transform ile uğraşmıyoruz. Direkt Mesh'in noktalarını "Dünya Boyutu" ile çarpıyoruz.
+        // Böylece obje Scale(1,1,1) olsa bile içindeki mesh doğru boyutta oluyor.
+        Vector3 worldScale = skinned.transform.lossyScale;
+        Vector3[] vertices = bakedMesh.vertices;
+
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            // Her noktayı o anki dünya scale'i ile çarpıp yerine koyuyoruz.
+            vertices[i] = Vector3.Scale(vertices[i], worldScale);
+        }
+
+        bakedMesh.vertices = vertices;
+        bakedMesh.RecalculateBounds(); // Kutuyu güncelle
+        bakedMesh.RecalculateNormals(); // Işıklandırmayı güncelle
+
+        // 2. ADIM: Geçici Obje Yarat (Scale 1,1,1)
         GameObject tempObj = new GameObject("TempSliceTarget");
         tempObj.transform.position = skinned.transform.position;
         tempObj.transform.rotation = skinned.transform.rotation;
-        tempObj.transform.localScale = skinned.transform.localScale;
+        tempObj.transform.localScale = Vector3.one; // ARTIK BU HEP 1 OLACAK!
 
         MeshFilter mf = tempObj.AddComponent<MeshFilter>();
         mf.mesh = bakedMesh;
         MeshRenderer mr = tempObj.AddComponent<MeshRenderer>();
         mr.materials = skinned.materials;
 
-        SliceObject(tempObj, contactPoint);
-        Destroy(originalRoot);
+        // 3. ADIM: Kes
+        bool basarili = SliceObject(tempObj, contactPoint);
+
         Destroy(tempObj);
+
+        if (basarili)
+        {
+            originalRoot.SetActive(false);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
-    public void SliceObject(GameObject target, Vector3 contactPoint)
+    public bool SliceObject(GameObject target, Vector3 contactPoint)
     {
         Vector3 cutNormal = GetCutNormal();
+
         SlicedHull hull = target.Slice(transform.position, cutNormal);
+
         if (hull != null)
         {
             GameObject upperHull = hull.CreateUpperHull(target, crossSectionMaterial);
             GameObject lowerHull = hull.CreateLowerHull(target, crossSectionMaterial);
 
-            SetupSlicedComponent(upperHull);
-            SetupSlicedComponent(lowerHull);
+            if (upperHull != null && lowerHull != null)
+            {
+                // Parçalar artık Scale(1,1,1) doğacak çünkü input objemiz (1,1,1) idi.
+                // Vertexler zaten büyütüldüğü için görünüm BİREBİR AYNI olacak.
+                SetupSlicedComponent(upperHull);
+                SetupSlicedComponent(lowerHull);
+                return true;
+            }
         }
+        return false;
     }
 
     Vector3 GetCutNormal()
@@ -165,7 +226,6 @@ public class SlicerTrigger : MonoBehaviour
         }
     }
 
-    // --- GÜNCELLENEN KISIM: PARÇALARA FİZİK VERME ---
     void SetupSlicedComponent(GameObject slicedObject)
     {
         slicedObject.layer = LayerMask.NameToLayer("Default");
@@ -173,10 +233,7 @@ public class SlicerTrigger : MonoBehaviour
         MeshCollider collider = slicedObject.AddComponent<MeshCollider>();
         collider.convex = true;
 
-        // 1. PATLAMA: Dışa doğru fırlat
         rb.AddExplosionForce(cutForce, slicedObject.transform.position, 2f);
-
-        // 2. DÖNME (KAOS): Parçalar fırıl fırıl dönsün!
         rb.AddTorque(Random.insideUnitSphere * 500f);
 
         Destroy(slicedObject, 4f);

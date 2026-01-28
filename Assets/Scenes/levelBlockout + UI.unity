@@ -98939,6 +98939,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Visual Model
       objectReference: {fileID: 0}
+    - target: {fileID: 3446910077247718937, guid: 7d7f65c3b11ea4b4cb799aaeaf3ddcfb, type: 3}
+      propertyPath: hitVFX
+      value: 
+      objectReference: {fileID: 5692377533037541566, guid: 0c3e687ab6ad9a345b6f94dd4d5e3436, type: 3}
+    - target: {fileID: 3446910077247718937, guid: 7d7f65c3b11ea4b4cb799aaeaf3ddcfb, type: 3}
+      propertyPath: sliceableLayer.m_Bits
+      value: 1088
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
