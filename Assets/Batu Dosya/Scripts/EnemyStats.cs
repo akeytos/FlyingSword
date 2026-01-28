@@ -7,6 +7,9 @@ public class EnemyStats : MonoBehaviour
     public GameObject xpGemPrefab;
     public GameObject coinPrefab;
 
+    [Header("--- EFEKTLER (VFX) ---")]
+    public GameObject slashVFX; // <--- BURAYA SLASH EFEKTİNİ SÜRÜKLEYECEKSİN
+
     [Header("--- DÜŞME ORANLARI (%) ---")]
     public float xpDropChance = 100f;
     public float coinDropChance = 20f;
@@ -145,7 +148,18 @@ public class EnemyStats : MonoBehaviour
         {
             AudioManager.Instance.PlayEnemyDeathSFX();
         }
-        // ------------------------
+
+        // --- VFX (EFEKT) BURADA ÇALIŞACAK ---
+        if (slashVFX != null)
+        {
+            // Efekti düşmanın pozisyonunun 1 birim yukarısında (göğsünde) yarat
+            // Böylece yerin içine girmez.
+            GameObject vfx = Instantiate(slashVFX, transform.position + Vector3.up, Quaternion.identity);
+
+            // Efekti 2 saniye sonra yok et (Sahne çöplüğe dönmesin)
+            Destroy(vfx, 2f);
+        }
+        // ------------------------------------
 
         DropLoot();
         if (GameManager.Instance != null) GameManager.Instance.AddKill();

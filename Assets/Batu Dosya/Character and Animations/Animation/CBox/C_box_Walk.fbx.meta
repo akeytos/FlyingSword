@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c430b0ef8edb35246b9412cfef074821
+guid: 46b1b0f3072be6747aaae74fda3343ee
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: C_Fly_Goblin|Cube.004Action
-      takeName: C_Fly_Goblin|Cube.004Action
-      internalID: -8081127932774571734
+      name: metarig.002|Walk.001 (1)
+      takeName: metarig.002|Walk.001
+      internalID: -8284104381956174849
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 37
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -60,11 +60,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: C_Fly_Goblin|Cube.005Action
-      takeName: C_Fly_Goblin|Cube.005Action
-      internalID: -6021036589147436836
+      name: metarig.002|Walk
+      takeName: metarig.002|Walk
+      internalID: -5755179762600393865
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 37
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -89,11 +89,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: C_Fly_Goblin|rigAction (2)
-      takeName: C_Fly_Goblin|rigAction
-      internalID: 4542697777635531555
+      name: metarig.002|Walk.001
+      takeName: metarig.002|Walk.001
+      internalID: -1436553910360537125
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 37
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -118,11 +118,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: C_Fly_Goblin|rigAction
-      takeName: C_Fly_Goblin|rigAction
-      internalID: 9210614259238706523
+      name: metarig.002|Walk.002
+      takeName: metarig.002|Walk.002
+      internalID: -7288995970506127537
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 37
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
