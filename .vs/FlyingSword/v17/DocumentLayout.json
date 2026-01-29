@@ -1,123 +1,190 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\",
+  "WorkspaceRootPath": "C:\\Projeler\\FlyingSword\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\CursorManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\CursorManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Particles\\ParticlesUnlit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Particles\\ParticlesUnlit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\PervaneDondur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\PervaneDondur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\Slicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Slicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\EnemyStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyPool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyPool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\EnemyPool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\SwordSoloScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SwordSoloScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\KilicSabitleyici.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\KilicSabitleyici.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\swordstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\swordstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\PauseManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\PauseManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordAttack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\CameraSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\CameraSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordVisuals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\FreezeRot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\FreezeRot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\CameraShake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\CameraShake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\SwarmDirector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\SwarmDirector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\SwarmDirector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\AILast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\AILast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\EnemyStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SteamManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\SteamManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemySpawnerLast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\Spinner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\Spinner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SteamLeaderboardManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\SteamLeaderboardManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LeaderboardRow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\LeaderboardRow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\EnemySpawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\EnemySpawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LevelUpManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\LevelUpManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\UpgradeData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\UpgradeData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\InGameUIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\InGameUIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyDamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyDamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\EnemyDamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\Sword_Attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\AILast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\AILast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SelectionManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\SelectionManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\AudioManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\AudioManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\PlayerSkillController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\PlayerSkillController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\MenuSwordSelect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\MenuSwordSelect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\ForceSize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\ForceSize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\CloneController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\CloneController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\SwordManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\SwordManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Retro 3D Shader Pack for Unity\\Shaders\\RetroPostProcessEffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Retro 3D Shader Pack for Unity\\Shaders\\RetroPostProcessEffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Library\\PackageCache\\com.unity.inputsystem@ea5ab5b33a26\\InputSystem\\Editor\\UITKAssetEditor\\InputActionsEditorWindowUtils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.inputsystem@ea5ab5b33a26\\InputSystem\\Editor\\UITKAssetEditor\\InputActionsEditorWindowUtils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguageManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguageManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguageItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguageItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguagePanelController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguagePanelController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\TutorialText.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\TutorialText.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\GameOverManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\GameOverManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Editor\\AssetPostProcessors\\MaterialPostprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Editor\\AssetPostProcessors\\MaterialPostprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\Billboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\Billboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\AnvilLoot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\AnvilLoot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\MainMenuManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\MainMenuManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LocalizedText.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\LocalizedText.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwarmAlertManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwarmAlertManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LevelUpManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\LevelUpManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\LootItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\LootItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\GameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\GameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\CoinManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\CoinManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Scripts\\Slicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Slicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Scripts\\SwordSoloScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SwordSoloScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordVisuals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordVisuals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordAttack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordAttack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemySpawnerLast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\EnemySpawnerLast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Scripts\\EnemySpawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\EnemySpawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\UpgradeData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\UpgradeData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\InGameUIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\InGameUIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Scripts\\Sword_Attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Sword_Attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\PlayerMotor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\CameraSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\CameraSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\PlayerMotor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\PlayerMotor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\PauseManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Batu Dosya\\Scripts\\UI Scripts\\PauseManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -127,244 +194,364 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Lit.shader",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Lit.shader",
-              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Lit.shader",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Lit.shader",
-              "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Lit.shader",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-01-28T17:12:19.373Z",
+              "DocumentIndex": 1,
+              "Title": "PervaneDondur.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\PervaneDondur.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\PervaneDondur.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\PervaneDondur.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\PervaneDondur.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T15:21:09.492Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ParticlesUnlit.shader",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Particles\\ParticlesUnlit.shader",
-              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Particles\\ParticlesUnlit.shader",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Particles\\ParticlesUnlit.shader",
-              "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Shaders\\Particles\\ParticlesUnlit.shader",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-01-28T17:10:12.271Z"
+              "DocumentIndex": 2,
+              "Title": "EnemyPool.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyPool.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\EnemyPool.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyPool.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\EnemyPool.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T03:32:00.754Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "KilicSabitleyici.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\KilicSabitleyici.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\KilicSabitleyici.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\KilicSabitleyici.cs",
-              "RelativeToolTip": "Assets\\Scripts\\KilicSabitleyici.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAABAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "MenuSwordSelect.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\MenuSwordSelect.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\MenuSwordSelect.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\MenuSwordSelect.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\MenuSwordSelect.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-22T13:53:54.819Z"
+              "WhenOpened": "2026-01-24T21:01:23.082Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "swordstable.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\swordstable.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\swordstable.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\swordstable.cs",
-              "RelativeToolTip": "Assets\\Scripts\\swordstable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABIAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "AudioManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\AudioManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\AudioManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\AudioManager.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\AudioManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-21T23:36:40.166Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "FreezeRot.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\FreezeRot.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\FreezeRot.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\FreezeRot.cs",
-              "RelativeToolTip": "Assets\\Scripts\\FreezeRot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-21T22:52:39.745Z"
+              "WhenOpened": "2026-01-10T21:51:12.891Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "CameraShake.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\CameraShake.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\CameraShake.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\CameraShake.cs",
-              "RelativeToolTip": "Assets\\Scripts\\CameraShake.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAIwCgAAAABAAAAAAAAAA==",
+              "Title": "SwordData.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordData.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordData.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordData.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-21T22:09:58.526Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Slicer.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\Slicer.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Slicer.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\Slicer.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Slicer.cs",
-              "ViewState": "AgIAAO0AAAAAAAAAAAAIwAMBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T22:26:46.639Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SwordSoloScript.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\SwordSoloScript.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SwordSoloScript.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\SwordSoloScript.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SwordSoloScript.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAqwIkAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T22:25:01.644Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "SteamManager.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SteamManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SteamManager.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SteamManager.cs",
-              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SteamManager.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAIwAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T22:33:20.761Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Spinner.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\Spinner.cs",
-              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\Spinner.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\Spinner.cs",
-              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\Spinner.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T22:29:12.904Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "SteamLeaderboardManager.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SteamLeaderboardManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SteamLeaderboardManager.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SteamLeaderboardManager.cs",
-              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SteamLeaderboardManager.cs",
-              "ViewState": "AQIAAKMAAAAAAAAAAAAcwLYAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T22:19:48.229Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "LeaderboardRow.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LeaderboardRow.cs",
-              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\LeaderboardRow.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LeaderboardRow.cs",
-              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\LeaderboardRow.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T22:18:49.672Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "SwarmDirector.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\SwarmDirector.cs",
-              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\SwarmDirector.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\SwarmDirector.cs",
-              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\SwarmDirector.cs",
-              "ViewState": "AgIAAHkAAAAAAAAAAAAuwJEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T19:37:49.073Z"
+              "WhenOpened": "2026-01-24T21:40:03.252Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "EnemyPool.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyPool.cs",
-              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\EnemyPool.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyPool.cs",
-              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\EnemyPool.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAIwFUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T19:37:01.692Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "AILast.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\AILast.cs",
-              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\AILast.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\AILast.cs",
-              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\AILast.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAuwC8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T19:34:33.431Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "EnemyStats.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyStats.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyStats.cs",
               "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\EnemyStats.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyStats.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyStats.cs",
               "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\EnemyStats.cs",
-              "ViewState": "AgIAANMAAAAAAAAAAAAIwOQAAABIAAAAAAAAAA==",
+              "ViewState": "AQIAAIsAAAAAAAAAAAAmwMQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-04T19:34:15.851Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "EnemySpawner.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\EnemySpawner.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\EnemySpawner.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\EnemySpawner.cs",
-              "RelativeToolTip": "Assets\\Scripts\\EnemySpawner.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAowDQAAAAJAAAA",
+              "DocumentIndex": 0,
+              "Title": "CursorManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\CursorManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\CursorManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\CursorManager.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\CursorManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T19:33:57.984Z"
+              "WhenOpened": "2026-01-27T21:34:41.211Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "ObjectPooler.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs",
-              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs",
-              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAqwEEAAAABAAAA",
+              "DocumentIndex": 14,
+              "Title": "SwordManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\SwordManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\SwordManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\SwordManager.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\SwordManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T19:33:10.398Z"
+              "WhenOpened": "2026-01-24T14:55:55.489Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "SwordStats.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordStats.cs",
-              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordStats.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordStats.cs",
-              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordStats.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAqwHkAAAABAAAA",
+              "DocumentIndex": 15,
+              "Title": "RetroPostProcessEffect.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Retro 3D Shader Pack for Unity\\Shaders\\RetroPostProcessEffect.cs",
+              "RelativeDocumentMoniker": "Assets\\Retro 3D Shader Pack for Unity\\Shaders\\RetroPostProcessEffect.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Retro 3D Shader Pack for Unity\\Shaders\\RetroPostProcessEffect.cs",
+              "RelativeToolTip": "Assets\\Retro 3D Shader Pack for Unity\\Shaders\\RetroPostProcessEffect.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T17:15:40.442Z"
+              "WhenOpened": "2026-01-21T02:02:22.787Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "InputActionsEditorWindowUtils.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Library\\PackageCache\\com.unity.inputsystem@ea5ab5b33a26\\InputSystem\\Editor\\UITKAssetEditor\\InputActionsEditorWindowUtils.cs",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.inputsystem@ea5ab5b33a26\\InputSystem\\Editor\\UITKAssetEditor\\InputActionsEditorWindowUtils.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Library\\PackageCache\\com.unity.inputsystem@ea5ab5b33a26\\InputSystem\\Editor\\UITKAssetEditor\\InputActionsEditorWindowUtils.cs",
+              "RelativeToolTip": "Library\\PackageCache\\com.unity.inputsystem@ea5ab5b33a26\\InputSystem\\Editor\\UITKAssetEditor\\InputActionsEditorWindowUtils.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T01:49:28.857Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TutorialText.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\TutorialText.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\TutorialText.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\TutorialText.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\TutorialText.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-17T22:24:01.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EnemyDamage.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyDamage.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\EnemyDamage.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyDamage.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\EnemyDamage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T11:35:27.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SwarmDirector.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\SwarmDirector.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\SwarmDirector.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\SwarmDirector.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\SwarmDirector.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAKoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T13:12:41.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SelectionManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SelectionManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SelectionManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SelectionManager.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SelectionManager.cs",
+              "ViewState": "AQIAALQAAAAAAAAAAADwv84AAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-24T21:36:17.193Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ForceSize.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\ForceSize.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\ForceSize.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\ForceSize.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\ForceSize.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T22:16:06.937Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CloneController.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\CloneController.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\CloneController.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\CloneController.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\CloneController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T22:25:50.24Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PlayerSkillController.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\PlayerSkillController.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\PlayerSkillController.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\PlayerSkillController.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\PlayerSkillController.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAG8AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T23:41:33.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AILast.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\AILast.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\AILast.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\AILast.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\AILast.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAIBJwGkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T23:49:57.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "LanguagePanelController.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguagePanelController.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguagePanelController.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguagePanelController.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguagePanelController.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAiwD8AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T21:02:47.68Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "LanguageItem.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguageItem.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguageItem.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguageItem.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguageItem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T21:02:06.743Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 24,
+              "Title": "AnvilLoot.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\AnvilLoot.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\AnvilLoot.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\AnvilLoot.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\AnvilLoot.cs",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAiwJIAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T15:09:49.798Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "LanguageManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguageManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguageManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguageManager.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\LanguageManager.cs",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAiwHgAAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T13:03:29.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Billboard.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\Billboard.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\Billboard.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\Billboard.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\Billboard.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T22:37:05.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "MaterialPostprocessor.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Editor\\AssetPostProcessors\\MaterialPostprocessor.cs",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Editor\\AssetPostProcessors\\MaterialPostprocessor.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Editor\\AssetPostProcessors\\MaterialPostprocessor.cs",
+              "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal@bd2aa618476e\\Editor\\AssetPostProcessors\\MaterialPostprocessor.cs",
+              "ViewState": "AQIAAFkAAAAAAAAAAAASwG4AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T22:42:57.708Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "GameOverManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\GameOverManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\GameOverManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\GameOverManager.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\GameOverManager.cs",
+              "ViewState": "AQIAAGYAAAAAAAAAAIBJwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T01:16:15.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "MainMenuManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\MainMenuManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\MainMenuManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\MainMenuManager.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\MainMenuManager.cs",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAiwJkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T12:57:14.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "SwarmAlertManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwarmAlertManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwarmAlertManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwarmAlertManager.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwarmAlertManager.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAiwDcAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T13:16:57.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "LocalizedText.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LocalizedText.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\LocalizedText.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LocalizedText.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\LocalizedText.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T13:03:47.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\GameManager.cs",
+              "ViewState": "AQIAAFYAAAAAAAAAAAAIwIAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-10T21:54:56.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
               "Title": "LevelUpManager.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LevelUpManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LevelUpManager.cs",
               "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\LevelUpManager.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LevelUpManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\LevelUpManager.cs",
               "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\LevelUpManager.cs",
               "ViewState": "AQIAAEIAAAAAAAAAAAAQwGMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -372,11 +559,71 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 33,
+              "Title": "SwordSoloScript.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Scripts\\SwordSoloScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SwordSoloScript.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Scripts\\SwordSoloScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SwordSoloScript.cs",
+              "ViewState": "AgIAAMoAAAAAAAAAAAAuwOIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T22:25:01.644Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Slicer.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Scripts\\Slicer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Slicer.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Scripts\\Slicer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Slicer.cs",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAuwK0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T22:26:46.639Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "EnemySpawner.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Scripts\\EnemySpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EnemySpawner.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Scripts\\EnemySpawner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EnemySpawner.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAowDQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T19:33:57.984Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ObjectPooler.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\ObjectPooler.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAqwEEAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T19:33:10.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "SwordStats.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordStats.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordStats.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordStats.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\SwordStats.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAqwHkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T17:15:40.442Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
               "Title": "UpgradeData.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\UpgradeData.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\UpgradeData.cs",
               "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\UpgradeData.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\UpgradeData.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\UpgradeData.cs",
               "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\UpgradeData.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -384,11 +631,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 41,
               "Title": "InGameUIManager.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\InGameUIManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\InGameUIManager.cs",
               "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\InGameUIManager.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\InGameUIManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\InGameUIManager.cs",
               "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\InGameUIManager.cs",
               "ViewState": "AQIAAEgAAAAAAAAAAAAAAHEAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -396,23 +643,35 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "EnemyDamage.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyDamage.cs",
-              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\EnemyDamage.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemyDamage.cs",
-              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\EnemyDamage.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAABAAAA",
+              "DocumentIndex": 31,
+              "Title": "CoinManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\CoinManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\CoinManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\CoinManager.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\CoinManager.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwEAAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T11:35:27.01Z"
+              "WhenOpened": "2026-01-10T21:55:10.67Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
+              "Title": "LootItem.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\LootItem.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\LootItem.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\LootItem.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\LootItem.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAIwFsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-10T21:55:55.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
               "Title": "Sword_Attack.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\Sword_Attack.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Scripts\\Sword_Attack.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Sword_Attack.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Scripts\\Sword_Attack.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Scripts\\Sword_Attack.cs",
               "RelativeToolTip": "Assets\\Scripts\\Sword_Attack.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -420,57 +679,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 36,
               "Title": "EnemySpawnerLast.cs",
               "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemySpawnerLast.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemySpawnerLast.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\EnemySpawnerLast.cs",
               "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemySpawnerLast.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\EnemySpawnerLast.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\EnemySpawnerLast.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAowDIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-28T14:55:56.612Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 35,
               "Title": "SwordAttack.cs",
               "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordAttack.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordAttack.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordAttack.cs",
               "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordAttack.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordAttack.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordAttack.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAIwDQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-26T21:44:01.9Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 34,
               "Title": "SwordVisuals.cs",
               "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordVisuals.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordVisuals.cs",
+              "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordVisuals.cs",
               "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordVisuals.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordVisuals.cs",
+              "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\SwordVisuals.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAIwFIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-26T21:38:02.393Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 43,
               "Title": "CameraSystem.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\CameraSystem.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\CameraSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\CameraSystem.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\CameraSystem.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\CameraSystem.cs",
               "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\CameraSystem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-26T21:32:33.335Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 44,
               "Title": "PlayerMotor.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\PlayerMotor.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\PlayerMotor.cs",
               "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\PlayerMotor.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\PlayerMotor.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\PlayerMotor.cs",
               "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\Sword Controller Scripts\\PlayerMotor.cs",
               "ViewState": "AQIAACcAAAAAAAAAAAAIwFEAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -478,13 +739,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 45,
               "Title": "PauseManager.cs",
-              "DocumentMoniker": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\PauseManager.cs",
+              "DocumentMoniker": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\PauseManager.cs",
               "RelativeDocumentMoniker": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\PauseManager.cs",
-              "ToolTip": "C:\\Users\\an\u0131l\\Documents\\GitHub\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\PauseManager.cs",
+              "ToolTip": "C:\\Projeler\\FlyingSword\\Assets\\Batu Dosya\\Scripts\\UI Scripts\\PauseManager.cs",
               "RelativeToolTip": "Assets\\Batu Dosya\\Scripts\\UI Scripts\\PauseManager.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAowGAAAAAJAAAAAAAAAA==",
+              "ViewState": "AQIAAEEAAAAAAAAAAAA9wGAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-25T04:00:06.558Z"
             }
