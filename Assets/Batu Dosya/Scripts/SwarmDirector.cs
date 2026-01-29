@@ -5,17 +5,19 @@ public class WaveDirector : MonoBehaviour
 {
     [Header("--- TEMEL AYARLAR ---")]
     public Transform player;
-    public LayerMask groundLayer; // Inspector'dan 'Ground' layerını seçmeyi unutma!
+    public LayerMask groundLayer;
     public float spawnRadius = 25f;
 
     [Header("--- DALGA SENARYOSU ---")]
     public List<WavePhase> waves;
 
+    // Durum Kontrol Değişkenleri
     private bool bossSpawned = false;
+    private bool eliteSpawned = false; // [YENİ] Elite doğdu mu?
     private float gameTime;
     private float spawnTimer;
+    private float currentWaveTimer; // [YENİ] Şu anki dalganın yerel saati
 
-    // --- [YENİ] Önceki dalgayı hatırlamak için ---
     private WavePhase lastWave = null;
 
     [System.Serializable]
@@ -25,9 +27,15 @@ public class WaveDirector : MonoBehaviour
         public float startTime;
         public float spawnRate;
         public List<EnemyWeight> enemyPool;
+
+        [Header("--- BOSS AYARLARI ---")]
         public GameObject bossPrefab;
 
-        // --- [YENİ] Bu dalga bir "Sürü" mü? ---
+        [Header("--- ELITE (MINI-BOSS) AYARLARI ---")]
+        public GameObject elitePrefab; // [YENİ] Elite düşman prefabı
+        public float eliteSpawnDelay = 10f; // [YENİ] Dalga başladıktan kaç sn sonra gelsin?
+
+        [Header("--- SÜRÜ AYARI ---")]
         public bool isSwarmWave = false;
     }
 
@@ -45,44 +53,54 @@ public class WaveDirector : MonoBehaviour
 
         WavePhase currentWave = GetCurrentWave();
 
-        // --- [YENİ] DALGA DEĞİŞİM KONTROLÜ VE UYARI ---
+        // --- DALGA DEĞİŞİM KONTROLÜ ---
         if (currentWave != null && currentWave != lastWave)
         {
-            // Yeni bir dalgaya geçtik!
+            // Yeni dalgaya geçtik!
 
-            // Eğer bu dalga bir "Swarm" (Sürü) ise ve Manager sahnedeyse uyarıyı patlat
-            if (currentWave.isSwarmWave)
+            // Sürü uyarısı
+            if (currentWave.isSwarmWave && SwarmAlertManager.Instance != null)
             {
-                if (SwarmAlertManager.Instance != null)
-                {
-                    SwarmAlertManager.Instance.ShowSwarmWarning();
-                }
+                SwarmAlertManager.Instance.ShowSwarmWarning();
             }
 
-            // Boss spawn durumunu sıfırla (Yeni dalgada yeni boss gelebilir)
+            // Durumları Sıfırla
             bossSpawned = false;
+            eliteSpawned = false; // [YENİ] Yeni dalga için elite sıfırlandı
+            currentWaveTimer = 0f; // [YENİ] Dalga süresini sıfırla
 
             // Kaydı güncelle
             lastWave = currentWave;
         }
-        // ----------------------------------------------------
 
         if (currentWave != null)
         {
-            // --- BOSS DOĞUMU ---
+            // Dalga süresini ilerlet
+            currentWaveTimer += Time.deltaTime;
+
+            // --- 1. BOSS DOĞUMU ---
             if (currentWave.bossPrefab != null && !bossSpawned)
             {
-                SpawnBoss(currentWave.bossPrefab);
+                SpawnUnit(currentWave.bossPrefab, true); // Boss hemen doğar
                 bossSpawned = true;
             }
 
-            // --- NORMAL DÜŞMAN DOĞUMU ---
+            // --- 2. ELITE DOĞUMU [YENİ] ---
+            // Elite prefabı varsa, daha doğmadıysa ve belirlediğimiz süre geçtiyse
+            if (currentWave.elitePrefab != null && !eliteSpawned && currentWaveTimer >= currentWave.eliteSpawnDelay)
+            {
+                SpawnUnit(currentWave.elitePrefab, false); // Elite doğur
+                eliteSpawned = true;
+                Debug.Log($"⚔️ ELITE DÜŞMAN SAHNEYE GİRDİ: {currentWave.phaseName}");
+            }
+
+            // --- 3. NORMAL DÜŞMAN DOĞUMU ---
             if (currentWave.spawnRate < 100f)
             {
                 spawnTimer += Time.deltaTime;
                 if (spawnTimer >= currentWave.spawnRate)
                 {
-                    SpawnEnemy(currentWave);
+                    SpawnEnemyFromPool(currentWave);
                     spawnTimer = 0;
                 }
             }
@@ -98,55 +116,49 @@ public class WaveDirector : MonoBehaviour
         return null;
     }
 
-    void SpawnEnemy(WavePhase wave)
+    // Hem Boss hem Elite için ortak spawn fonksiyonu (Kod tekrarını önlemek için birleştirdim)
+    void SpawnUnit(GameObject prefab, bool isBoss)
+    {
+        Vector3 spawnPos = GetValidSpawnPosition();
+        GameObject unit = Instantiate(prefab, spawnPos, Quaternion.identity);
+
+        // Eğer Elite ise belki biraz daha büyük yapabilirsin veya efekt ekleyebilirsin
+        if (!isBoss)
+        {
+            // Örneğin Elite'ler %20 daha büyük olsun (İsteğe bağlı)
+            unit.transform.localScale *= 1.2f;
+        }
+    }
+
+    void SpawnEnemyFromPool(WavePhase wave)
     {
         string enemyID = GetRandomEnemyID(wave);
         if (string.IsNullOrEmpty(enemyID)) return;
 
-        // 1. Önce zemini bul (Garantili Yöntem)
         Vector3 spawnPos = GetValidSpawnPosition();
-
-        // 2. Havuzdan düşmanı çağır
         GameObject enemy = EnemyPool.Instance.SpawnFromPool(enemyID, spawnPos, Quaternion.identity);
 
         if (enemy != null && enemy.TryGetComponent(out AILast ai))
         {
             ai.target = player;
-
-            // 3. Eğer UÇAN bir düşmansa, onu yerden kaldır
             if (ai.isFlying)
             {
-                enemy.transform.position += Vector3.up * Random.Range(5f, 15f); // 5-15 metre havalandır
+                enemy.transform.position += Vector3.up * Random.Range(5f, 15f);
             }
-            // Uçmuyorsa zaten GetValidSpawnPosition onu yere yapıştırdı.
         }
     }
 
-    void SpawnBoss(GameObject bossPrefab)
-    {
-        Vector3 bossPos = GetValidSpawnPosition();
-        Instantiate(bossPrefab, bossPos, Quaternion.identity);
-    }
-
-    // --- KRİTİK DÜZELTME BURADA ---
     Vector3 GetValidSpawnPosition()
     {
-        // 1. Oyuncunun etrafında rastgele nokta seç
         Vector2 randomCircle = Random.insideUnitCircle.normalized * spawnRadius;
-
-        // 2. Noktayı ÇOK YUKARIDAN başlat (Oyuncunun yüksekliğinden bağımsız)
-        // Y=100 diyerek bulutların üzerinden aşağı bakıyoruz
         Vector3 skyPos = new Vector3(player.position.x + randomCircle.x, 100f, player.position.z + randomCircle.y);
 
         RaycastHit hit;
-        // 3. Aşağı doğru lazer at, sadece Ground layer'ını gör
         if (Physics.Raycast(skyPos, Vector3.down, out hit, 200f, groundLayer))
         {
-            return hit.point; // Zemini bulduk, tam üstü
+            return hit.point;
         }
 
-        // 4. Eğer zemin yoksa (harita dışıysa), varsayılan olarak Y=0 (Dünya düzlemi) kullan
-        // ASLA player.position.y kullanma, yoksa havada doğarlar!
         Vector3 defaultPos = skyPos;
         defaultPos.y = 0f;
         return defaultPos;

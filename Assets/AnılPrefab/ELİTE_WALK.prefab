@@ -110,15 +110,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3753066264454847366, guid: 2a8a22233b319a8498b1d9bbf7d180ce, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -3753066264454847366, guid: 2a8a22233b319a8498b1d9bbf7d180ce, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -3753066264454847366, guid: 2a8a22233b319a8498b1d9bbf7d180ce, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -325096610197296102, guid: 2a8a22233b319a8498b1d9bbf7d180ce, type: 3}
       propertyPath: m_Layer
@@ -130,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2a8a22233b319a8498b1d9bbf7d180ce, type: 3}
       propertyPath: m_Name
-      value: C_Fly_Goblin_Walk (2)
+      value: "EL\u0130TE_WALK"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2a8a22233b319a8498b1d9bbf7d180ce, type: 3}
       propertyPath: m_Layer
@@ -280,11 +280,11 @@ MonoBehaviour:
   coinPrefab: {fileID: 3581184494059853892, guid: b947ca25f5fe3ad4db13443d367d7e8d, type: 3}
   xpDropChance: 100
   coinDropChance: 20
-  maxHealth: 5
-  isElite: 0
+  maxHealth: 10
+  isElite: 1
   armor: 0
-  eliteScaleMultiplier: 2
-  eliteHealthMultiplier: 5
+  eliteScaleMultiplier: 3
+  eliteHealthMultiplier: 4
   knockbackGucu: 15
   flashSuresi: 0.3
   scatterRange: 1
@@ -343,4 +343,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a189fa0420e9442ae19bac23e6567d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hedefBoyut: {x: 3, y: 3, z: 3}
+  hedefBoyut: {x: 6, y: 6, z: 6}

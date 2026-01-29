@@ -122,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ba96d8f018e06c747a2e805e0c129c51, type: 3}
       propertyPath: m_Name
-      value: C_box_Walk 1
+      value: "box_EL\u0130TE"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ba96d8f018e06c747a2e805e0c129c51, type: 3}
       propertyPath: m_Layer
@@ -134,15 +134,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1009883324478210075, guid: ba96d8f018e06c747a2e805e0c129c51, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1009883324478210075, guid: ba96d8f018e06c747a2e805e0c129c51, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1009883324478210075, guid: ba96d8f018e06c747a2e805e0c129c51, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1581621682868949188, guid: ba96d8f018e06c747a2e805e0c129c51, type: 3}
       propertyPath: m_Layer
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a189fa0420e9442ae19bac23e6567d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hedefBoyut: {x: 5, y: 5, z: 5}
+  hedefBoyut: {x: 10, y: 10, z: 10}
 --- !u!114 &2695989865961810074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,10 +305,10 @@ MonoBehaviour:
   xpDropChance: 100
   coinDropChance: 20
   maxHealth: 10
-  isElite: 0
+  isElite: 1
   armor: 0
-  eliteScaleMultiplier: 2
-  eliteHealthMultiplier: 5
+  eliteScaleMultiplier: 3
+  eliteHealthMultiplier: 4
   knockbackGucu: 15
   flashSuresi: 0.3
   scatterRange: 1
