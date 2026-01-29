@@ -13,8 +13,9 @@ public class SlicerTrigger : MonoBehaviour
     public enum CutAxis { X_Ekseni_Kirmizi, Y_Ekseni_Yesil, Z_Ekseni_Mavi }
     public CutAxis cutPlaneAxis = CutAxis.Y_Ekseni_Yesil;
 
-    [Header("--- HİSSİYAT (JUICE) ---")]
-    public GameObject hitVFX;
+    [Header("--- EFEKTLER (JUICE) ---")]
+    public GameObject hitVFX;       // Normal vuruşta çıkan (Kıvılcım vs.)
+    public GameObject bloodVFX;     // SADECE ÖLÜNCE ÇIKAN (Kan Patlaması) 🩸
     public AudioClip hitSound;
     public float hitStopDuration = 0.1f;
 
@@ -44,19 +45,23 @@ public class SlicerTrigger : MonoBehaviour
 
             if (stats != null)
             {
+                // Canı azalt ve öldü mü kontrol et
                 bool isDead = stats.TakeDamage(swordDamage);
 
+                // Ses her türlü çıksın (Vurma sesi)
                 if (hitSound != null)
                 {
                     audioSource.pitch = Random.Range(0.9f, 1.1f);
                     audioSource.PlayOneShot(hitSound);
                 }
 
-                if (hitVFX != null)
-                    Instantiate(hitVFX, contactPoint, transform.rotation);
-
                 if (!isDead)
                 {
+                    // --- BURASI NORMAL VURUŞ ---
+                    // Sadece kıvılcım (hitVFX) çıkar, kan çıkmaz.
+                    if (hitVFX != null)
+                        Instantiate(hitVFX, contactPoint, transform.rotation);
+
                     SwordMasterController swordCtrl = GetComponentInParent<SwordMasterController>();
                     if (swordCtrl != null) swordCtrl.ApplyRecoil(25f);
 
@@ -65,11 +70,14 @@ public class SlicerTrigger : MonoBehaviour
                 }
                 else
                 {
+                    // --- BURASI ÖLÜM ANI ---
+                    // Kan burada çıkacak (DeathSequence içinde)
                     StartCoroutine(DeathSequence(stats, target, contactPoint));
                 }
             }
             else
             {
+                // Düşman değilse (Kutu vs.) normal efekt
                 if (hitVFX != null) Instantiate(hitVFX, contactPoint, transform.rotation);
                 SliceTarget(target, contactPoint);
             }
@@ -80,20 +88,34 @@ public class SlicerTrigger : MonoBehaviour
     {
         isProcessingKill = true;
 
+        // 1. ZAMANI DURDUR (Hit Stop - Sinematik Etki)
         if (useCameraShake && CameraShake.Instance != null)
             CameraShake.Instance.Shake(hitStopDuration, 0.4f);
 
         Time.timeScale = 0f;
+
+        // --- 🩸 KAN EFEKTİ SADECE BURADA 🩸 ---
+        if (bloodVFX != null)
+        {
+            // Kanı tam kılıcın değdiği noktada ve kılıcın açısıyla oluşturuyoruz
+            GameObject blood = Instantiate(bloodVFX, contactPoint, transform.rotation);
+
+            // Kan 5 saniye sonra silinsin, sahneyi şişirmesin
+            Destroy(blood, 5f);
+        }
+        // -------------------------------------
+
         yield return new WaitForSecondsRealtime(hitStopDuration);
         Time.timeScale = 1f;
 
         if (stats != null) stats.ResetMaterialsImmediately();
 
+        // Şimdi kesme işlemini yap
         bool kesimBasarili = SliceTarget(target, contactPoint);
 
         if (!kesimBasarili)
         {
-            Debug.LogWarning("⚠️ Kesim başarısız, normal ölüm devreye giriyor.");
+            Debug.LogWarning("⚠️ Kesim başarısız, normal ölüm.");
         }
 
         if (stats != null) stats.OnEnemySliced();
@@ -102,6 +124,7 @@ public class SlicerTrigger : MonoBehaviour
         isProcessingKill = false;
     }
 
+    // --- MATRIX YÖNTEMİ (KESİN ÇÖZÜM - Boyut Bozulmaz) ---
     bool SliceTarget(GameObject target, Vector3 contactPoint)
     {
         SkinnedMeshRenderer[] allSkins = target.GetComponentsInChildren<SkinnedMeshRenderer>();
@@ -143,40 +166,33 @@ public class SlicerTrigger : MonoBehaviour
         return false;
     }
 
-    // --- İŞTE O NÜKLEER ÇÖZÜM BURADA ---
     bool SliceCharacter(SkinnedMeshRenderer skinned, GameObject originalRoot, Vector3 contactPoint)
     {
         Mesh bakedMesh = new Mesh();
         skinned.BakeMesh(bakedMesh);
 
-        // 1. ADIM: Vertex Scaling (Nokta Boyutlandırma)
-        // Transform ile uğraşmıyoruz. Direkt Mesh'in noktalarını "Dünya Boyutu" ile çarpıyoruz.
-        // Böylece obje Scale(1,1,1) olsa bile içindeki mesh doğru boyutta oluyor.
-        Vector3 worldScale = skinned.transform.lossyScale;
-        Vector3[] vertices = bakedMesh.vertices;
+        Vector3[] verts = bakedMesh.vertices;
+        Matrix4x4 localToWorld = skinned.transform.localToWorldMatrix;
 
-        for (int i = 0; i < vertices.Length; i++)
+        for (int i = 0; i < verts.Length; i++)
         {
-            // Her noktayı o anki dünya scale'i ile çarpıp yerine koyuyoruz.
-            vertices[i] = Vector3.Scale(vertices[i], worldScale);
+            verts[i] = localToWorld.MultiplyPoint3x4(verts[i]);
         }
 
-        bakedMesh.vertices = vertices;
-        bakedMesh.RecalculateBounds(); // Kutuyu güncelle
-        bakedMesh.RecalculateNormals(); // Işıklandırmayı güncelle
+        bakedMesh.vertices = verts;
+        bakedMesh.RecalculateBounds();
+        bakedMesh.RecalculateNormals();
 
-        // 2. ADIM: Geçici Obje Yarat (Scale 1,1,1)
         GameObject tempObj = new GameObject("TempSliceTarget");
-        tempObj.transform.position = skinned.transform.position;
-        tempObj.transform.rotation = skinned.transform.rotation;
-        tempObj.transform.localScale = Vector3.one; // ARTIK BU HEP 1 OLACAK!
+        tempObj.transform.position = Vector3.zero;
+        tempObj.transform.rotation = Quaternion.identity;
+        tempObj.transform.localScale = Vector3.one;
 
         MeshFilter mf = tempObj.AddComponent<MeshFilter>();
         mf.mesh = bakedMesh;
         MeshRenderer mr = tempObj.AddComponent<MeshRenderer>();
         mr.materials = skinned.materials;
 
-        // 3. ADIM: Kes
         bool basarili = SliceObject(tempObj, contactPoint);
 
         Destroy(tempObj);
@@ -205,8 +221,6 @@ public class SlicerTrigger : MonoBehaviour
 
             if (upperHull != null && lowerHull != null)
             {
-                // Parçalar artık Scale(1,1,1) doğacak çünkü input objemiz (1,1,1) idi.
-                // Vertexler zaten büyütüldüğü için görünüm BİREBİR AYNI olacak.
                 SetupSlicedComponent(upperHull);
                 SetupSlicedComponent(lowerHull);
                 return true;
@@ -233,8 +247,13 @@ public class SlicerTrigger : MonoBehaviour
         MeshCollider collider = slicedObject.AddComponent<MeshCollider>();
         collider.convex = true;
 
-        rb.AddExplosionForce(cutForce, slicedObject.transform.position, 2f);
+        float volume = collider.bounds.size.x * collider.bounds.size.y * collider.bounds.size.z;
+        rb.mass = Mathf.Max(1f, volume * 5f);
+
+        rb.AddExplosionForce(cutForce, collider.bounds.center, 2f);
         rb.AddTorque(Random.insideUnitSphere * 500f);
+
+        rb.maxLinearVelocity = 20f;
 
         Destroy(slicedObject, 4f);
     }
