@@ -81831,7 +81831,7 @@ MonoBehaviour:
       chance: 100
     - enemyID: Cbox
       chance: 100
-    bossPrefab: {fileID: 3877197039157431700, guid: 56dce150f724a1d49ba448ed116cbd18, type: 3}
+    bossPrefab: {fileID: 1021207145605853866, guid: a0582d3223f82c94da0bb1cbb03dfa3a, type: 3}
     isSwarmWave: 0
   - phaseName: "H\u0131zlanma"
     startTime: 30
@@ -81871,7 +81871,7 @@ MonoBehaviour:
     enemyPool:
     - enemyID: Goblin
       chance: 100
-    bossPrefab: {fileID: 5449250194124374242, guid: 4fa7172a4319f984da9d220137aea853, type: 3}
+    bossPrefab: {fileID: 2979132222005615949, guid: 536e3740e36d2bd4f828205085645b90, type: 3}
     isSwarmWave: 1
 --- !u!114 &1257788776
 MonoBehaviour:
@@ -205573,7 +205573,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 441373062}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1642975936829155448, guid: 5cdf9fe23faddce41a8aa8c218e8bd9f, type: 3}
+    - {fileID: 4337400253607877147, guid: 5cdf9fe23faddce41a8aa8c218e8bd9f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cdf9fe23faddce41a8aa8c218e8bd9f, type: 3}
