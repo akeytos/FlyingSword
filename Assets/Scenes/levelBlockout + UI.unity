@@ -81825,12 +81825,12 @@ MonoBehaviour:
   waves:
   - phaseName: "Is\u0131nma"
     startTime: 0
-    spawnRate: 4.5
+    spawnRate: 3.5
     enemyPool:
     - enemyID: Goblin
       chance: 100
     - enemyID: Cbox
-      chance: 100
+      chance: 80
     bossPrefab: {fileID: 1021207145605853866, guid: a0582d3223f82c94da0bb1cbb03dfa3a, type: 3}
     isSwarmWave: 0
   - phaseName: "H\u0131zlanma"
@@ -81888,19 +81888,19 @@ MonoBehaviour:
   pools:
   - enemyTypeID: Goblin
     prefab: {fileID: 2743443173136869641, guid: 2b22c895ddd30d84cb4d7ce18e245230, type: 3}
-    poolSize: 150
+    poolSize: 200
   - enemyTypeID: Fly Goblin
     prefab: {fileID: 1021207145605853866, guid: a0582d3223f82c94da0bb1cbb03dfa3a, type: 3}
-    poolSize: 40
+    poolSize: 50
   - enemyTypeID: Fly Goblin
     prefab: {fileID: 1021207145605853866, guid: a0582d3223f82c94da0bb1cbb03dfa3a, type: 3}
-    poolSize: 40
+    poolSize: 50
   - enemyTypeID: Cbox
     prefab: {fileID: 5512570906928884310, guid: 93f742a80428fea4ca52e8009ac74d46, type: 3}
-    poolSize: 40
+    poolSize: 50
   - enemyTypeID: GreenEye
     prefab: {fileID: 5449250194124374242, guid: 4fa7172a4319f984da9d220137aea853, type: 3}
-    poolSize: 40
+    poolSize: 50
 --- !u!4 &1257788777
 Transform:
   m_ObjectHideFlags: 0
@@ -112566,6 +112566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524375cf4ca3030438e986a573f2e7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCursorLocked: 1
 --- !u!1001 &1513351871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -181307,6 +181308,10 @@ PrefabInstance:
     - target: {fileID: 3877197039157431700, guid: 56dce150f724a1d49ba448ed116cbd18, type: 3}
       propertyPath: m_Name
       value: GOBLIN 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877197039157431700, guid: 56dce150f724a1d49ba448ed116cbd18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4505080148392711982, guid: 56dce150f724a1d49ba448ed116cbd18, type: 3}
       propertyPath: m_LocalPosition.x
