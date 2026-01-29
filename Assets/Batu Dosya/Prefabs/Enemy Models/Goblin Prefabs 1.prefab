@@ -1589,6 +1589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xpGemPrefab: {fileID: 4325831630894039695, guid: a1a277d8d448fd64f9267c12b3ba970e, type: 3}
   coinPrefab: {fileID: 3581184494059853892, guid: b947ca25f5fe3ad4db13443d367d7e8d, type: 3}
+  slashVFX: {fileID: 8303614446486757575, guid: 7343293f1d381de48b9e05130e8e985e, type: 3}
   xpDropChance: 100
   coinDropChance: 20
   maxHealth: 10
@@ -1599,7 +1600,6 @@ MonoBehaviour:
   knockbackGucu: 15
   flashSuresi: 0.2
   scatterRange: 1
-  whiteFlashMaterial: {fileID: 2100000, guid: 6e006e1863141cd4584646fb406c8a13, type: 2}
 --- !u!114 &90969645240097625
 MonoBehaviour:
   m_ObjectHideFlags: 0
