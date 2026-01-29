@@ -81825,7 +81825,7 @@ MonoBehaviour:
   waves:
   - phaseName: "Is\u0131nma"
     startTime: 0
-    spawnRate: 5
+    spawnRate: 4.5
     enemyPool:
     - enemyID: Goblin
       chance: 100
@@ -81835,7 +81835,7 @@ MonoBehaviour:
     isSwarmWave: 0
   - phaseName: "H\u0131zlanma"
     startTime: 30
-    spawnRate: 3
+    spawnRate: 2.5
     enemyPool:
     - enemyID: Goblin
       chance: 95
@@ -81857,7 +81857,7 @@ MonoBehaviour:
     isSwarmWave: 1
   - phaseName: "Rahatlama ve Haz\u0131rl\u0131k"
     startTime: 90
-    spawnRate: 3.5
+    spawnRate: 2.5
     enemyPool:
     - enemyID: Goblin
       chance: 70
@@ -199993,7 +199993,7 @@ PrefabInstance:
     - target: {fileID: 3446910077247718937, guid: 7d7f65c3b11ea4b4cb799aaeaf3ddcfb, type: 3}
       propertyPath: crossSectionMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 83589ba27efd6a643a3431c28239b7e9, type: 2}
+      objectReference: {fileID: 2100000, guid: bf1a3ef468f11944daf094bd4b8a777e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
