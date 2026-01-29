@@ -50,15 +50,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8385117104386306595, guid: 65044d56910a6d64187a705dfb4c371b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8385117104386306595, guid: 65044d56910a6d64187a705dfb4c371b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8385117104386306595, guid: 65044d56910a6d64187a705dfb4c371b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -6964506778550370212, guid: 65044d56910a6d64187a705dfb4c371b, type: 3}
       propertyPath: m_Layer
@@ -138,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 65044d56910a6d64187a705dfb4c371b, type: 3}
       propertyPath: m_Name
-      value: C_Green_Eye_Fly
+      value: "GREENEYE_EL\u0130TE"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 65044d56910a6d64187a705dfb4c371b, type: 3}
       propertyPath: m_Layer
@@ -269,10 +269,10 @@ MonoBehaviour:
   xpDropChance: 100
   coinDropChance: 20
   maxHealth: 10
-  isElite: 0
+  isElite: 1
   armor: 0
-  eliteScaleMultiplier: 2
-  eliteHealthMultiplier: 5
+  eliteScaleMultiplier: 3
+  eliteHealthMultiplier: 4
   knockbackGucu: 15
   flashSuresi: 0.3
   scatterRange: 1
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a189fa0420e9442ae19bac23e6567d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hedefBoyut: {x: 2, y: 2, z: 2}
+  hedefBoyut: {x: 4, y: 4, z: 4}
 --- !u!136 &2482936158253647935
 CapsuleCollider:
   m_ObjectHideFlags: 0

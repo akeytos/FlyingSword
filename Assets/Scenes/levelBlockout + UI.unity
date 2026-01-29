@@ -81832,6 +81832,8 @@ MonoBehaviour:
     - enemyID: Cbox
       chance: 100
     bossPrefab: {fileID: 1021207145605853866, guid: a0582d3223f82c94da0bb1cbb03dfa3a, type: 3}
+    elitePrefab: {fileID: 2743443173136869641, guid: 936cdf5ac16abc1448c1807a856e66bf, type: 3}
+    eliteSpawnDelay: 25
     isSwarmWave: 0
   - phaseName: "H\u0131zlanma"
     startTime: 30
@@ -81840,12 +81842,14 @@ MonoBehaviour:
     - enemyID: Goblin
       chance: 95
     - enemyID: Fly Goblin
-      chance: 5
+      chance: 25
     - enemyID: Cbox
       chance: 20
     - enemyID: GreenEye
       chance: 20
     bossPrefab: {fileID: 5449250194124374242, guid: 4fa7172a4319f984da9d220137aea853, type: 3}
+    elitePrefab: {fileID: 5449250194124374242, guid: 3e851b06c0ee29c43ac6f65b3e33117d, type: 3}
+    eliteSpawnDelay: 50
     isSwarmWave: 0
   - phaseName: 1.Dakika Swarm
     startTime: 60
@@ -81854,6 +81858,8 @@ MonoBehaviour:
     - enemyID: Goblin
       chance: 100
     bossPrefab: {fileID: 5449250194124374242, guid: 4fa7172a4319f984da9d220137aea853, type: 3}
+    elitePrefab: {fileID: 5449250194124374242, guid: 3e851b06c0ee29c43ac6f65b3e33117d, type: 3}
+    eliteSpawnDelay: 10
     isSwarmWave: 1
   - phaseName: "Rahatlama ve Haz\u0131rl\u0131k"
     startTime: 90
@@ -81864,6 +81870,8 @@ MonoBehaviour:
     - enemyID: Fly Goblin
       chance: 30
     bossPrefab: {fileID: 5449250194124374242, guid: 4fa7172a4319f984da9d220137aea853, type: 3}
+    elitePrefab: {fileID: 5449250194124374242, guid: 4fa7172a4319f984da9d220137aea853, type: 3}
+    eliteSpawnDelay: 10
     isSwarmWave: 0
   - phaseName: Boss
     startTime: 360
@@ -81872,6 +81880,8 @@ MonoBehaviour:
     - enemyID: Goblin
       chance: 100
     bossPrefab: {fileID: 2979132222005615949, guid: 536e3740e36d2bd4f828205085645b90, type: 3}
+    elitePrefab: {fileID: 0}
+    eliteSpawnDelay: 10
     isSwarmWave: 1
 --- !u!114 &1257788776
 MonoBehaviour:
@@ -112566,6 +112576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524375cf4ca3030438e986a573f2e7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCursorLocked: 1
 --- !u!1001 &1513351871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199985,6 +199996,10 @@ PrefabInstance:
       propertyPath: hitVFX
       value: 
       objectReference: {fileID: 5820777181662402618, guid: 2ef92c7bceee1b946a42ec193aadb5f1, type: 3}
+    - target: {fileID: 3446910077247718937, guid: 7d7f65c3b11ea4b4cb799aaeaf3ddcfb, type: 3}
+      propertyPath: bloodVFX
+      value: 
+      objectReference: {fileID: 2059811997719799227, guid: 28e7e4f9d63215949907abbdec74f7ce, type: 3}
     - target: {fileID: 3446910077247718937, guid: 7d7f65c3b11ea4b4cb799aaeaf3ddcfb, type: 3}
       propertyPath: cutForce
       value: 100

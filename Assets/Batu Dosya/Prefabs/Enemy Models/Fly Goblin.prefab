@@ -209,6 +209,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -3753066264454847366, guid: 0c2ecfacbf7a50b4b805e675fdad5ed5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -3753066264454847366, guid: 0c2ecfacbf7a50b4b805e675fdad5ed5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -3753066264454847366, guid: 0c2ecfacbf7a50b4b805e675fdad5ed5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: -325096610197296102, guid: 0c2ecfacbf7a50b4b805e675fdad5ed5, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -378,7 +390,7 @@ MonoBehaviour:
   xpDropChance: 100
   coinDropChance: 20
   maxHealth: 10
-  isElite: 1
+  isElite: 0
   armor: 0
   eliteScaleMultiplier: 2
   eliteHealthMultiplier: 5

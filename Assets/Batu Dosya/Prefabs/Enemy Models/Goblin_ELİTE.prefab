@@ -850,7 +850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3856bb1a06ba19f419adf85dc20c08cd, type: 3}
       propertyPath: m_Name
-      value: Goblin Prefabs 1
+      value: "Goblin_EL\u0130TE"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3856bb1a06ba19f419adf85dc20c08cd, type: 3}
       propertyPath: m_Layer
@@ -1592,10 +1592,10 @@ MonoBehaviour:
   xpDropChance: 100
   coinDropChance: 20
   maxHealth: 10
-  isElite: 0
+  isElite: 1
   armor: 0
-  eliteScaleMultiplier: 2
-  eliteHealthMultiplier: 5
+  eliteScaleMultiplier: 3
+  eliteHealthMultiplier: 4
   knockbackGucu: 15
   flashSuresi: 0.2
   scatterRange: 1
